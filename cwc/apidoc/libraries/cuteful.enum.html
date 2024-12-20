@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module cuteful.enum - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Tables">Tables</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><strong>cuteful.enum</strong></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client</a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container</a></li>
+  <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>cuteful.enum</code></h1>
+<p>Constants extracted from C code.</p>
+<p>
+
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2024</li>
+                <li><strong>License</strong>: GPLv3</li>
+                <li>
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Tables">Tables</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#modifier"><span class='function_modname'>cuteful.enum.</span>modifier</a>
+      </td>
+      <td class="summary">
+        Keyboard modifier constant mapped from <code>wlr_keyboard.h</code>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#mouse_btn"><span class='function_modname'>cuteful.enum.</span>mouse_btn</a>
+      </td>
+      <td class="summary">
+        Yoink'd from Linux <code>input-event-codes.h</code>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#direction"><span class='function_modname'>cuteful.enum.</span>direction</a>
+      </td>
+      <td class="summary">
+        Extracted from wlr_direction <code>wlr_output_layout.h</code>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#pointer"><span class='function_modname'>cuteful.enum.</span>pointer</a>
+      </td>
+      <td class="summary">
+        Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#layout_mode"><span class='function_modname'>cuteful.enum.</span>layout_mode</a>
+      </td>
+      <td class="summary">
+        layout_mode enum extracted from cwc <code>types.h</code>.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Tables"></a>Tables</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="modifier" href="#modifier">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>modifier</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Keyboard modifier constant mapped from <code>wlr_keyboard.h</code>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">NONE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SHIFT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">CAPS</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">CTRL</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ALT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">MOD2</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">MOD3</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">LOGO</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">Aka super/mod4/window key</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">MOD5</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item16 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mouse_btn" href="#mouse_btn">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>mouse_btn</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Yoink'd from Linux <code>input-event-codes.h</code>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">LEFT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">RIGHT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">MIDDLE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">FORWARD</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">Aka mouse5</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">BACK</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">Aka mouse4</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item17 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="direction" href="#direction">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>direction</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Extracted from wlr_direction <code>wlr_output_layout.h</code>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">UP</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">DOWN</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">LEFT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">RIGHT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item18 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="pointer" href="#pointer">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>pointer</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">SCROLL_NO_SCROLL</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SCROLL_2FG</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SCROLL_EDGE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SCROLL_ON_BUTTON_DOWN</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">CLICK_METHOD_NONE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">CLICK_METHOD_BUTTON_AREAS</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">CLICK_METHOD_CLICKFINGER</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SEND_EVENTS_ENABLED</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SEND_EVENTS_DISABLED</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SEND_EVENTS_DISABLED_ON_EXTERNAL_MOUSE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ACCEL_PROFILE_FLAT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ACCEL_PROFILE_ADAPTIVE</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">ACCEL_PROFILE_CUSTOM</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TAP_MAP_LRM</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TAP_MAP_LMR</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item19 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="layout_mode" href="#layout_mode">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>layout_mode</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    layout_mode enum extracted from cwc <code>types.h</code>.
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">FLOATING</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">MASTER</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">BSP</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">LENGTH</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item20 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

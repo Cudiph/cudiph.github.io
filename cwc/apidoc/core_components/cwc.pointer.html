@@ -1,0 +1,1269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Coreclassmod cwc.pointer - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Config_functions">Config functions</a></li>
+</ul>
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client</a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container</a></li>
+  <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><strong>cwc.pointer</strong></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>cwc.pointer</code></h1>
+<p>Low-level API to manage pointer and pointer device</p>
+<p>
+
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2024</li>
+                <li><strong>License</strong>: GPLv3</li>
+                <li>
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#bind"><span class='function_modname'>cwc.pointer.</span>bind <span class='function_args'> <b>(</b>modifier, mouse_btn, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Register a mouse binding.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#clear"><span class='function_modname'>cwc.pointer.</span>clear <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Clear all mouse binding.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#get_position"><span class='function_modname'>cwc.pointer.</span>get_position <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+      </td>
+      <td class="summary">
+        Get main seat pointer position.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_position"><span class='function_modname'>cwc.pointer.</span>set_position <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set main seat pointer position.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#move_interactive"><span class='function_modname'>cwc.pointer.</span>move_interactive <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Start interactive move for client under the cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#resize_interactive"><span class='function_modname'>cwc.pointer.</span>resize_interactive <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Start interactive resize for client under the cursor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#stop_interactive"><span class='function_modname'>cwc.pointer.</span>stop_interactive <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Stop interactive mode.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Config_functions">Config functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_cursor_size"><span class='function_modname'>cwc.pointer.</span>set_cursor_size <span class='function_args'> <b>(</b>size<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set cursor size.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_sensitivity"><span class='function_modname'>cwc.pointer.</span>set_sensitivity <span class='function_args'> <b>(</b>sensitivity<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set mouse sensitivity.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_scroll_method.">set_scroll_method. <span class='function_args'> <b>(</b>enum<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+
+
+
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_click_method"><span class='function_modname'>cwc.pointer.</span>set_click_method <span class='function_args'> <b>(</b>enum<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set click method.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_send_events_mode"><span class='function_modname'>cwc.pointer.</span>set_send_events_mode <span class='function_args'> <b>(</b>enum<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set send events method.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_accel_profile"><span class='function_modname'>cwc.pointer.</span>set_accel_profile <span class='function_args'> <b>(</b>enum<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set acceleration profile.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_tap_button_map"><span class='function_modname'>cwc.pointer.</span>set_tap_button_map <span class='function_args'> <b>(</b>enum<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set tap button map.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_tap_to_click"><span class='function_modname'>cwc.pointer.</span>set_tap_to_click <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable tap to click.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_tap_and_drag"><span class='function_modname'>cwc.pointer.</span>set_tap_and_drag <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable tap and drag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_drag_lock"><span class='function_modname'>cwc.pointer.</span>set_drag_lock <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable drag lock.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_natural_scrolling"><span class='function_modname'>cwc.pointer.</span>set_natural_scrolling <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable natural scrolling.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_disable_while_typing"><span class='function_modname'>cwc.pointer.</span>set_disable_while_typing <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable disable while typing.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_left_handed"><span class='function_modname'>cwc.pointer.</span>set_left_handed <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable left handed
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_middle_button_emulation"><span class='function_modname'>cwc.pointer.</span>set_middle_button_emulation <span class='function_args'> <b>(</b>set<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        (Trackpad) Enable middle button emulation.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="bind" href="#bind">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>bind <span class='function_args'> <b>(</b>modifier, mouse_btn, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Register a mouse binding.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">modifier</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a> or <span class="type">number</span></span></td>
+           <td class="see_also_description"> Table of modifier or modifier bitfield</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">mouse_btn</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Button from linux input-event-codes</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">on_press</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">func</span></span></td>
+           <td class="see_also_description"> Function to execute when pressed</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">on_release</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">func</span></span></td>
+           <td class="see_also_description"> Function to execute when released</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">data</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Additional data </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">group</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Keybinding group</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">description</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Keybinding description</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#modifier" title="In the cuteful.enum module.">cuteful.enum.modifier</a></td>
+         <td>Keyboard modifier constant mapped from <code>wlr_keyboard.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#mouse_btn" title="In the cuteful.enum module.">cuteful.enum.mouse_btn</a></td>
+         <td>Yoink'd from Linux <code>input-event-codes.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/cwc.kbd.html#bind" title="In the cwc.kbd module.">cwc.kbd.bind</a></td>
+         <td>Register a keyboard binding. (cwc.kbd)</td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item110 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="clear" href="#clear">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>clear <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Clear all mouse binding.
+
+
+
+
+
+
+
+    <span id=item111 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="get_position" href="#get_position">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>get_position <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get main seat pointer position.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        Pointer coords with structure {x,y}
+    </ol>
+
+
+
+
+
+    <span id=item112 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_position" href="#set_position">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_position <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set main seat pointer position.
+
+
+
+
+
+
+
+    <span id=item113 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="move_interactive" href="#move_interactive">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>move_interactive <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Start interactive move for client under the cursor.
+
+
+
+
+
+
+
+    <span id=item114 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="resize_interactive" href="#resize_interactive">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>resize_interactive <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Start interactive resize for client under the cursor.
+
+
+
+
+
+
+
+    <span id=item115 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="stop_interactive" href="#stop_interactive">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>stop_interactive <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Stop interactive mode.
+
+
+
+
+
+
+
+    <span id=item116 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Config_functions"></a>Config functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="set_cursor_size" href="#set_cursor_size">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_cursor_size <span class='function_args'> <b>(</b>size<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set cursor size.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">size</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Cursor size</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item117 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_sensitivity" href="#set_sensitivity">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_sensitivity <span class='function_args'> <b>(</b>sensitivity<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set mouse sensitivity.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">sensitivity</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Number in range [-1, 1]</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item118 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_scroll_method." href="#set_scroll_method.">&#128279;</a>
+    <strong>set_scroll_method. <span class='function_args'> <b>(</b>enum<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+
+
+
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enum</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> <code>SCROLL_XXX</code> enum</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#pointer" title="In the cuteful.enum module.">cuteful.enum.pointer</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item119 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_click_method" href="#set_click_method">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_click_method <span class='function_args'> <b>(</b>enum<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set click method.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enum</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> <code>CLICK_METHOD_XXX</code> enum</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#pointer" title="In the cuteful.enum module.">cuteful.enum.pointer</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item120 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_send_events_mode" href="#set_send_events_mode">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_send_events_mode <span class='function_args'> <b>(</b>enum<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set send events method.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enum</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> <code>SEND_EVENTS_XXX</code> enum</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#pointer" title="In the cuteful.enum module.">cuteful.enum.pointer</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item121 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_accel_profile" href="#set_accel_profile">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_accel_profile <span class='function_args'> <b>(</b>enum<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set acceleration profile.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enum</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> <code>ACCEL_PROFILE_XXX</code> enum</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#pointer" title="In the cuteful.enum module.">cuteful.enum.pointer</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item122 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_tap_button_map" href="#set_tap_button_map">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_tap_button_map <span class='function_args'> <b>(</b>enum<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set tap button map.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enum</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> <code>TAP_MAP_XXX</code> enum</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#pointer" title="In the cuteful.enum module.">cuteful.enum.pointer</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item123 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_tap_to_click" href="#set_tap_to_click">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_tap_to_click <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable tap to click.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item124 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_tap_and_drag" href="#set_tap_and_drag">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_tap_and_drag <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable tap and drag.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item125 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_drag_lock" href="#set_drag_lock">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_drag_lock <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable drag lock.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item126 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_natural_scrolling" href="#set_natural_scrolling">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_natural_scrolling <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable natural scrolling.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item127 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_disable_while_typing" href="#set_disable_while_typing">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_disable_while_typing <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable disable while typing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item128 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_left_handed" href="#set_left_handed">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_left_handed <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable left handed
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item129 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_middle_button_emulation" href="#set_middle_button_emulation">&#128279;</a>
+    <strong><span class='function_modname'>cwc.pointer.</span>set_middle_button_emulation <span class='function_args'> <b>(</b>set<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    (Trackpad) Enable middle button emulation.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">set</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item130 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

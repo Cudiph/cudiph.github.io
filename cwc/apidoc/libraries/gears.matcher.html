@@ -1,0 +1,1379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module gears.matcher - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Constructors">Constructors</a></li>
+<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><strong>gears.matcher</strong></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client</a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container</a></li>
+  <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>gears.matcher</code></h1>
+<p>A module to build a set of properties based on a graph of rules.</p>
+<p>
+
+
+<h1> Sources</h1>
+
+<p> This module holds the business logic used by <code>ruled.client</code>. It provides an
+ object on which one can add sets of rules or, alternatively, functions.
+ In this module, the sets of rules or custom functions are called sources.</p>
+
+<p> The sources are used to build a property table. Once all sources are
+ evaluated, the <code>:apply()</code> method will set the properties on the target
+ object.</p>
+
+<p> Sources can have dependencies between them and the property table can only
+ be built if the sources graph can be resolved.</p>
+
+<h1> Rules</h1>
+
+<p> The <code>rules</code> sources themselves are composed, as the name imply, of a set of
+ rule. A rule is a table with a <code>properties</code> <em>or</em> <code>callbacks</code> attribute along
+ with either <code>rule</code> or <code>rule_any</code>. It is also possible to add an <code>except</code> or
+ <code>except_any</code> attribute to narrow the scope in which the rule is applied.
+ Here's a basic example of a minimal <a href="../libraries/gears.matcher.html#">gears.matcher</a>.</p>
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2009 Julien Danjou</li>
+                <li>
+                    <strong>Originally authored by</strong>: Julien Danjou &lt;julien@danjou.info&gt;<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+  <div class="extra-header__section">
+    <h3>See also:</h3>
+    <p>
+    </p>
+  </div>
+</div>
+
+
+<h2><a href="#Constructors">Constructors</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#gears.matcher">gears.matcher <span class='function_args'> <b>(</b><b>)</b></span></a>
+      </td>
+      <td class="summary">
+        Create a new rule solver object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_methods">Object methods </a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matches_rule">:matches_rule <span class='function_args'> <b>(</b>o, entry<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Does a given rule entry match an object?
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matching_rules">:matching_rules <span class='function_args'> <b>(</b>o, <span class="optional_param">rules</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+      </td>
+      <td class="summary">
+        Get list of matching rules for an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matches_rules">:matches_rules <span class='function_args'> <b>(</b>o, rules<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Check if an object matches a given set of rules.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_property_matcher">:add_property_matcher <span class='function_args'> <b>(</b>name, f<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Assign a function to match an object property against a value.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_property_setter">:add_property_setter <span class='function_args'> <b>(</b>name, f<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a special setter for a property.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_matching_rules">:add_matching_rules <span class='function_args'> <b>(</b>name, rules, <span class="optional_param">depends_on</span>, <span class="optional_param">precede</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Add a set of matching rules.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_matching_function">:add_matching_function <span class='function_args'> <b>(</b>name, callback, <span class="optional_param">depends_on</span>, <span class="optional_param">precede</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Add a matching function.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#remove_matching_source">:remove_matching_source <span class='function_args'> <b>(</b>name<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove a source.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#apply">:apply <span class='function_args'> <b>(</b>o<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Apply ruled.client.rules to an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#append_rule">:append_rule <span class='function_args'> <b>(</b>source, rule<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a new rule to the default set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#append_rules">:append_rules <span class='function_args'> <b>(</b>source, rules<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Add a new rules to the default set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#remove_rule">:remove_rule <span class='function_args'> <b>(</b>source, rule<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove a new rule from the default set.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#rule::appended">rule::appended</a>
+      </td>
+      <td class="summary">
+        A rule has been added to a set of matching rules.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#rule::removed">rule::removed</a>
+      </td>
+      <td class="summary">
+        A rule has been removed to a set of matching rules.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matching_function::added">matching_function::added</a>
+      </td>
+      <td class="summary">
+        A matching source function has been added.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matching_rules::added">matching_rules::added</a>
+      </td>
+      <td class="summary">
+        A matching source table has been added.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#matching_source::removed">matching_source::removed</a>
+      </td>
+      <td class="summary">
+        A matching source function has been removed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="gears.matcher" href="#gears.matcher">&#128279;</a>
+    <strong>gears.matcher <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a new rule solver object.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A new rule solver object.
+    </ol>
+
+
+
+
+
+    <span id=item213 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="matches_rule" href="#matches_rule">&#128279;</a>
+    <strong>:matches_rule <span class='function_args'> <b>(</b>o, entry<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Does a given rule entry match an object?
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">o</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">entry</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Rule entry (with keys <code>rule</code>, <code>rule_any</code>, <code>except</code> and/or
+   <code>except_any</code>).</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If <code>o</code> matches <code>entry</code>.
+    </ol>
+
+
+
+
+
+    <span id=item214 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="matching_rules" href="#matching_rules">&#128279;</a>
+    <strong>:matching_rules <span class='function_args'> <b>(</b>o, <span class="optional_param">rules</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;table</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get list of matching rules for an object. </p>
+
+<p> If the <code>rules</code> argument is not provided, the rules added with
+ <a href="../libraries/gears.matcher.html#add_matching_rules">add_matching_rules</a> will be used.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">o</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The object.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The rules to check. List with "rule", "rule<em>any",
+  "except" and "except</em>any" keys. If no rules are provided, all rules
+  registered with a source will be matched.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span>
+        The matching rules.
+    </ol>
+
+
+
+
+
+    <span id=item215 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="matches_rules" href="#matches_rules">&#128279;</a>
+    <strong>:matches_rules <span class='function_args'> <b>(</b>o, rules<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Check if an object matches a given set of rules.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">o</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The rules to check. List of tables with <code>rule</code>,
+  <code>rule_any</code>, <code>except</code> and <code>except_any</code> keys.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if at least one rule is matched, false otherwise.
+    </ol>
+
+
+
+
+
+    <span id=item216 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_property_matcher" href="#add_property_matcher">&#128279;</a>
+    <strong>:add_property_matcher <span class='function_args'> <b>(</b>name, f<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Assign a function to match an object property against a value. </p>
+
+<p> The default matcher uses the <code>==</code> operator for all types. It also uses the
+ <code>:match()</code> method for string and allows pattern matching. If the value is a
+ function, then that function is called with the object and the current
+ properties to be applied. If the function returns true, the match is
+ accepted.</p>
+
+<p> Custom property matcher are useful when objects are compared. This avoids
+ having to implement custom metatable for everything.</p>
+
+<p> The <code>f</code> function receives 3 arguments:</p>
+
+<ul>
+    <li>The object to match against (anything)</li>
+    <li>The value to compare</li>
+    <li>The property/field name.</li>
+</ul>
+
+<p> It should return <code>true</code> if it matches and <code>false</code> otherwise.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The property name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">f</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The matching function.</td>
+         </tr>
+        </table>
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Manually match the screen in various ways.
+</span>matcher:<span class="function-name">add_property_matcher</span>(<span class="string">"screen"</span>, <span class="keyword">function</span>(c, value)
+   <span class="keyword">return</span> c.screen == value
+       <span class="keyword">or</span> screen[c.screen] == value
+       <span class="keyword">or</span> c.screen.outputs[value] ~= <span class="keyword">nil</span>
+       <span class="keyword">or</span> value == <span class="string">"any"</span>
+       <span class="keyword">or</span> (value == <span class="string">"primary"</span> <span class="keyword">and</span> c.screen == screen.primary)
+<span class="keyword">end</span>)</pre>
+    </ul>
+
+
+    <span id=item217 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_property_setter" href="#add_property_setter">&#128279;</a>
+    <strong>:add_property_setter <span class='function_args'> <b>(</b>name, f<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a special setter for a property. </p>
+
+<p> This is useful to add more properties to object which only make sense within
+ the context of a rule.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The property name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">f</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The setter function.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item218 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_matching_rules" href="#add_matching_rules">&#128279;</a>
+    <strong>:add_matching_rules <span class='function_args'> <b>(</b>name, rules, <span class="optional_param">depends_on</span>, <span class="optional_param">precede</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a set of matching rules.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The provider name. It must be unique.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A set of rules (see how they work at the top of this
+  page).</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">depends_on</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A list of names of sources this source
+  depends on (sources that must be executed <em>before</em> <code>name</code>).</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">precede</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A list of names of sources this source has a
+  priority over.</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns false if a dependency conflict was found.
+    </ol>
+
+
+
+
+
+    <span id=item219 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_matching_function" href="#add_matching_function">&#128279;</a>
+    <strong>:add_matching_function <span class='function_args'> <b>(</b>name, callback, <span class="optional_param">depends_on</span>, <span class="optional_param">precede</span><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a matching function.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The provider name. It must be unique.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+        <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> The callback that is called to produce properties. </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">self</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="../libraries/gears.matcher.html#gears.matcher">gears.matcher</a></span></td>
+           <td class="see_also_description"> The matcher object.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">o</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The object.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">properties</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The current properties. The callback should
+  add to and overwrite properties in this table.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">callbacks</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A table of all callbacks scheduled to be
+  executed after the main properties are applied.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">depends_on</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A list of names of sources this source depends on
+  (sources that must be executed <em>before</em> <code>name</code>).</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">precede</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A list of names of sources this source has a
+  priority over.</td>
+           <td><span class="default_value"><code>{}</code></span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        Returns false if a dependency conflict was found.
+    </ol>
+
+
+
+
+
+    <span id=item220 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="remove_matching_source" href="#remove_matching_source">&#128279;</a>
+    <strong>:remove_matching_source <span class='function_args'> <b>(</b>name<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a source. </p>
+
+<p> This removes sources added with <a href="../libraries/gears.matcher.html#add_matching_function">add_matching_function</a> or
+ <a href="../libraries/gears.matcher.html#add_matching_rules">add_matching_rules</a>.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The source name.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the source has been removed.
+    </ol>
+
+
+
+
+
+    <span id=item221 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="apply" href="#apply">&#128279;</a>
+    <strong>:apply <span class='function_args'> <b>(</b>o<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Apply ruled.client.rules to an object. </p>
+
+<p> Calling this will apply all properties provided by the matching functions
+ and rules.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">o</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> The object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item222 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="append_rule" href="#append_rule">&#128279;</a>
+    <strong>:append_rule <span class='function_args'> <b>(</b>source, rule<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a new rule to the default set.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">source</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The source name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A valid rule.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item223 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="append_rules" href="#append_rules">&#128279;</a>
+    <strong>:append_rules <span class='function_args'> <b>(</b>source, rules<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Add a new rules to the default set.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">source</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The source name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rules</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> A table with rules.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item224 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="remove_rule" href="#remove_rule">&#128279;</a>
+    <strong>:remove_rule <span class='function_args'> <b>(</b>source, rule<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove a new rule from the default set.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">source</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The source name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a> or <a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> An existing rule or its <code>id</code>.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        If the rule was removed.
+    </ol>
+
+
+
+
+
+    <span id=item225 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="rule::appended" href="#rule::appended">&#128279;</a>
+    <strong>rule::appended</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A rule has been added to a set of matching rules.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The rule.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">source</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The matching rules source name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">content</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The matching rules source content.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#append_rule" title="In the gears.matcher module.">append_rule</a></td>
+         <td>Add a new rule to the default set. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#append_rules" title="In the gears.matcher module.">append_rules</a></td>
+         <td>Add a new rules to the default set. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item226 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="rule::removed" href="#rule::removed">&#128279;</a>
+    <strong>rule::removed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A rule has been removed to a set of matching rules.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The rule.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">source</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The matching rules source name.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">content</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> The matching rules source content.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#remove_rule" title="In the gears.matcher module.">remove_rule</a></td>
+         <td>Remove a new rule from the default set. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item227 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="matching_function::added" href="#matching_function::added">&#128279;</a>
+    <strong>matching_function::added</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A matching source function has been added.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#add_matching_function" title="In the gears.matcher module.">add_matching_function</a></td>
+         <td>Add a matching function. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item228 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="matching_rules::added" href="#matching_rules::added">&#128279;</a>
+    <strong>matching_rules::added</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A matching source table has been added.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">callback</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The callback.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#add_matching_rules" title="In the gears.matcher module.">add_matching_rules</a></td>
+         <td>Add a set of matching rules. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item229 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="matching_source::removed" href="#matching_source::removed">&#128279;</a>
+    <strong>matching_source::removed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A matching source function has been removed.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/gears.matcher.html#remove_matching_source" title="In the gears.matcher module.">remove_matching_source</a></td>
+         <td>Remove a source. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item230 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

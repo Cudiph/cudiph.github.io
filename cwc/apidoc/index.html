@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>cwc API documentation</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="core_components/cwc.html">cwc</a></li>
+  <li><a href="core_components/cwc.client.html">cwc.client</a></li>
+  <li><a href="core_components/cwc.container.html">cwc.container</a></li>
+  <li><a href="core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><a href="core_components/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="core_components/cwc.screen.html">cwc.screen</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+  <h2>API documentation for cwc, highly configurable dynamic wayland compositor</h2>
+  <p>Welcome to the documentation for CwC Wayland compositor. Below you find an
+overview of the individual parts which links to the full documentation.</p>
+
+<p>If you are a new user, you may want to read <a href="documentation/00-getting-started.md.html#">00-getting-started.md</a> to get
+started.</p>
+
+<h2>Core_components</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.html">cwc</a></td>
+    <td class="summary">cwc lifecycle and low-level APIs.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.client.html">cwc.client</a></td>
+    <td class="summary">Low-level API to manage toplevel/window/client.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.container.html">cwc.container</a></td>
+    <td class="summary">Low-level API client container operation.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.kbd.html">cwc.kbd</a></td>
+    <td class="summary">Low-level API to manage keyboard behavior</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.plugin.html">cwc.plugin</a></td>
+    <td class="summary">C plugins lifecycle and management API.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.pointer.html">cwc.pointer</a></td>
+    <td class="summary">Low-level API to manage pointer and pointer device</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="core_components/cwc.screen.html">cwc.screen</a></td>
+    <td class="summary">Low-Level API to manage output and the tag/workspace system</td>
+  </tr>
+</table>
+<h2>Plugins</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="plugins/cwc.cwcle.html">cwc.cwcle</a></td>
+    <td class="summary">Windows like Alt+Tab useful when in floating mode.</td>
+  </tr>
+</table>
+<h2>Utility_libraries</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.debug.html">gears.debug</a></td>
+    <td class="summary">Utility functions to make development easier.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.filesystem.html">gears.filesystem</a></td>
+    <td class="summary">Various filesystem utility functions.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.geometry.html">gears.geometry</a></td>
+    <td class="summary">Helper functions used to compute geometries.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.math.html">gears.math</a></td>
+    <td class="summary">Various math related functions.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.object.html">gears.object</a></td>
+    <td class="summary">The object oriented programming base class used by various Awesome
+ widgets and components.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.protected_call.html">gears.protected_call</a></td>
+    <td class="summary">Safely call a function and handle errors using <a href="utility_libraries/gears.debug.html#">gears.debug</a>.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.sort.html">gears.sort</a></td>
+    <td class="summary">Utilities to sort and arrange data.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.string.html">gears.string</a></td>
+    <td class="summary">Various string manipulation and introspection fuctions.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="utility_libraries/gears.table.html">gears.table</a></td>
+    <td class="summary">Various functions to work with tables.</td>
+  </tr>
+</table>
+<h2>Theme_related_libraries</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="theme_related_libraries/gears.color.html">gears.color</a></td>
+    <td class="summary">This module simplifies the creation of cairo pattern objects.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="theme_related_libraries/gears.shape.html">gears.shape</a></td>
+    <td class="summary">Module dedicated to gather common shape painters.</td>
+  </tr>
+</table>
+<h2>Libraries</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="libraries/cuteful.client.html">cuteful.client</a></td>
+    <td class="summary">Useful functions for client manipulation.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="libraries/cuteful.enum.html">cuteful.enum</a></td>
+    <td class="summary">Constants extracted from C code.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="libraries/cuteful.tag.html">cuteful.tag</a></td>
+    <td class="summary">Useful functions for tag operation.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="libraries/gears.matcher.html">gears.matcher</a></td>
+    <td class="summary">A module to build a set of properties based on a graph of rules.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="libraries/gears.surface.html">gears.surface</a></td>
+    <td class="summary">Utilities to integrate and manipulate Cairo drawing surfaces.</td>
+  </tr>
+</table>
+<h2>Classes</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="classes/gears.cache.html">gears.cache</a></td>
+    <td class="summary">Cache object with data that can be garbage-collected.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="classes/gears.matrix.html">gears.matrix</a></td>
+    <td class="summary">An implementation of matrices for describing and working with affine
+ transformations.</td>
+  </tr>
+</table>
+<h2>Documentation</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="documentation/00-getting-started.md.html">00-getting-started.md</a></td>
+    <td class="summary"></td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="documentation/30-custom-layout.md.html">30-custom-layout.md</a></td>
+    <td class="summary"></td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="documentation/80-c-plugin.md.html">80-c-plugin.md</a></td>
+    <td class="summary"></td>
+  </tr>
+</table>
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

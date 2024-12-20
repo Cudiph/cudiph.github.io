@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Topic 00-getting-started.md - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Basic_concept">Basic concept </a></li>
+<li><a href="#Lua_configuration">Lua configuration </a></li>
+<li><a href="#Default_Keybinding">Default Keybinding </a></li>
+</ul>
+
+
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><strong>Getting Started</strong></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client</a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container</a></li>
+  <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+  <li><a href="../theme_related_libraries/gears.shape.html">gears.shape</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+<h1>Getting Started</h1>
+
+<p>Getting started with cwc.</p>
+
+<p><a name="Basic_concept"></a></p>
+<h2>Basic concept</h2>
+
+<h3>Tag system</h3>
+
+<p>CwC is using dwm tag model rather than like in Awesome where the tag is a 32 bit bitfield
+which mean it's limited to 30 tags but it should be enough for most people I think. The tags
+is integrated to the screen so the tags is independent across screens and since it's integrated,
+all the tag operation is on the screen object when using lua or C api. The tag and workspace in this
+guide may be used interchangeably.</p>
+
+<h3>Layout system</h3>
+
+<p>The layout system is similar like in Awesome with the difference in cwc is that it's grouped.
+The grouping is called <code>layout mode</code> with the layout options is called <code>strategy</code>,
+there are 3 modes which is <code>floating</code>, <code>master/stack</code>, and <code>bsp</code>.
+This allow cwc to act like traditional floating/stacking window manager,
+Awesome layout style, and bspwm tiling mode.</p>
+
+<p>Strategy:</p>
+
+<ul>
+    <li><code>Floating</code> - Currently there are none.</li>
+    <li><code>Master/stack</code> - Tiled [left], monocle, fullscreen (via flayout plugin).</li>
+    <li><code>BSP</code> - Longest side scheme insertion.</li>
+</ul>
+
+<p>The <code>layout mode</code> can be changed at runtime by pressing <code>Super + Space</code> and
+to change the <code>strategy</code> is by pressing <code>Super + Control + Space</code>.</p>
+
+<h3>The client</h3>
+
+<p>The client or window or toplevel in wayland terms is a surface that can be transformed by the
+user such as fullscreen, maximizing, minimizing, resizing, etc.</p>
+
+<h3>The screen</h3>
+
+<p>The screen or output in wayland terms is a device that describes part of the compositor geometry.</p>
+
+<h3>The container</h3>
+
+<p>The container basically a group of client overlapping each other inside a rectangular area.
+It's can be used to simulate window swallowing or tabbed layout. Every client operation like resizing
+will be reflected to every client in the container.</p>
+
+<p>To try it, use <code>Super + T</code> to mark current focused container then open any application it
+will be inserted to the marked container. To switch view between clients in the container
+press <code>Super + Tab</code> and <code>Super + Shift + Tab</code>, this concept is taken from tabbing in browser.</p>
+
+<h3>Signals</h3>
+
+<p>The compositor may emit a signal when an event occurs. CwC doesn't have per object signal like in
+Awesome because it's simpler to manage between lua script and C plugins so every signal is need
+to be subscribed by using <a href="../core_components/cwc.html#connect_signal">cwc.connect_signal</a>, to unsubscribe use <a href="../core_components/cwc.html#disconnect_signal">cwc.disconnect_signal</a>,
+and to notify use <a href="../core_components/cwc.html#emit_signal">cwc.emit_signal</a>. To mimic per object signal cwc use format like <code>object::eventname</code>
+where object will be passed as first argument in the callback function. For example when
+a client is mapped to the screen, it emits <code>client::map</code> signal.</p>
+
+<p><a name="Lua_configuration"></a></p>
+<h2>Lua configuration</h2>
+
+<p>The best way to get started using lua configuration is by looking at the default configuration.
+The entry point located at <code>defconfig/rc.lua</code> from the project root directory, there's explanation
+how things working. If the comments still unclear or wrong feel free to open an issue.
+Here is some highlight of common things in the lua configuration.</p>
+
+<p>Configuration can be reloaded by calling <a href="../core_components/cwc.html#reload">cwc.reload</a>, to check whether the configuration is
+triggered by <a href="../core_components/cwc.html#reload">cwc.reload</a>, use <a href="../core_components/cwc.html#is_startup">cwc.is_startup</a>.</p>
+
+
+<pre>
+<span class="comment">-- execute oneshot.lua once, cwc.is_startup() mark that the configuration is loaded for the first time
+</span><span class="keyword">if</span> cwc.<span class="function-name">is_startup</span>() <span class="keyword">then</span>
+    <span class="global">require</span>(<span class="string">"oneshot"</span>)
+<span class="keyword">end</span>
+</pre>
+
+
+<p>To create a keybinding, use <a href="../core_components/cwc.pointer.html#bind">cwc.pointer.bind</a> for mouse buttons and use <a href="../core_components/cwc.kbd.html#bind">cwc.kbd.bind</a> for keyboard
+buttons.</p>
+
+
+<pre>
+<span class="keyword">local</span> cful = <span class="global">require</span>(<span class="string">"cuteful"</span>)
+<span class="keyword">local</span> MODKEY = cful.enum.modifier.LOGO
+
+<span class="comment">-- mouse
+</span>pointer.<span class="function-name">bind</span>({ MODKEY }, button.LEFT, pointer.move_interactive)
+
+<span class="comment">-- keyboard
+</span>kbd.<span class="function-name">bind</span>({ MODKEY }, <span class="string">"j"</span>, <span class="keyword">function</span>()
+    <span class="keyword">local</span> c = cwc.client.<span class="function-name">focused</span>()
+    <span class="keyword">if</span> c <span class="keyword">then</span>
+        <span class="keyword">local</span> near = c:<span class="function-name">get_nearest</span>(direction.DOWN)
+        <span class="keyword">if</span> near <span class="keyword">then</span> near:<span class="function-name">focus</span>() <span class="keyword">end</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>, { description = <span class="string">"focus down"</span> })
+</pre>
+
+
+<p>Some of the object has function for configuration, to set a configuration just call the function
+with value you want to set. Here is an example when user want to set mouse sensitivity to very low with keyboard
+repeat rate to 30hz and set the normal client border to dark grey.</p>
+
+
+<pre>
+cwc.pointer.<span class="function-name">set_sensitivity</span>(-<span class="number">0.75</span>)      <span class="comment">-- between -1 and 1
+</span>
+cwc.kbd.<span class="function-name">set_repeat_rate</span>(<span class="number">30</span>)
+
+<span class="keyword">local</span> gears = <span class="global">require</span>(<span class="string">"gears"</span>)
+cwc.client.<span class="function-name">set_border_color_normal</span>(gears.<span class="function-name">color</span>(<span class="string">"#423e44"</span>))
+
+<span class="comment">-- plugin specific settings config, check if such a plugin exist first
+</span><span class="keyword">if</span> cwc.cwcle <span class="keyword">then</span>
+    cwc.cwcle.<span class="function-name">set_border_color_raised</span>(gears.<span class="function-name">color</span>(<span class="string">"#d2d6f9"</span>))
+<span class="keyword">end</span>
+</pre>
+
+
+<p><a name="Default_Keybinding"></a></p>
+<h2>Default Keybinding</h2>
+
+<h3>cwc</h3>
+
+<ul>
+    <li><code>Super + Control + Delete</code> exit cwc</li>
+    <li><code>Super + Control + r</code> reload configuration</li>
+    <li><code>Super + Delete</code> trigger lua garbage collection</li>
+    <li><code>Super + Escape</code> reset leftover server state</li>
+</ul>
+
+<h3>client</h3>
+
+<ul>
+    <li><code>Alt + Shift + Tab</code> cycle previous client</li>
+    <li><code>Alt + Tab</code> cycle next client</li>
+    <li><code>Super + Control + 0</code> toggle client always visible</li>
+    <li><code>Super + Control + j</code> focus next client relative by index</li>
+    <li><code>Super + Control + k</code> focus previous client by index</li>
+    <li><code>Super + Control + m</code> maximize horizontally</li>
+    <li><code>Super + Control + n</code> restore minimized client</li>
+    <li><code>Super + Control + q</code> close client forcefully</li>
+    <li><code>Super + Control + Return</code> promote focused client to master</li>
+    <li><code>Super + Down</code> move client downward</li>
+    <li><code>Super + f</code> toggle fullscreen</li>
+    <li><code>Super + h</code> focus left</li>
+    <li><code>Super + i</code> toggle client above normal toplevel</li>
+    <li><code>Super + j</code> focus down</li>
+    <li><code>Super + k</code> focus up</li>
+    <li><code>Super + Left</code> move client to the left</li>
+    <li><code>Super + l</code> focus right</li>
+    <li><code>Super + m</code> toggle maximize</li>
+    <li><code>Super + n</code> minimize client</li>
+    <li><code>Super + o</code> toggle client always on top</li>
+    <li><code>Super + Right</code> move client to the right</li>
+    <li><code>Super + Shift + Down</code> increase client height</li>
+    <li><code>Super + Shift + j</code> swap with next client by index</li>
+    <li><code>Super + Shift + k</code> swap with previous client by index</li>
+    <li><code>Super + Shift + Left</code> reduce client width</li>
+    <li><code>Super + Shift + m</code> maximize vertically</li>
+    <li><code>Super + Shift + q</code> close client respectfully</li>
+    <li><code>Super + Shift + Right</code> increase client width</li>
+    <li><code>Super + Shift + space</code> toggle floating</li>
+    <li><code>Super + Shift + Tab</code> cycle prev to toplevel inside container</li>
+    <li><code>Super + Shift + Up</code> reduce client height</li>
+    <li><code>Super + Tab</code> cycle next to toplevel inside container</li>
+    <li><code>Super + t</code> mark insert container from the focused client</li>
+    <li><code>Super + Up</code> move client upward</li>
+    <li><code>Super + u</code> toggle client under normal toplevel</li>
+</ul>
+
+<h3>launcher</h3>
+
+<ul>
+    <li><code>Super + F1</code> open a web browser</li>
+    <li><code>Super + p</code> application launcher</li>
+    <li><code>Super + Print</code> screenshot entire screen</li>
+    <li><code>Super + Return</code> open a terminal</li>
+    <li><code>Super + Shift + s</code> snipping tool</li>
+    <li><code>Super + v</code> clipboard history</li>
+</ul>
+
+<h3>layout</h3>
+
+<ul>
+    <li><code>Super + Control + Shift + space</code> cycle to previous strategy in focused screen</li>
+    <li><code>Super + Control + space</code> cycle to next strategy in focused screen</li>
+    <li><code>Super + equal</code> increase gaps</li>
+    <li><code>Super + e</code> toggle bsp split</li>
+    <li><code>Super + minus</code> decrease gaps</li>
+    <li><code>Super + space</code> cycle to next layout mode in focused screen</li>
+</ul>
+
+<h3>tag</h3>
+
+<ul>
+    <li><code>Super + 1</code> view tag #1</li>
+    <li><code>Super + 2</code> view tag #2</li>
+    <li><code>Super + 3</code> view tag #3</li>
+    <li><code>Super + 4</code> view tag #4</li>
+    <li><code>Super + 5</code> view tag #5</li>
+    <li><code>Super + 6</code> view tag #6</li>
+    <li><code>Super + 7</code> view tag #7</li>
+    <li><code>Super + 8</code> view tag #8</li>
+    <li><code>Super + 9</code> view tag #9</li>
+    <li><code>Super + comma</code> view next workspace/tag</li>
+    <li><code>Super + period</code> view prev workspace/tag</li>
+    <li><code>Super + Control + 1</code> toggle tag #1</li>
+    <li><code>Super + Control + 2</code> toggle tag #2</li>
+    <li><code>Super + Control + 3</code> toggle tag #3</li>
+    <li><code>Super + Control + 4</code> toggle tag #4</li>
+    <li><code>Super + Control + 5</code> toggle tag #5</li>
+    <li><code>Super + Control + 6</code> toggle tag #6</li>
+    <li><code>Super + Control + 7</code> toggle tag #7</li>
+    <li><code>Super + Control + 8</code> toggle tag #8</li>
+    <li><code>Super + Control + 9</code> toggle tag #9</li>
+    <li><code>Super + Control + Shift + 1</code> toggle focused client on tag #1</li>
+    <li><code>Super + Control + Shift + 2</code> toggle focused client on tag #2</li>
+    <li><code>Super + Control + Shift + 3</code> toggle focused client on tag #3</li>
+    <li><code>Super + Control + Shift + 4</code> toggle focused client on tag #4</li>
+    <li><code>Super + Control + Shift + 5</code> toggle focused client on tag #5</li>
+    <li><code>Super + Control + Shift + 6</code> toggle focused client on tag #6</li>
+    <li><code>Super + Control + Shift + 7</code> toggle focused client on tag #7</li>
+    <li><code>Super + Control + Shift + 8</code> toggle focused client on tag #8</li>
+    <li><code>Super + Control + Shift + 9</code> toggle focused client on tag #9</li>
+    <li><code>Super + Shift + 1</code> move focused client to tag #1</li>
+    <li><code>Super + Shift + 2</code> move focused client to tag #2</li>
+    <li><code>Super + Shift + 3</code> move focused client to tag #3</li>
+    <li><code>Super + Shift + 4</code> move focused client to tag #4</li>
+    <li><code>Super + Shift + 5</code> move focused client to tag #5</li>
+    <li><code>Super + Shift + 6</code> move focused client to tag #6</li>
+    <li><code>Super + Shift + 7</code> move focused client to tag #7</li>
+    <li><code>Super + Shift + 8</code> move focused client to tag #8</li>
+    <li><code>Super + Shift + 9</code> move focused client to tag #9</li>
+</ul>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
