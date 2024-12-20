@@ -174,9 +174,13 @@ a client is mapped to the screen, it emits <code>client::map</code> signal.</p>
 <p><a name="Lua_configuration"></a></p>
 <h2>Lua configuration</h2>
 
-<p>The best way to get started using lua configuration is by looking at the default configuration.
-The entry point located at <code>defconfig/rc.lua</code> from the project root directory, there's explanation
-how things working. If the comments still unclear or wrong feel free to open an issue.
+<p>CwC will search lua configuration in <code>$XDG_CONFIG_HOME/cwc/rc.lua</code> or <code>~/.config/cwc/rc.lua</code>,
+if both path are not exist or contain an error cwc will load the default lua configuration.</p>
+
+<p>The default configuration is the best way to learn the lua API.
+The entry point located at <code>defconfig/rc.lua</code> from the project root directory,
+there's explanation how things working.
+If the comments still unclear or wrong feel free to open an issue.
 Here is some highlight of common things in the lua configuration.</p>
 
 <p>Configuration can be reloaded by calling <a href="../core_components/cwc.html#reload">cwc.reload</a>, to check whether the configuration is
