@@ -111,9 +111,7 @@
 
 <h1>Module: <code>cwc.screen</code></h1>
 <p>Low-Level API to manage output and the tag/workspace system</p>
-<p>
-
-</p>
+<p> See also: <a href="../libraries/cuteful.tag.html#">cuteful.tag</a></p>
     <div class="extra-header">
 
 
@@ -359,6 +357,15 @@
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#allow_tearing">allow_tearing</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Whether to allow screen to tear or not.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#active_tag">active_tag</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
       <td class="summary">
@@ -390,6 +397,15 @@
       <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
       <td class="summary">
         Set useless gaps width in the active workspace.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#mwfact">mwfact</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        Master width factor.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -444,7 +460,7 @@
     <tr class="summary_row">
       <td class="name" >
         <a href="#get_clients">:get_clients <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
       </td>
       <td class="summary">
         Get toplevels/clients in this screen.
@@ -455,7 +471,7 @@
     <tr class="summary_row">
       <td class="name" >
         <a href="#get_focus_stack">:get_focus_stack <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
       </td>
       <td class="summary">
         get focus stack in the output
@@ -466,7 +482,7 @@
     <tr class="summary_row">
       <td class="name" >
         <a href="#get_minimized">:get_minimized <span class='function_args'> <b>(</b><span class="optional_param">active</span><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
       </td>
       <td class="summary">
         get minimized stack in the output.
@@ -530,7 +546,7 @@
 
 
 
-    <span id=item136 class="hide_extra">
+    <span id=item145 class="hide_extra">
     </span>
 
 </dd>
@@ -558,7 +574,7 @@
 
 
 
-    <span id=item137 class="hide_extra">
+    <span id=item146 class="hide_extra">
     </span>
 
 </dd>
@@ -607,7 +623,7 @@
 
 
 
-    <span id=item138 class="hide_extra">
+    <span id=item147 class="hide_extra">
     </span>
 
 </dd>
@@ -633,7 +649,7 @@
 
 
 
-    <span id=item139 class="hide_extra">
+    <span id=item148 class="hide_extra">
     </span>
 
 </dd>
@@ -657,7 +673,7 @@
 
 
 
-    <span id=item140 class="hide_extra">
+    <span id=item149 class="hide_extra">
     </span>
 
 </dd>
@@ -703,7 +719,7 @@
 
 
 
-    <span id=item141 class="hide_extra">
+    <span id=item150 class="hide_extra">
     </span>
 
 </dd>
@@ -745,7 +761,7 @@
 
 
 
-    <span id=item142 class="hide_extra">
+    <span id=item151 class="hide_extra">
     </span>
 
 </dd>
@@ -787,7 +803,7 @@
 
 
 
-    <span id=item143 class="hide_extra">
+    <span id=item152 class="hide_extra">
     </span>
 
 </dd>
@@ -829,7 +845,7 @@
 
 
 
-    <span id=item144 class="hide_extra">
+    <span id=item153 class="hide_extra">
     </span>
 
 </dd>
@@ -871,7 +887,7 @@
 
 
 
-    <span id=item145 class="hide_extra">
+    <span id=item154 class="hide_extra">
     </span>
 
 </dd>
@@ -913,7 +929,7 @@
 
 
 
-    <span id=item146 class="hide_extra">
+    <span id=item155 class="hide_extra">
     </span>
 
 </dd>
@@ -947,7 +963,7 @@
 
 
 
-    <span id=item147 class="hide_extra">
+    <span id=item156 class="hide_extra">
     </span>
 
 </dd>
@@ -981,7 +997,7 @@
 
 
 
-    <span id=item148 class="hide_extra">
+    <span id=item157 class="hide_extra">
     </span>
 
 </dd>
@@ -1015,7 +1031,7 @@
 
 
 
-    <span id=item149 class="hide_extra">
+    <span id=item158 class="hide_extra">
     </span>
 
 </dd>
@@ -1049,7 +1065,7 @@
 
 
 
-    <span id=item150 class="hide_extra">
+    <span id=item159 class="hide_extra">
     </span>
 
 </dd>
@@ -1083,7 +1099,7 @@
 
 
 
-    <span id=item151 class="hide_extra">
+    <span id=item160 class="hide_extra">
     </span>
 
 </dd>
@@ -1125,7 +1141,7 @@
 
 
 
-    <span id=item152 class="hide_extra">
+    <span id=item161 class="hide_extra">
     </span>
 
 </dd>
@@ -1167,7 +1183,7 @@
 
 
 
-    <span id=item153 class="hide_extra">
+    <span id=item162 class="hide_extra">
     </span>
 
 </dd>
@@ -1209,7 +1225,7 @@
 
 
 
-    <span id=item154 class="hide_extra">
+    <span id=item163 class="hide_extra">
     </span>
 
 </dd>
@@ -1290,7 +1306,7 @@
 
 
 
-    <span id=item155 class="hide_extra">
+    <span id=item164 class="hide_extra">
     </span>
 
 </dd>
@@ -1349,7 +1365,58 @@
 
 
 
-    <span id=item156 class="hide_extra">
+    <span id=item165 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="allow_tearing" href="#allow_tearing">&#128279;</a>
+    <strong>allow_tearing</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Whether to allow screen to tear or not.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.client.html#allow_tearing" title="In the cwc.client module.">cwc.client.allow_tearing</a></td>
+         <td>Allow the client to tear when in fullscreen. (cwc.client)</td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item166 class="hide_extra">
     </span>
 
 </dd>
@@ -1390,7 +1457,7 @@
 
 
 
-    <span id=item157 class="hide_extra">
+    <span id=item167 class="hide_extra">
     </span>
 
 </dd>
@@ -1431,7 +1498,7 @@
 
 
 
-    <span id=item158 class="hide_extra">
+    <span id=item168 class="hide_extra">
     </span>
 
 </dd>
@@ -1472,7 +1539,7 @@
 
 
 
-    <span id=item159 class="hide_extra">
+    <span id=item169 class="hide_extra">
     </span>
 
 </dd>
@@ -1513,7 +1580,56 @@
 
 
 
-    <span id=item160 class="hide_extra">
+    <span id=item170 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="mwfact" href="#mwfact">&#128279;</a>
+    <strong>mwfact</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Master width factor.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: 0.5</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0.1</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 0.9</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item171 class="hide_extra">
     </span>
 
 </dd>
@@ -1552,7 +1668,7 @@
 
 
 
-    <span id=item161 class="hide_extra">
+    <span id=item172 class="hide_extra">
     </span>
 
 </dd>
@@ -1589,7 +1705,7 @@
 
 
 
-    <span id=item162 class="hide_extra">
+    <span id=item173 class="hide_extra">
     </span>
 
 </dd>
@@ -1637,7 +1753,7 @@
 
 
 
-    <span id=item163 class="hide_extra">
+    <span id=item174 class="hide_extra">
     </span>
 
 </dd>
@@ -1682,14 +1798,14 @@
 
 
 
-    <span id=item164 class="hide_extra">
+    <span id=item175 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="get_clients" href="#get_clients">&#128279;</a>
     <strong>:get_clients <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
     <span class="baseclass" >
     </span>
     </dt>
@@ -1719,7 +1835,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">cwc_toplevel[]</span></span>
+           <span class="types"><span class="type">cwc_client[]</span></span>
         array of toplevels
     </ol>
 
@@ -1727,14 +1843,14 @@
 
 
 
-    <span id=item165 class="hide_extra">
+    <span id=item176 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="get_focus_stack" href="#get_focus_stack">&#128279;</a>
     <strong>:get_focus_stack <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
     <span class="baseclass" >
     </span>
     </dt>
@@ -1762,7 +1878,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">cwc_toplevel[]</span></span>
+           <span class="types"><span class="type">cwc_client[]</span></span>
         array of toplevels
     </ol>
 
@@ -1770,14 +1886,14 @@
 
 
 
-    <span id=item166 class="hide_extra">
+    <span id=item177 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="get_minimized" href="#get_minimized">&#128279;</a>
     <strong>:get_minimized <span class='function_args'> <b>(</b><span class="optional_param">active</span><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_toplevel[]</span></span>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_client[]</span></span>
     <span class="baseclass" >
     </span>
     </dt>
@@ -1807,7 +1923,7 @@
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">cwc_toplevel[]</span></span>
+           <span class="types"><span class="type">cwc_client[]</span></span>
         array of toplevels
     </ol>
 
@@ -1815,7 +1931,7 @@
 
 
 
-    <span id=item167 class="hide_extra">
+    <span id=item178 class="hide_extra">
     </span>
 
 </dd>
@@ -1853,7 +1969,7 @@
 
 
 
-    <span id=item168 class="hide_extra">
+    <span id=item179 class="hide_extra">
     </span>
 
 </dd>
@@ -1887,7 +2003,7 @@
 
 
 
-    <span id=item169 class="hide_extra">
+    <span id=item180 class="hide_extra">
     </span>
 
 </dd>

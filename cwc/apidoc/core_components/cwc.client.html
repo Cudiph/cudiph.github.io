@@ -111,9 +111,10 @@
 
 <h1>Module: <code>cwc.client</code></h1>
 <p>Low-level API to manage toplevel/window/client.</p>
-<p>
+<p> If a client is in container with more than one client only topfront client
+ that will emit property signal.</p>
 
-</p>
+<p> See also: <a href="../libraries/cuteful.client.html#">cuteful.client</a></p>
     <div class="extra-header">
 
 
@@ -334,10 +335,19 @@
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#allow_tearing">allow_tearing</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Allow the client to tear when in fullscreen.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#geometry">geometry</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
       <td class="summary">
-        Geometry of the client.
+        Geometry of the client (border not included).
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -690,6 +700,66 @@
       <td class="baseclass" nowrap>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::raised">client::raised</a>
+      </td>
+      <td class="summary">
+        Emitted when the client is raised within its layer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::lowered">client::lowered</a>
+      </td>
+      <td class="summary">
+        Emitted when the client is lowered within its layer.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::property::fullscreen">client::property::fullscreen</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::property::maximized">client::property::maximized</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::property::minimized">client::property::minimized</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::property::floating">client::property::floating</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
 
 <br/>
@@ -748,7 +818,7 @@
 
 
 
-    <span id=item39 class="hide_extra">
+    <span id=item41 class="hide_extra">
     </span>
 
 </dd>
@@ -797,7 +867,7 @@
 
 
 
-    <span id=item40 class="hide_extra">
+    <span id=item42 class="hide_extra">
     </span>
 
 </dd>
@@ -825,7 +895,7 @@
 
 
 
-    <span id=item41 class="hide_extra">
+    <span id=item43 class="hide_extra">
     </span>
 
 </dd>
@@ -864,7 +934,7 @@
 
 
 
-    <span id=item42 class="hide_extra">
+    <span id=item44 class="hide_extra">
     </span>
 
 </dd>
@@ -909,7 +979,7 @@
 
 
 
-    <span id=item43 class="hide_extra">
+    <span id=item45 class="hide_extra">
     </span>
 
 </dd>
@@ -954,7 +1024,7 @@
 
 
 
-    <span id=item44 class="hide_extra">
+    <span id=item46 class="hide_extra">
     </span>
 
 </dd>
@@ -989,7 +1059,7 @@
 
 
 
-    <span id=item45 class="hide_extra">
+    <span id=item47 class="hide_extra">
     </span>
 
 </dd>
@@ -1035,7 +1105,7 @@
 
 
 
-    <span id=item46 class="hide_extra">
+    <span id=item48 class="hide_extra">
     </span>
 
 </dd>
@@ -1077,7 +1147,7 @@
 
 
 
-    <span id=item47 class="hide_extra">
+    <span id=item49 class="hide_extra">
     </span>
 
 </dd>
@@ -1119,7 +1189,7 @@
 
 
 
-    <span id=item48 class="hide_extra">
+    <span id=item50 class="hide_extra">
     </span>
 
 </dd>
@@ -1161,7 +1231,7 @@
 
 
 
-    <span id=item49 class="hide_extra">
+    <span id=item51 class="hide_extra">
     </span>
 
 </dd>
@@ -1212,7 +1282,7 @@
 
 
 
-    <span id=item50 class="hide_extra">
+    <span id=item52 class="hide_extra">
     </span>
 
 </dd>
@@ -1263,7 +1333,7 @@
 
 
 
-    <span id=item51 class="hide_extra">
+    <span id=item53 class="hide_extra">
     </span>
 
 </dd>
@@ -1306,7 +1376,7 @@
 
 
 
-    <span id=item52 class="hide_extra">
+    <span id=item54 class="hide_extra">
     </span>
 
 </dd>
@@ -1347,7 +1417,7 @@
 
 
 
-    <span id=item53 class="hide_extra">
+    <span id=item55 class="hide_extra">
     </span>
 
 </dd>
@@ -1388,7 +1458,7 @@
 
 
 
-    <span id=item54 class="hide_extra">
+    <span id=item56 class="hide_extra">
     </span>
 
 </dd>
@@ -1429,7 +1499,7 @@
 
 
 
-    <span id=item55 class="hide_extra">
+    <span id=item57 class="hide_extra">
     </span>
 
 </dd>
@@ -1470,7 +1540,7 @@
 
 
 
-    <span id=item56 class="hide_extra">
+    <span id=item58 class="hide_extra">
     </span>
 
 </dd>
@@ -1511,7 +1581,58 @@
 
 
 
-    <span id=item57 class="hide_extra">
+    <span id=item59 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="allow_tearing" href="#allow_tearing">&#128279;</a>
+    <strong>allow_tearing</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Allow the client to tear when in fullscreen.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.screen.html#allow_tearing" title="In the cwc.screen module.">cwc.screen.allow_tearing</a></td>
+         <td>Whether to allow screen to tear or not. (cwc.screen)</td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item60 class="hide_extra">
     </span>
 
 </dd>
@@ -1523,7 +1644,7 @@
     </span>
     </dt>
     <dd>
-    Geometry of the client.
+    Geometry of the client (border not included).
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -1580,10 +1701,20 @@
 
 
 
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.container.html#geometry" title="In the cwc.container module.">cwc.container.geometry</a></td>
+         <td>Geometry of the container. (cwc.container)</td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
 
 
 
-    <span id=item58 class="hide_extra">
+    <span id=item61 class="hide_extra">
     </span>
 
 </dd>
@@ -1624,7 +1755,7 @@
 
 
 
-    <span id=item59 class="hide_extra">
+    <span id=item62 class="hide_extra">
     </span>
 
 </dd>
@@ -1665,7 +1796,7 @@
 
 
 
-    <span id=item60 class="hide_extra">
+    <span id=item63 class="hide_extra">
     </span>
 
 </dd>
@@ -1714,7 +1845,7 @@
 
 
 
-    <span id=item61 class="hide_extra">
+    <span id=item64 class="hide_extra">
     </span>
 
 </dd>
@@ -1748,7 +1879,7 @@
 
 
 
-    <span id=item62 class="hide_extra">
+    <span id=item65 class="hide_extra">
     </span>
 
 </dd>
@@ -1782,7 +1913,7 @@
 
 
 
-    <span id=item63 class="hide_extra">
+    <span id=item66 class="hide_extra">
     </span>
 
 </dd>
@@ -1816,7 +1947,7 @@
 
 
 
-    <span id=item64 class="hide_extra">
+    <span id=item67 class="hide_extra">
     </span>
 
 </dd>
@@ -1850,7 +1981,7 @@
 
 
 
-    <span id=item65 class="hide_extra">
+    <span id=item68 class="hide_extra">
     </span>
 
 </dd>
@@ -1884,7 +2015,7 @@
 
 
 
-    <span id=item66 class="hide_extra">
+    <span id=item69 class="hide_extra">
     </span>
 
 </dd>
@@ -1918,7 +2049,7 @@
 
 
 
-    <span id=item67 class="hide_extra">
+    <span id=item70 class="hide_extra">
     </span>
 
 </dd>
@@ -1963,7 +2094,7 @@
 
 
 
-    <span id=item68 class="hide_extra">
+    <span id=item71 class="hide_extra">
     </span>
 
 </dd>
@@ -2004,7 +2135,7 @@
 
 
 
-    <span id=item69 class="hide_extra">
+    <span id=item72 class="hide_extra">
     </span>
 
 </dd>
@@ -2045,7 +2176,7 @@
 
 
 
-    <span id=item70 class="hide_extra">
+    <span id=item73 class="hide_extra">
     </span>
 
 </dd>
@@ -2086,7 +2217,7 @@
 
 
 
-    <span id=item71 class="hide_extra">
+    <span id=item74 class="hide_extra">
     </span>
 
 </dd>
@@ -2106,7 +2237,7 @@
 
 
 
-    <span id=item72 class="hide_extra">
+    <span id=item75 class="hide_extra">
     </span>
 
 </dd>
@@ -2126,7 +2257,7 @@
 
 
 
-    <span id=item73 class="hide_extra">
+    <span id=item76 class="hide_extra">
     </span>
 
 </dd>
@@ -2146,7 +2277,7 @@
 
 
 
-    <span id=item74 class="hide_extra">
+    <span id=item77 class="hide_extra">
     </span>
 
 </dd>
@@ -2166,7 +2297,7 @@
 
 
 
-    <span id=item75 class="hide_extra">
+    <span id=item78 class="hide_extra">
     </span>
 
 </dd>
@@ -2186,7 +2317,7 @@
 
 
 
-    <span id=item76 class="hide_extra">
+    <span id=item79 class="hide_extra">
     </span>
 
 </dd>
@@ -2206,7 +2337,7 @@
 
 
 
-    <span id=item77 class="hide_extra">
+    <span id=item80 class="hide_extra">
     </span>
 
 </dd>
@@ -2226,7 +2357,7 @@
 
 
 
-    <span id=item78 class="hide_extra">
+    <span id=item81 class="hide_extra">
     </span>
 
 </dd>
@@ -2273,7 +2404,7 @@
 
 
 
-    <span id=item79 class="hide_extra">
+    <span id=item82 class="hide_extra">
     </span>
 
 </dd>
@@ -2326,7 +2457,7 @@
 
 
 
-    <span id=item80 class="hide_extra">
+    <span id=item83 class="hide_extra">
     </span>
 
 </dd>
@@ -2346,7 +2477,7 @@
 
 
 
-    <span id=item81 class="hide_extra">
+    <span id=item84 class="hide_extra">
     </span>
 
 </dd>
@@ -2381,7 +2512,7 @@
 
 
 
-    <span id=item82 class="hide_extra">
+    <span id=item85 class="hide_extra">
     </span>
 
 </dd>
@@ -2434,7 +2565,7 @@
 
 
 
-    <span id=item83 class="hide_extra">
+    <span id=item86 class="hide_extra">
     </span>
 
 </dd>
@@ -2468,7 +2599,7 @@
 
 
 
-    <span id=item84 class="hide_extra">
+    <span id=item87 class="hide_extra">
     </span>
 
 </dd>
@@ -2502,7 +2633,7 @@
 
 
 
-    <span id=item85 class="hide_extra">
+    <span id=item88 class="hide_extra">
     </span>
 
 </dd>
@@ -2536,7 +2667,7 @@
 
 
 
-    <span id=item86 class="hide_extra">
+    <span id=item89 class="hide_extra">
     </span>
 
 </dd>
@@ -2572,7 +2703,7 @@
 
 
 
-    <span id=item87 class="hide_extra">
+    <span id=item90 class="hide_extra">
     </span>
 
 </dd>
@@ -2608,7 +2739,7 @@
 
 
 
-    <span id=item88 class="hide_extra">
+    <span id=item91 class="hide_extra">
     </span>
 
 </dd>
@@ -2648,7 +2779,7 @@
 
 
 
-    <span id=item89 class="hide_extra">
+    <span id=item92 class="hide_extra">
     </span>
 
 </dd>
@@ -2682,7 +2813,7 @@
 
 
 
-    <span id=item90 class="hide_extra">
+    <span id=item93 class="hide_extra">
     </span>
 
 </dd>
@@ -2716,7 +2847,211 @@
 
 
 
-    <span id=item91 class="hide_extra">
+    <span id=item94 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::raised" href="#client::raised">&#128279;</a>
+    <strong>client::raised</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when the client is raised within its layer.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item95 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::lowered" href="#client::lowered">&#128279;</a>
+    <strong>client::lowered</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when the client is lowered within its layer.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item96 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::property::fullscreen" href="#client::property::fullscreen">&#128279;</a>
+    <strong>client::property::fullscreen</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item97 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::property::maximized" href="#client::property::maximized">&#128279;</a>
+    <strong>client::property::maximized</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item98 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::property::minimized" href="#client::property::minimized">&#128279;</a>
+    <strong>client::property::minimized</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item99 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::property::floating" href="#client::property::floating">&#128279;</a>
+    <strong>client::property::floating</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item100 class="hide_extra">
     </span>
 
 </dd>
