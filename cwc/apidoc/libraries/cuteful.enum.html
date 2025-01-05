@@ -64,6 +64,7 @@
   <li><a href="../core_components/cwc.html">cwc</a></li>
   <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
   <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.input.html">cwc.input</a></li>
   <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
   <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
   <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
@@ -150,7 +151,7 @@
         <a href="#mouse_btn"><span class='function_modname'>cuteful.enum.</span>mouse_btn</a>
       </td>
       <td class="summary">
-        Yoink'd from Linux <code>input-event-codes.h</code>
+        Extracted from Linux <code>input-event-codes.h</code>
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -167,7 +168,27 @@
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#pointer"><span class='function_modname'>cuteful.enum.</span>pointer</a>
+        <a href="#output_transform"><span class='function_modname'>cuteful.enum.</span>output_transform</a>
+      </td>
+      <td class="summary">
+        Extracted from <code>wayland-server-protocol.h</code>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#device_type"><span class='function_modname'>cuteful.enum.</span>device_type</a>
+      </td>
+      <td class="summary">
+        Input device type extracted from <code>wlr-input-device.h</code>
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#libinput"><span class='function_modname'>cuteful.enum.</span>libinput</a>
       </td>
       <td class="summary">
         Pointer constant used for configuring pointer device from <code>libinput.h</code>
@@ -300,7 +321,7 @@
     </span>
     </dt>
     <dd>
-    Yoink'd from Linux <code>input-event-codes.h</code>
+    Extracted from Linux <code>input-event-codes.h</code>
 
     <h3>Fields:</h3>
     <table class="see_also">
@@ -418,8 +439,176 @@
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="pointer" href="#pointer">&#128279;</a>
-    <strong><span class='function_modname'>cuteful.enum.</span>pointer</strong>
+    <a class="copy-link js-copy-link" name="output_transform" href="#output_transform">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>output_transform</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Extracted from <code>wayland-server-protocol.h</code>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_NORMAL</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_90</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_180</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_270</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_FLIPPED</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_FLIPPED_90</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_FLIPPED_180</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TRANSFORM_FLIPPED_270</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item19 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="device_type" href="#device_type">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>device_type</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Input device type extracted from <code>wlr-input-device.h</code>
+
+    <h3>Fields:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">KEYBOARD</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">POINTER</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TOUCH</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TABLET</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">TABLET_PAD</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">SWITCH</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item20 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="libinput" href="#libinput">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.enum.</span>libinput</strong>
     <span class="baseclass" >
     </span>
     </dt>
@@ -555,6 +744,30 @@
 
 </td>
          </tr>
+         <tr>
+           <td><span class="parameter">DRAG_LOCK_DISABLED</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">DRAG_LOCK_ENABLED_TIMEOUT</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">DRAG_LOCK_ENABLED_STICKY</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
         </table>
 
 
@@ -562,7 +775,7 @@
 
 
 
-    <span id=item19 class="hide_extra">
+    <span id=item21 class="hide_extra">
     </span>
 
 </dd>
@@ -622,7 +835,7 @@
 
 
 
-    <span id=item20 class="hide_extra">
+    <span id=item22 class="hide_extra">
     </span>
 
 </dd>

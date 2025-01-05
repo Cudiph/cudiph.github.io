@@ -64,6 +64,7 @@
   <li><a href="../core_components/cwc.html">cwc</a></li>
   <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
   <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.input.html">cwc.input</a></li>
   <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
   <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
   <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
@@ -223,8 +224,8 @@ repeat rate to 30hz and set the normal client border to dark grey.</p>
 
 
 <pre>
-cwc.pointer.<span class="function-name">set_sensitivity</span>(-<span class="number">0.75</span>)      <span class="comment">-- between -1 and 1
-</span>
+cwc.pointer.<span class="function-name">set_cursor_size</span>(<span class="number">24</span>)
+
 cwc.kbd.<span class="function-name">set_repeat_rate</span>(<span class="number">30</span>)
 
 <span class="keyword">local</span> gears = <span class="global">require</span>(<span class="string">"gears"</span>)

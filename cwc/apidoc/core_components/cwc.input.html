@@ -1,0 +1,1489 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Coreclassmod cwc.input - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Signals">Signals</a></li>
+</ul>
+
+
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><strong>cwc.input</strong></li>
+  <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
+  <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>cwc.input</code></h1>
+<p>Lua library for managing input device from libinput.</p>
+<p>
+
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2025</li>
+                <li><strong>License</strong>: GPLv3</li>
+                <li>
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#get"><span class='function_modname'>cwc.input.</span>get <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_input[]</span></span>
+      </td>
+      <td class="summary">
+        Get all input device in the server.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#type">type</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Type of this device.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#name">name</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The descriptive device name as advertised by the kernel and/or the hardware
+ itself.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#sysname">sysname</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        System name of this device.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#output_name">output_name</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The name of the output this device is mapped to, or nil if no output is set.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#id_vendor">id_vendor</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The vendor ID of this device.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#id_bustype">id_bustype</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The bus type ID of this device.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#id_product">id_product</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The product ID of this device.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#send_events_mode">send_events_mode</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The send-event mode for this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#left_handed">left_handed</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Set the left-handed configuration of the device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#sensitivity">sensitivity</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        Acceleration speed or as a sensitivity when using flat acceleration profile.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#accel_profile">accel_profile</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Acceleration profile of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#natural_scroll">natural_scroll</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Natural scroll property of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#middle_emulation">middle_emulation</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Middle emulation property of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#rotation_angle">rotation_angle</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The rotation of a device in degrees clockwise off the logical neutral
+ position.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tap">tap</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Tap-to-click property of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tap_drag">tap_drag</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Tap-and-drag property of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tap_drag_lock">tap_drag_lock</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Tap-and-drag property of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#click_method">click_method</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The button click method of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#scroll_method">scroll_method</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        The scroll method of this device.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#dwt">dwt</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Disable-while-typing feature state.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#input::new">input::new</a>
+      </td>
+      <td class="summary">
+        Emitted when an input device is created.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#input::destroy">input::destroy</a>
+      </td>
+      <td class="summary">
+        Emitted when an input device is about to be destroyed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="get" href="#get">&#128279;</a>
+    <strong><span class='function_modname'>cwc.input.</span>get <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_input[]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get all input device in the server.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">cwc_input[]</span></span>
+
+
+
+    </ol>
+
+
+
+
+
+    <span id=item120 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="type" href="#type">&#128279;</a>
+    <strong>type</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Type of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by wlroots.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#device_type" title="In the cuteful.enum module.">cuteful.enum.device_type</a></td>
+         <td>Input device type extracted from <code>wlr-input-device.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item121 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="name" href="#name">&#128279;</a>
+    <strong>name</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The descriptive device name as advertised by the kernel and/or the hardware
+ itself.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item122 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="sysname" href="#sysname">&#128279;</a>
+    <strong>sysname</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    System name of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item123 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="output_name" href="#output_name">&#128279;</a>
+    <strong>output_name</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The name of the output this device is mapped to, or nil if no output is set.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item124 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="id_vendor" href="#id_vendor">&#128279;</a>
+    <strong>id_vendor</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The vendor ID of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item125 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="id_bustype" href="#id_bustype">&#128279;</a>
+    <strong>id_bustype</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The bus type ID of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item126 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="id_product" href="#id_product">&#128279;</a>
+    <strong>id_product</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The product ID of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: provided by libinput.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item127 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_events_mode" href="#send_events_mode">&#128279;</a>
+    <strong>send_events_mode</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The send-event mode for this device. </p>
+
+<p> Set it to <code>SEND_EVENTS_DISABLE</code> to disable the device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item128 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="left_handed" href="#left_handed">&#128279;</a>
+    <strong>left_handed</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the left-handed configuration of the device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item129 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="sensitivity" href="#sensitivity">&#128279;</a>
+    <strong>sensitivity</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Acceleration speed or as a sensitivity when using flat acceleration profile.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0.0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: -1.0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 1.0</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item130 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="accel_profile" href="#accel_profile">&#128279;</a>
+    <strong>accel_profile</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Acceleration profile of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: flat profile.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item131 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="natural_scroll" href="#natural_scroll">&#128279;</a>
+    <strong>natural_scroll</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Natural scroll property of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item132 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="middle_emulation" href="#middle_emulation">&#128279;</a>
+    <strong>middle_emulation</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Middle emulation property of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item133 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="rotation_angle" href="#rotation_angle">&#128279;</a>
+    <strong>rotation_angle</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The rotation of a device in degrees clockwise off the logical neutral
+ position.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 360</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item134 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tap" href="#tap">&#128279;</a>
+    <strong>tap</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Tap-to-click property of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item135 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tap_drag" href="#tap_drag">&#128279;</a>
+    <strong>tap_drag</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Tap-and-drag property of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item136 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tap_drag_lock" href="#tap_drag_lock">&#128279;</a>
+    <strong>tap_drag_lock</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Tap-and-drag property of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item137 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="click_method" href="#click_method">&#128279;</a>
+    <strong>click_method</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The button click method of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item138 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="scroll_method" href="#scroll_method">&#128279;</a>
+    <strong>scroll_method</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The scroll method of this device.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item139 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="dwt" href="#dwt">&#128279;</a>
+    <strong>dwt</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Disable-while-typing feature state.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: hardware configuration dependent.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#libinput" title="In the cuteful.enum module.">cuteful.enum.libinput</a></td>
+         <td>Pointer constant used for configuring pointer device from <code>libinput.h</code>
+ Ref: <a href="https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html">https://wayland.freedesktop.org/libinput/doc/latest/api/group__config.html</a> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item140 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="input::new" href="#input::new">&#128279;</a>
+    <strong>input::new</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when an input device is created.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">device</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_input</span></span></td>
+           <td class="see_also_description"> The input device object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item141 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="input::destroy" href="#input::destroy">&#128279;</a>
+    <strong>input::destroy</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when an input device is about to be destroyed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">device</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_input</span></span></td>
+           <td class="see_also_description"> The input device object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item142 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
