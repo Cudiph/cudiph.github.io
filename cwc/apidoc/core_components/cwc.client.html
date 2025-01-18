@@ -358,7 +358,7 @@
       <td class="shortname" ><a href="#geometry">geometry</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
       <td class="summary">
-        Geometry of the client (border not included).
+        Geometry of the client in the global coordinate (border not included).
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -386,6 +386,24 @@
       <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
       <td class="summary">
         The client opacity.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#border_rotation">border_rotation</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The client border color rotation in degree.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#border_width">border_width</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
+      <td class="summary">
+        The thickness of border around client.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -492,7 +510,7 @@
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Move client to the x y coordinates.
+        Move client to the x y coordinates relative to the screen.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -1706,7 +1724,7 @@
     </span>
     </dt>
     <dd>
-    Geometry of the client (border not included).
+    Geometry of the client in the global coordinate (border not included).
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -1770,6 +1788,34 @@
          <td>Geometry of the container. (cwc.container)</td>
          <td>
              <span class="chips">object properties</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/cwc.client.html#move" title="In the cwc.client module.">move</a></td>
+         <td>Move client relative to current position. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/cwc.client.html#move_to" title="In the cwc.client module.">move_to</a></td>
+         <td>Move client to the x y coordinates relative to the screen. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/cwc.client.html#resize" title="In the cwc.client module.">resize</a></td>
+         <td>Resize client relative to current size. </td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../core_components/cwc.client.html#resize_to" title="In the cwc.client module.">resize_to</a></td>
+         <td>Resize client to specified size. </td>
+         <td>
+             <span class="chips">object methods </span>
          </td>
      <tr>
     </table>
@@ -1912,6 +1958,96 @@
 
 </dd>
     <dt>
+    <a class="copy-link js-copy-link" name="border_rotation" href="#border_rotation">&#128279;</a>
+    <strong>border_rotation</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The client border color rotation in degree.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 360</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item69 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="border_width" href="#border_width">&#128279;</a>
+    <strong>border_width</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The thickness of border around client.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>1</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item70 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
     <a class="copy-link js-copy-link" name="parent" href="#parent">&#128279;</a>
     <strong>parent</strong>
     <span class="proptype"><span class='summary_type'>cwc_client</span></span>
@@ -1941,7 +2077,7 @@
 
 
 
-    <span id=item69 class="hide_extra">
+    <span id=item71 class="hide_extra">
     </span>
 
 </dd>
@@ -1975,7 +2111,7 @@
 
 
 
-    <span id=item70 class="hide_extra">
+    <span id=item72 class="hide_extra">
     </span>
 
 </dd>
@@ -2009,7 +2145,7 @@
 
 
 
-    <span id=item71 class="hide_extra">
+    <span id=item73 class="hide_extra">
     </span>
 
 </dd>
@@ -2043,7 +2179,7 @@
 
 
 
-    <span id=item72 class="hide_extra">
+    <span id=item74 class="hide_extra">
     </span>
 
 </dd>
@@ -2077,7 +2213,7 @@
 
 
 
-    <span id=item73 class="hide_extra">
+    <span id=item75 class="hide_extra">
     </span>
 
 </dd>
@@ -2111,7 +2247,7 @@
 
 
 
-    <span id=item74 class="hide_extra">
+    <span id=item76 class="hide_extra">
     </span>
 
 </dd>
@@ -2156,7 +2292,7 @@
 
 
 
-    <span id=item75 class="hide_extra">
+    <span id=item77 class="hide_extra">
     </span>
 
 </dd>
@@ -2197,7 +2333,7 @@
 
 
 
-    <span id=item76 class="hide_extra">
+    <span id=item78 class="hide_extra">
     </span>
 
 </dd>
@@ -2238,7 +2374,7 @@
 
 
 
-    <span id=item77 class="hide_extra">
+    <span id=item79 class="hide_extra">
     </span>
 
 </dd>
@@ -2250,7 +2386,9 @@
     </span>
     </dt>
     <dd>
-    Move client to the x y coordinates.
+    Move client to the x y coordinates relative to the screen. </p>
+
+<p> <code>move_to(0, 0)</code> will put the client at the top left of the <code>client.screen</code>.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -2279,7 +2417,7 @@
 
 
 
-    <span id=item78 class="hide_extra">
+    <span id=item80 class="hide_extra">
     </span>
 
 </dd>
@@ -2299,7 +2437,7 @@
 
 
 
-    <span id=item79 class="hide_extra">
+    <span id=item81 class="hide_extra">
     </span>
 
 </dd>
@@ -2319,7 +2457,7 @@
 
 
 
-    <span id=item80 class="hide_extra">
+    <span id=item82 class="hide_extra">
     </span>
 
 </dd>
@@ -2339,7 +2477,7 @@
 
 
 
-    <span id=item81 class="hide_extra">
+    <span id=item83 class="hide_extra">
     </span>
 
 </dd>
@@ -2359,7 +2497,7 @@
 
 
 
-    <span id=item82 class="hide_extra">
+    <span id=item84 class="hide_extra">
     </span>
 
 </dd>
@@ -2379,7 +2517,7 @@
 
 
 
-    <span id=item83 class="hide_extra">
+    <span id=item85 class="hide_extra">
     </span>
 
 </dd>
@@ -2399,7 +2537,7 @@
 
 
 
-    <span id=item84 class="hide_extra">
+    <span id=item86 class="hide_extra">
     </span>
 
 </dd>
@@ -2419,7 +2557,7 @@
 
 
 
-    <span id=item85 class="hide_extra">
+    <span id=item87 class="hide_extra">
     </span>
 
 </dd>
@@ -2466,7 +2604,7 @@
 
 
 
-    <span id=item86 class="hide_extra">
+    <span id=item88 class="hide_extra">
     </span>
 
 </dd>
@@ -2519,7 +2657,7 @@
 
 
 
-    <span id=item87 class="hide_extra">
+    <span id=item89 class="hide_extra">
     </span>
 
 </dd>
@@ -2539,7 +2677,7 @@
 
 
 
-    <span id=item88 class="hide_extra">
+    <span id=item90 class="hide_extra">
     </span>
 
 </dd>
@@ -2574,7 +2712,7 @@
 
 
 
-    <span id=item89 class="hide_extra">
+    <span id=item91 class="hide_extra">
     </span>
 
 </dd>
@@ -2627,7 +2765,7 @@
 
 
 
-    <span id=item90 class="hide_extra">
+    <span id=item92 class="hide_extra">
     </span>
 
 </dd>
@@ -2661,7 +2799,7 @@
 
 
 
-    <span id=item91 class="hide_extra">
+    <span id=item93 class="hide_extra">
     </span>
 
 </dd>
@@ -2695,7 +2833,7 @@
 
 
 
-    <span id=item92 class="hide_extra">
+    <span id=item94 class="hide_extra">
     </span>
 
 </dd>
@@ -2729,7 +2867,7 @@
 
 
 
-    <span id=item93 class="hide_extra">
+    <span id=item95 class="hide_extra">
     </span>
 
 </dd>
@@ -2765,7 +2903,7 @@
 
 
 
-    <span id=item94 class="hide_extra">
+    <span id=item96 class="hide_extra">
     </span>
 
 </dd>
@@ -2801,7 +2939,7 @@
 
 
 
-    <span id=item95 class="hide_extra">
+    <span id=item97 class="hide_extra">
     </span>
 
 </dd>
@@ -2841,7 +2979,7 @@
 
 
 
-    <span id=item96 class="hide_extra">
+    <span id=item98 class="hide_extra">
     </span>
 
 </dd>
@@ -2875,7 +3013,7 @@
 
 
 
-    <span id=item97 class="hide_extra">
+    <span id=item99 class="hide_extra">
     </span>
 
 </dd>
@@ -2909,7 +3047,7 @@
 
 
 
-    <span id=item98 class="hide_extra">
+    <span id=item100 class="hide_extra">
     </span>
 
 </dd>
@@ -2943,7 +3081,7 @@
 
 
 
-    <span id=item99 class="hide_extra">
+    <span id=item101 class="hide_extra">
     </span>
 
 </dd>
@@ -2977,7 +3115,7 @@
 
 
 
-    <span id=item100 class="hide_extra">
+    <span id=item102 class="hide_extra">
     </span>
 
 </dd>
@@ -3011,7 +3149,7 @@
 
 
 
-    <span id=item101 class="hide_extra">
+    <span id=item103 class="hide_extra">
     </span>
 
 </dd>
@@ -3045,7 +3183,7 @@
 
 
 
-    <span id=item102 class="hide_extra">
+    <span id=item104 class="hide_extra">
     </span>
 
 </dd>
@@ -3079,7 +3217,7 @@
 
 
 
-    <span id=item103 class="hide_extra">
+    <span id=item105 class="hide_extra">
     </span>
 
 </dd>
@@ -3113,7 +3251,7 @@
 
 
 
-    <span id=item104 class="hide_extra">
+    <span id=item106 class="hide_extra">
     </span>
 
 </dd>
@@ -3147,7 +3285,7 @@
 
 
 
-    <span id=item105 class="hide_extra">
+    <span id=item107 class="hide_extra">
     </span>
 
 </dd>
