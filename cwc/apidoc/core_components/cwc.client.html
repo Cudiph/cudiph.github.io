@@ -60,8 +60,9 @@
   <li><a href="../core_components/cwc.html">cwc</a></li>
   <li><strong>cwc.client<span class='listplusign'> + cwc_client</span></strong></li>
   <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
-  <li><a href="../core_components/cwc.input.html">cwc.input</a></li>
+  <li><a href="../core_components/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
   <li><a href="../core_components/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
   <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
   <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
@@ -341,7 +342,7 @@
       <td class="shortname" ><a href="#allow_tearing">allow_tearing</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
       <td class="summary">
-        Allow the client to tear when in fullscreen.
+        Allow the client to tear output.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -387,6 +388,15 @@
       <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
       <td class="summary">
         The client opacity.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#border_enabled">border_enabled</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Enable/disable border.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -891,7 +901,7 @@
 
 
 
-    <span id=item48 class="hide_extra">
+    <span id=item49 class="hide_extra">
     </span>
 
 </dd>
@@ -940,7 +950,7 @@
 
 
 
-    <span id=item49 class="hide_extra">
+    <span id=item50 class="hide_extra">
     </span>
 
 </dd>
@@ -968,7 +978,7 @@
 
 
 
-    <span id=item50 class="hide_extra">
+    <span id=item51 class="hide_extra">
     </span>
 
 </dd>
@@ -1007,7 +1017,7 @@
 
 
 
-    <span id=item51 class="hide_extra">
+    <span id=item52 class="hide_extra">
     </span>
 
 </dd>
@@ -1052,7 +1062,7 @@
 
 
 
-    <span id=item52 class="hide_extra">
+    <span id=item53 class="hide_extra">
     </span>
 
 </dd>
@@ -1097,7 +1107,7 @@
 
 
 
-    <span id=item53 class="hide_extra">
+    <span id=item54 class="hide_extra">
     </span>
 
 </dd>
@@ -1132,7 +1142,7 @@
 
 
 
-    <span id=item54 class="hide_extra">
+    <span id=item55 class="hide_extra">
     </span>
 
 </dd>
@@ -1178,7 +1188,7 @@
 
 
 
-    <span id=item55 class="hide_extra">
+    <span id=item56 class="hide_extra">
     </span>
 
 </dd>
@@ -1220,7 +1230,7 @@
 
 
 
-    <span id=item56 class="hide_extra">
+    <span id=item57 class="hide_extra">
     </span>
 
 </dd>
@@ -1262,7 +1272,7 @@
 
 
 
-    <span id=item57 class="hide_extra">
+    <span id=item58 class="hide_extra">
     </span>
 
 </dd>
@@ -1304,7 +1314,7 @@
 
 
 
-    <span id=item58 class="hide_extra">
+    <span id=item59 class="hide_extra">
     </span>
 
 </dd>
@@ -1355,7 +1365,7 @@
 
 
 
-    <span id=item59 class="hide_extra">
+    <span id=item60 class="hide_extra">
     </span>
 
 </dd>
@@ -1406,7 +1416,7 @@
 
 
 
-    <span id=item60 class="hide_extra">
+    <span id=item61 class="hide_extra">
     </span>
 
 </dd>
@@ -1449,7 +1459,7 @@
 
 
 
-    <span id=item61 class="hide_extra">
+    <span id=item62 class="hide_extra">
     </span>
 
 </dd>
@@ -1490,7 +1500,7 @@
 
 
 
-    <span id=item62 class="hide_extra">
+    <span id=item63 class="hide_extra">
     </span>
 
 </dd>
@@ -1531,7 +1541,7 @@
 
 
 
-    <span id=item63 class="hide_extra">
+    <span id=item64 class="hide_extra">
     </span>
 
 </dd>
@@ -1572,7 +1582,7 @@
 
 
 
-    <span id=item64 class="hide_extra">
+    <span id=item65 class="hide_extra">
     </span>
 
 </dd>
@@ -1613,7 +1623,7 @@
 
 
 
-    <span id=item65 class="hide_extra">
+    <span id=item66 class="hide_extra">
     </span>
 
 </dd>
@@ -1654,7 +1664,7 @@
 
 
 
-    <span id=item66 class="hide_extra">
+    <span id=item67 class="hide_extra">
     </span>
 
 </dd>
@@ -1666,7 +1676,7 @@
     </span>
     </dt>
     <dd>
-    Allow the client to tear when in fullscreen.
+    Allow the client to tear output.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -1705,7 +1715,7 @@
 
 
 
-    <span id=item67 class="hide_extra">
+    <span id=item68 class="hide_extra">
     </span>
 
 </dd>
@@ -1746,7 +1756,7 @@
 
 
 
-    <span id=item68 class="hide_extra">
+    <span id=item69 class="hide_extra">
     </span>
 
 </dd>
@@ -1856,7 +1866,7 @@
 
 
 
-    <span id=item69 class="hide_extra">
+    <span id=item70 class="hide_extra">
     </span>
 
 </dd>
@@ -1897,7 +1907,7 @@
 
 
 
-    <span id=item70 class="hide_extra">
+    <span id=item71 class="hide_extra">
     </span>
 
 </dd>
@@ -1938,7 +1948,7 @@
 
 
 
-    <span id=item71 class="hide_extra">
+    <span id=item72 class="hide_extra">
     </span>
 
 </dd>
@@ -1987,7 +1997,48 @@
 
 
 
-    <span id=item72 class="hide_extra">
+    <span id=item73 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="border_enabled" href="#border_enabled">&#128279;</a>
+    <strong>border_enabled</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Enable/disable border.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item74 class="hide_extra">
     </span>
 
 </dd>
@@ -2036,7 +2087,7 @@
 
 
 
-    <span id=item73 class="hide_extra">
+    <span id=item75 class="hide_extra">
     </span>
 
 </dd>
@@ -2077,7 +2128,7 @@
 
 
 
-    <span id=item74 class="hide_extra">
+    <span id=item76 class="hide_extra">
     </span>
 
 </dd>
@@ -2111,7 +2162,7 @@
 
 
 
-    <span id=item75 class="hide_extra">
+    <span id=item77 class="hide_extra">
     </span>
 
 </dd>
@@ -2145,7 +2196,7 @@
 
 
 
-    <span id=item76 class="hide_extra">
+    <span id=item78 class="hide_extra">
     </span>
 
 </dd>
@@ -2179,7 +2230,7 @@
 
 
 
-    <span id=item77 class="hide_extra">
+    <span id=item79 class="hide_extra">
     </span>
 
 </dd>
@@ -2213,7 +2264,7 @@
 
 
 
-    <span id=item78 class="hide_extra">
+    <span id=item80 class="hide_extra">
     </span>
 
 </dd>
@@ -2247,7 +2298,7 @@
 
 
 
-    <span id=item79 class="hide_extra">
+    <span id=item81 class="hide_extra">
     </span>
 
 </dd>
@@ -2281,7 +2332,7 @@
 
 
 
-    <span id=item80 class="hide_extra">
+    <span id=item82 class="hide_extra">
     </span>
 
 </dd>
@@ -2326,7 +2377,7 @@
 
 
 
-    <span id=item81 class="hide_extra">
+    <span id=item83 class="hide_extra">
     </span>
 
 </dd>
@@ -2367,7 +2418,7 @@
 
 
 
-    <span id=item82 class="hide_extra">
+    <span id=item84 class="hide_extra">
     </span>
 
 </dd>
@@ -2408,7 +2459,7 @@
 
 
 
-    <span id=item83 class="hide_extra">
+    <span id=item85 class="hide_extra">
     </span>
 
 </dd>
@@ -2451,7 +2502,7 @@
 
 
 
-    <span id=item84 class="hide_extra">
+    <span id=item86 class="hide_extra">
     </span>
 
 </dd>
@@ -2471,7 +2522,7 @@
 
 
 
-    <span id=item85 class="hide_extra">
+    <span id=item87 class="hide_extra">
     </span>
 
 </dd>
@@ -2491,7 +2542,7 @@
 
 
 
-    <span id=item86 class="hide_extra">
+    <span id=item88 class="hide_extra">
     </span>
 
 </dd>
@@ -2511,7 +2562,7 @@
 
 
 
-    <span id=item87 class="hide_extra">
+    <span id=item89 class="hide_extra">
     </span>
 
 </dd>
@@ -2531,7 +2582,7 @@
 
 
 
-    <span id=item88 class="hide_extra">
+    <span id=item90 class="hide_extra">
     </span>
 
 </dd>
@@ -2551,7 +2602,7 @@
 
 
 
-    <span id=item89 class="hide_extra">
+    <span id=item91 class="hide_extra">
     </span>
 
 </dd>
@@ -2591,7 +2642,7 @@
 
 
 
-    <span id=item90 class="hide_extra">
+    <span id=item92 class="hide_extra">
     </span>
 
 </dd>
@@ -2611,7 +2662,7 @@
 
 
 
-    <span id=item91 class="hide_extra">
+    <span id=item93 class="hide_extra">
     </span>
 
 </dd>
@@ -2631,7 +2682,7 @@
 
 
 
-    <span id=item92 class="hide_extra">
+    <span id=item94 class="hide_extra">
     </span>
 
 </dd>
@@ -2678,7 +2729,7 @@
 
 
 
-    <span id=item93 class="hide_extra">
+    <span id=item95 class="hide_extra">
     </span>
 
 </dd>
@@ -2698,7 +2749,7 @@
 
 
 
-    <span id=item94 class="hide_extra">
+    <span id=item96 class="hide_extra">
     </span>
 
 </dd>
@@ -2733,7 +2784,7 @@
 
 
 
-    <span id=item95 class="hide_extra">
+    <span id=item97 class="hide_extra">
     </span>
 
 </dd>
@@ -2768,7 +2819,7 @@
 
 
 
-    <span id=item96 class="hide_extra">
+    <span id=item98 class="hide_extra">
     </span>
 
 </dd>
@@ -2821,7 +2872,7 @@
 
 
 
-    <span id=item97 class="hide_extra">
+    <span id=item99 class="hide_extra">
     </span>
 
 </dd>
@@ -2868,7 +2919,7 @@
 
 
 
-    <span id=item98 class="hide_extra">
+    <span id=item100 class="hide_extra">
     </span>
 
 </dd>
@@ -2921,7 +2972,7 @@
 
 
 
-    <span id=item99 class="hide_extra">
+    <span id=item101 class="hide_extra">
     </span>
 
 </dd>
@@ -2955,7 +3006,7 @@
 
 
 
-    <span id=item100 class="hide_extra">
+    <span id=item102 class="hide_extra">
     </span>
 
 </dd>
@@ -2989,7 +3040,7 @@
 
 
 
-    <span id=item101 class="hide_extra">
+    <span id=item103 class="hide_extra">
     </span>
 
 </dd>
@@ -3023,7 +3074,7 @@
 
 
 
-    <span id=item102 class="hide_extra">
+    <span id=item104 class="hide_extra">
     </span>
 
 </dd>
@@ -3059,7 +3110,7 @@
 
 
 
-    <span id=item103 class="hide_extra">
+    <span id=item105 class="hide_extra">
     </span>
 
 </dd>
@@ -3095,7 +3146,7 @@
 
 
 
-    <span id=item104 class="hide_extra">
+    <span id=item106 class="hide_extra">
     </span>
 
 </dd>
@@ -3135,7 +3186,7 @@
 
 
 
-    <span id=item105 class="hide_extra">
+    <span id=item107 class="hide_extra">
     </span>
 
 </dd>
@@ -3169,7 +3220,7 @@
 
 
 
-    <span id=item106 class="hide_extra">
+    <span id=item108 class="hide_extra">
     </span>
 
 </dd>
@@ -3203,7 +3254,7 @@
 
 
 
-    <span id=item107 class="hide_extra">
+    <span id=item109 class="hide_extra">
     </span>
 
 </dd>
@@ -3237,7 +3288,7 @@
 
 
 
-    <span id=item108 class="hide_extra">
+    <span id=item110 class="hide_extra">
     </span>
 
 </dd>
@@ -3271,7 +3322,7 @@
 
 
 
-    <span id=item109 class="hide_extra">
+    <span id=item111 class="hide_extra">
     </span>
 
 </dd>
@@ -3305,7 +3356,7 @@
 
 
 
-    <span id=item110 class="hide_extra">
+    <span id=item112 class="hide_extra">
     </span>
 
 </dd>
@@ -3339,7 +3390,7 @@
 
 
 
-    <span id=item111 class="hide_extra">
+    <span id=item113 class="hide_extra">
     </span>
 
 </dd>
@@ -3373,7 +3424,7 @@
 
 
 
-    <span id=item112 class="hide_extra">
+    <span id=item114 class="hide_extra">
     </span>
 
 </dd>
@@ -3407,7 +3458,7 @@
 
 
 
-    <span id=item113 class="hide_extra">
+    <span id=item115 class="hide_extra">
     </span>
 
 </dd>
@@ -3441,7 +3492,7 @@
 
 
 
-    <span id=item114 class="hide_extra">
+    <span id=item116 class="hide_extra">
     </span>
 
 </dd>
