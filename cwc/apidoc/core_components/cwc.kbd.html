@@ -63,6 +63,8 @@
   <li><a href="../core_components/cwc.plugin.html">cwc.plugin</a></li>
   <li><a href="../core_components/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="../core_components/cwc_kbindmap.html">cwc_kbindmap</a></li>
   <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
 </ul>
 <h2>Plugins</h2>
@@ -145,7 +147,7 @@
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Register a keyboard binding.
+        Register a keyboard binding in the default map.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -156,7 +158,7 @@
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Clear all keyboard binding
+        Clear all keyboard binding.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -166,11 +168,44 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
+        <a href="#create_bindmap"><span class='function_modname'>cwc.kbd.</span>create_bindmap <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Create a new keybind map.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#get_bindmap"><span class='function_modname'>cwc.kbd.</span>get_bindmap <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_kbindmap[]</span></span>
+      </td>
+      <td class="summary">
+        Get all cwc_kbindmap object in the server.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#get_default_member"><span class='function_modname'>cwc.kbd.</span>get_default_member <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_kbind[]</span></span>
+      </td>
+      <td class="summary">
+        Get keybind object in the default map.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
         <a href="#set_repeat_rate"><span class='function_modname'>cwc.kbd.</span>set_repeat_rate <span class='function_args'> <b>(</b>rate<b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Set keyboard repeat rate
+        Set keyboard repeat rate.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -181,7 +216,7 @@
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Set keyboard repeat delay
+        Set keyboard repeat delay.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -203,7 +238,9 @@
     </span>
     </dt>
     <dd>
-    Register a keyboard binding.
+    Register a keyboard binding in the default map. </p>
+
+<p> Keybinding registered in this map is always active and cannot be deactivated.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -289,6 +326,13 @@
              <span class="chips">static module functions</span>
          </td>
      <tr>
+     <tr>
+         <td><a href="../core_components/cwc_kbindmap.html#bind" title="In the cwc_kbindmap module.">cwc_kbindmap:bind</a></td>
+         <td>Register a keyboard binding. (cwc_kbindmap)</td>
+         <td>
+             <span class="chips">object methods </span>
+         </td>
+     <tr>
     </table>
 
 
@@ -305,7 +349,7 @@
     </span>
     </dt>
     <dd>
-    Clear all keyboard binding
+    Clear all keyboard binding.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -339,6 +383,107 @@
 
     <dl class="function">
     <dt>
+    <a class="copy-link js-copy-link" name="create_bindmap" href="#create_bindmap">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>create_bindmap <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a new keybind map.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        cwc_kbind
+    </ol>
+
+
+
+
+
+    <span id=item160 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="get_bindmap" href="#get_bindmap">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>get_bindmap <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_kbindmap[]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get all cwc_kbindmap object in the server.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">cwc_kbindmap[]</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.kbd.html#get_default_member" title="In the cwc.kbd module.">get_default_member</a></td>
+         <td>Get keybind object in the default map. </td>
+         <td>
+             <span class="chips">config functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item161 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="get_default_member" href="#get_default_member">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>get_default_member <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_kbind[]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get keybind object in the default map.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">cwc_kbind[]</span></span>
+
+
+
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc_kbindmap.html#member" title="In the cwc_kbindmap module.">cwc_kbindmap:member</a></td>
+         <td>Get list of all binding in the map. (cwc_kbindmap)</td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item162 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
     <a class="copy-link js-copy-link" name="set_repeat_rate" href="#set_repeat_rate">&#128279;</a>
     <strong><span class='function_modname'>cwc.kbd.</span>set_repeat_rate <span class='function_args'> <b>(</b>rate<b>)</b></span></strong>
     <span class="proptype"></span>
@@ -346,7 +491,7 @@
     </span>
     </dt>
     <dd>
-    Set keyboard repeat rate
+    Set keyboard repeat rate.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -369,7 +514,7 @@
 
 
 
-    <span id=item160 class="hide_extra">
+    <span id=item163 class="hide_extra">
     </span>
 
 </dd>
@@ -381,7 +526,7 @@
     </span>
     </dt>
     <dd>
-    Set keyboard repeat delay
+    Set keyboard repeat delay.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -404,7 +549,7 @@
 
 
 
-    <span id=item161 class="hide_extra">
+    <span id=item164 class="hide_extra">
     </span>
 
 </dd>
