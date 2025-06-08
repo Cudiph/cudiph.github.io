@@ -49,15 +49,19 @@
   <li><a href="core_components/cwc.html">cwc</a></li>
   <li><a href="core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
   <li><a href="core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
-  <li><a href="core_components/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="core_components/cwc.kbd.html">cwc.kbd</a></li>
   <li><a href="core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
   <li><a href="core_components/cwc.plugin.html">cwc.plugin</a></li>
-  <li><a href="core_components/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
-  <li><a href="core_components/cwc_kbind.html">cwc_kbind</a></li>
-  <li><a href="core_components/cwc_kbindmap.html">cwc_kbindmap</a></li>
+  <li><a href="core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
   <li><a href="core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="input_handling/cwc.input.html">cwc.input</a></li>
+  <li><a href="input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="input_handling/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
 <h2>Plugins</h2>
 <ul class="nowrap">
@@ -127,14 +131,6 @@ started.</p>
     <td class="summary">Low-level API client container operation.</td>
   </tr>
   <tr>
-    <td class="name"  ><a href="core_components/cwc.input.html">cwc.input</a></td>
-    <td class="summary">Lua library for managing input device from libinput.</td>
-  </tr>
-  <tr>
-    <td class="name"  ><a href="core_components/cwc.kbd.html">cwc.kbd</a></td>
-    <td class="summary">Low-level API to manage keyboard behavior</td>
-  </tr>
-  <tr>
     <td class="name"  ><a href="core_components/cwc.layer_shell.html">cwc.layer_shell</a></td>
     <td class="summary">Layer shell object info and events.</td>
   </tr>
@@ -143,24 +139,39 @@ started.</p>
     <td class="summary">C plugins lifecycle and management API.</td>
   </tr>
   <tr>
-    <td class="name"  ><a href="core_components/cwc.pointer.html">cwc.pointer</a></td>
-    <td class="summary">Low-level API to manage pointer and pointer device</td>
-  </tr>
-  <tr>
     <td class="name"  ><a href="core_components/cwc.screen.html">cwc.screen</a></td>
     <td class="summary">Low-Level API to manage output and the tag/workspace system</td>
   </tr>
   <tr>
-    <td class="name"  ><a href="core_components/cwc_kbind.html">cwc_kbind</a></td>
-    <td class="summary">Lua object for registered keybind.</td>
-  </tr>
-  <tr>
-    <td class="name"  ><a href="core_components/cwc_kbindmap.html">cwc_kbindmap</a></td>
-    <td class="summary">Lua object for keybindings map.</td>
+    <td class="name"  ><a href="core_components/cwc.timer.html">cwc.timer</a></td>
+    <td class="summary">Low-level API to create a timer.</td>
   </tr>
   <tr>
     <td class="name"  ><a href="core_components/cwc_tag.html">cwc_tag</a></td>
     <td class="summary">Tag object for managing virtual workspace in a screen.</td>
+  </tr>
+</table>
+<h2>Input_handling</h2>
+<table class="module_list">
+  <tr>
+    <td class="name"  ><a href="input_handling/cwc.input.html">cwc.input</a></td>
+    <td class="summary">Lua library for managing input device from libinput.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="input_handling/cwc.kbd.html">cwc.kbd</a></td>
+    <td class="summary">Low-level API to manage keyboard behavior</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="input_handling/cwc.pointer.html">cwc.pointer</a></td>
+    <td class="summary">Low-level API to manage pointer and pointer device</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="input_handling/cwc_kbind.html">cwc_kbind</a></td>
+    <td class="summary">Lua object for registered keybind.</td>
+  </tr>
+  <tr>
+    <td class="name"  ><a href="input_handling/cwc_kbindmap.html">cwc_kbindmap</a></td>
+    <td class="summary">Lua object for keybindings map.</td>
   </tr>
 </table>
 <h2>Plugins</h2>
