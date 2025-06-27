@@ -252,49 +252,83 @@ cwc.client.<span class="function-name">set_border_color_normal</span>(gears.<spa
 <h3>cwc</h3>
 
 <ul>
-    <li><code>Super + Control + Delete</code> exit cwc</li>
-    <li><code>Super + Control + r</code> reload configuration</li>
+    <li><code>Super + CTRL + Delete</code> exit cwc</li>
+    <li><code>Super + CTRL + r</code> reload configuration</li>
     <li><code>Super + Delete</code> trigger lua garbage collection</li>
     <li><code>Super + Escape</code> reset leftover server state</li>
+</ul>
+
+<h3>layout</h3>
+
+<ul>
+    <li><code>Super + ALT + h</code> decrease master/bsp width factor</li>
+    <li><code>Super + ALT + l</code> increase master/bsp width factor</li>
+    <li><code>Super + CTRL + SHIFT + space</code> cycle to previous strategy in focused screen</li>
+    <li><code>Super + CTRL + h</code> increase the number of columns</li>
+    <li><code>Super + CTRL + l</code> decrease the number of columns</li>
+    <li><code>Super + CTRL + space</code> cycle to next strategy in focused screen</li>
+    <li><code>Super + SHIFT + h</code> increase the number of master clients</li>
+    <li><code>Super + SHIFT + l</code> decrease the number of master clients</li>
+    <li><code>Super + e</code> toggle bsp split</li>
+    <li><code>Super + equal</code> increase gaps</li>
+    <li><code>Super + minus</code> decrease gaps</li>
+    <li><code>Super + space</code> cycle to next layout mode in focused screen</li>
+</ul>
+
+<h3>screen</h3>
+
+<ul>
+    <li><code>Super + ALT + j</code> focus the next screen</li>
+    <li><code>Super + ALT + k</code> focus the previous screen</li>
+</ul>
+
+<h3>keymap</h3>
+
+<ul>
+    <li><code>Super + w</code> activate client vim movement keymap</li>
 </ul>
 
 <h3>client</h3>
 
 <ul>
-    <li><code>Alt + Shift + Tab</code> cycle previous client</li>
-    <li><code>Alt + Tab</code> cycle next client</li>
-    <li><code>Super + Control + 0</code> toggle client always visible</li>
-    <li><code>Super + Control + j</code> focus next client relative by index</li>
-    <li><code>Super + Control + k</code> focus previous client by index</li>
-    <li><code>Super + Control + m</code> maximize horizontally</li>
-    <li><code>Super + Control + n</code> restore minimized client</li>
-    <li><code>Super + Control + q</code> close client forcefully</li>
-    <li><code>Super + Control + Return</code> promote focused client to master</li>
+    <li><code>ALT + SHIFT + Tab</code> cycle previous client</li>
+    <li><code>ALT + Tab</code> cycle next client</li>
+    <li><code>Super + CTRL + 0</code> toggle client always visible</li>
+    <li><code>Super + CTRL + Return</code> promote focused client to master</li>
+    <li><code>Super + CTRL + j</code> focus next client relative by index</li>
+    <li><code>Super + CTRL + k</code> focus previous client by index</li>
+    <li><code>Super + CTRL + m</code> maximize horizontally</li>
+    <li><code>Super + CTRL + n</code> restore minimized client</li>
+    <li><code>Super + CTRL + q</code> close client forcefully</li>
     <li><code>Super + Down</code> move client downward</li>
+    <li><code>Super + Left</code> move client to the left</li>
+    <li><code>Super + Right</code> move client to the right</li>
+    <li><code>Super + SHIFT + Down</code> increase client height</li>
+    <li><code>Super + SHIFT + Left</code> reduce client width</li>
+    <li><code>Super + SHIFT + Right</code> increase client width</li>
+    <li><code>Super + SHIFT + Tab</code> cycle prev to toplevel inside container</li>
+    <li><code>Super + SHIFT + Up</code> reduce client height</li>
+    <li><code>Super + SHIFT + equal</code> increase opacity</li>
+    <li><code>Super + SHIFT + j</code> swap with next client by index</li>
+    <li><code>Super + SHIFT + k</code> swap with previous client by index</li>
+    <li><code>Super + SHIFT + m</code> maximize vertically</li>
+    <li><code>Super + SHIFT + minus</code> decrease opacity</li>
+    <li><code>Super + SHIFT + q</code> close client respectfully</li>
+    <li><code>Super + SHIFT + space</code> toggle floating</li>
+    <li><code>Super + Tab</code> cycle next to toplevel inside container</li>
+    <li><code>Super + Up</code> move client upward</li>
+    <li><code>Super + bracketleft</code> cycle move focused client to previous screen</li>
+    <li><code>Super + bracketright</code> cycle move focused client to next screen</li>
     <li><code>Super + f</code> toggle fullscreen</li>
     <li><code>Super + h</code> focus left</li>
     <li><code>Super + i</code> toggle client above normal toplevel</li>
     <li><code>Super + j</code> focus down</li>
     <li><code>Super + k</code> focus up</li>
-    <li><code>Super + Left</code> move client to the left</li>
     <li><code>Super + l</code> focus right</li>
     <li><code>Super + m</code> toggle maximize</li>
     <li><code>Super + n</code> minimize client</li>
     <li><code>Super + o</code> toggle client always on top</li>
-    <li><code>Super + Right</code> move client to the right</li>
-    <li><code>Super + Shift + Down</code> increase client height</li>
-    <li><code>Super + Shift + j</code> swap with next client by index</li>
-    <li><code>Super + Shift + k</code> swap with previous client by index</li>
-    <li><code>Super + Shift + Left</code> reduce client width</li>
-    <li><code>Super + Shift + m</code> maximize vertically</li>
-    <li><code>Super + Shift + q</code> close client respectfully</li>
-    <li><code>Super + Shift + Right</code> increase client width</li>
-    <li><code>Super + Shift + space</code> toggle floating</li>
-    <li><code>Super + Shift + Tab</code> cycle prev to toplevel inside container</li>
-    <li><code>Super + Shift + Up</code> reduce client height</li>
-    <li><code>Super + Tab</code> cycle next to toplevel inside container</li>
     <li><code>Super + t</code> mark insert container from the focused client</li>
-    <li><code>Super + Up</code> move client upward</li>
     <li><code>Super + u</code> toggle client under normal toplevel</li>
 </ul>
 
@@ -302,27 +336,16 @@ cwc.client.<span class="function-name">set_border_color_normal</span>(gears.<spa
 
 <ul>
     <li><code>Super + F1</code> open a web browser</li>
-    <li><code>Super + p</code> application launcher</li>
     <li><code>Super + Print</code> screenshot entire screen</li>
-    <li><code>Super + Return</code> open a terminal</li>
-    <li><code>Super + Shift + s</code> snipping tool</li>
+    <li><code>Super + b</code> toggle waybar</li>
+    <li><code>Super + p</code> application launcher</li>
     <li><code>Super + v</code> clipboard history</li>
-</ul>
-
-<h3>layout</h3>
-
-<ul>
-    <li><code>Super + Control + Shift + space</code> cycle to previous strategy in focused screen</li>
-    <li><code>Super + Control + space</code> cycle to next strategy in focused screen</li>
-    <li><code>Super + equal</code> increase gaps</li>
-    <li><code>Super + e</code> toggle bsp split</li>
-    <li><code>Super + minus</code> decrease gaps</li>
-    <li><code>Super + space</code> cycle to next layout mode in focused screen</li>
 </ul>
 
 <h3>tag</h3>
 
 <ul>
+    <li><code>Super + 0</code> deactivate all tag on all screen</li>
     <li><code>Super + 1</code> view tag #1</li>
     <li><code>Super + 2</code> view tag #2</li>
     <li><code>Super + 3</code> view tag #3</li>
@@ -332,35 +355,36 @@ cwc.client.<span class="function-name">set_border_color_normal</span>(gears.<spa
     <li><code>Super + 7</code> view tag #7</li>
     <li><code>Super + 8</code> view tag #8</li>
     <li><code>Super + 9</code> view tag #9</li>
+    <li><code>Super + CTRL + 1</code> toggle tag #1</li>
+    <li><code>Super + CTRL + 2</code> toggle tag #2</li>
+    <li><code>Super + CTRL + 3</code> toggle tag #3</li>
+    <li><code>Super + CTRL + 4</code> toggle tag #4</li>
+    <li><code>Super + CTRL + 5</code> toggle tag #5</li>
+    <li><code>Super + CTRL + 6</code> toggle tag #6</li>
+    <li><code>Super + CTRL + 7</code> toggle tag #7</li>
+    <li><code>Super + CTRL + 8</code> toggle tag #8</li>
+    <li><code>Super + CTRL + 9</code> toggle tag #9</li>
+    <li><code>Super + CTRL + SHIFT + 1</code> toggle focused client on tag #1</li>
+    <li><code>Super + CTRL + SHIFT + 2</code> toggle focused client on tag #2</li>
+    <li><code>Super + CTRL + SHIFT + 3</code> toggle focused client on tag #3</li>
+    <li><code>Super + CTRL + SHIFT + 4</code> toggle focused client on tag #4</li>
+    <li><code>Super + CTRL + SHIFT + 5</code> toggle focused client on tag #5</li>
+    <li><code>Super + CTRL + SHIFT + 6</code> toggle focused client on tag #6</li>
+    <li><code>Super + CTRL + SHIFT + 7</code> toggle focused client on tag #7</li>
+    <li><code>Super + CTRL + SHIFT + 8</code> toggle focused client on tag #8</li>
+    <li><code>Super + CTRL + SHIFT + 9</code> toggle focused client on tag #9</li>
+    <li><code>Super + SHIFT + 1</code> move focused client to tag #1</li>
+    <li><code>Super + SHIFT + 2</code> move focused client to tag #2</li>
+    <li><code>Super + SHIFT + 3</code> move focused client to tag #3</li>
+    <li><code>Super + SHIFT + 4</code> move focused client to tag #4</li>
+    <li><code>Super + SHIFT + 5</code> move focused client to tag #5</li>
+    <li><code>Super + SHIFT + 6</code> move focused client to tag #6</li>
+    <li><code>Super + SHIFT + 7</code> move focused client to tag #7</li>
+    <li><code>Super + SHIFT + 8</code> move focused client to tag #8</li>
+    <li><code>Super + SHIFT + 9</code> move focused client to tag #9</li>
     <li><code>Super + comma</code> view next workspace/tag</li>
+    <li><code>Super + grave</code> activate last activated tags</li>
     <li><code>Super + period</code> view prev workspace/tag</li>
-    <li><code>Super + Control + 1</code> toggle tag #1</li>
-    <li><code>Super + Control + 2</code> toggle tag #2</li>
-    <li><code>Super + Control + 3</code> toggle tag #3</li>
-    <li><code>Super + Control + 4</code> toggle tag #4</li>
-    <li><code>Super + Control + 5</code> toggle tag #5</li>
-    <li><code>Super + Control + 6</code> toggle tag #6</li>
-    <li><code>Super + Control + 7</code> toggle tag #7</li>
-    <li><code>Super + Control + 8</code> toggle tag #8</li>
-    <li><code>Super + Control + 9</code> toggle tag #9</li>
-    <li><code>Super + Control + Shift + 1</code> toggle focused client on tag #1</li>
-    <li><code>Super + Control + Shift + 2</code> toggle focused client on tag #2</li>
-    <li><code>Super + Control + Shift + 3</code> toggle focused client on tag #3</li>
-    <li><code>Super + Control + Shift + 4</code> toggle focused client on tag #4</li>
-    <li><code>Super + Control + Shift + 5</code> toggle focused client on tag #5</li>
-    <li><code>Super + Control + Shift + 6</code> toggle focused client on tag #6</li>
-    <li><code>Super + Control + Shift + 7</code> toggle focused client on tag #7</li>
-    <li><code>Super + Control + Shift + 8</code> toggle focused client on tag #8</li>
-    <li><code>Super + Control + Shift + 9</code> toggle focused client on tag #9</li>
-    <li><code>Super + Shift + 1</code> move focused client to tag #1</li>
-    <li><code>Super + Shift + 2</code> move focused client to tag #2</li>
-    <li><code>Super + Shift + 3</code> move focused client to tag #3</li>
-    <li><code>Super + Shift + 4</code> move focused client to tag #4</li>
-    <li><code>Super + Shift + 5</code> move focused client to tag #5</li>
-    <li><code>Super + Shift + 6</code> move focused client to tag #6</li>
-    <li><code>Super + Shift + 7</code> move focused client to tag #7</li>
-    <li><code>Super + Shift + 8</code> move focused client to tag #8</li>
-    <li><code>Super + Shift + 9</code> move focused client to tag #9</li>
 </ul>
 
 
