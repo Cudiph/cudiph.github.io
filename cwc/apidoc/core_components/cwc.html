@@ -48,6 +48,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Fields">Fields</a></li>
 </ul>
 
 
@@ -201,7 +202,7 @@
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#get_is_nested"><span class='function_modname'>cwc.</span>get_is_nested <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <a href="#is_nested"><span class='function_modname'>cwc.</span>is_nested <span class='function_args'> <b>(</b><b>)</b></span></a>
         <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
       </td>
       <td class="summary">
@@ -217,28 +218,6 @@
       </td>
       <td class="summary">
         Check if the configuration is startup (not reload).
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#get_datadir"><span class='function_modname'>cwc.</span>get_datadir <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
-      </td>
-      <td class="summary">
-        Get cwc datadir location probably in <code>/usr/share/cwc</code>.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#get_version"><span class='function_modname'>cwc.</span>get_version <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
-      </td>
-      <td class="summary">
-        Get cwc version.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -267,7 +246,7 @@
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#chvt"><span class='function_modname'>cwc.</span>chvt <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <a href="#chvt"><span class='function_modname'>cwc.</span>chvt <span class='function_args'> <b>(</b>n<b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
@@ -305,6 +284,39 @@
       </td>
       <td class="summary">
         Notify event listener.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#datadir"><span class='function_modname'>cwc.</span>datadir</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#version"><span class='function_modname'>cwc.</span>version</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Get cwc version.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tasklist_show_all"><span class='function_modname'>cwc.</span>tasklist_show_all</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean[true]</span></td>
+      <td class="summary">
+        Set to true to show all clients or false to show clients that on the current
+ tag.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -449,8 +461,8 @@
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="get_is_nested" href="#get_is_nested">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>get_is_nested <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <a class="copy-link js-copy-link" name="is_nested" href="#is_nested">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>is_nested <span class='function_args'> <b>(</b><b>)</b></span></strong>
     <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
     <span class="baseclass" >
     </span>
@@ -505,62 +517,6 @@
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="get_datadir" href="#get_datadir">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>get_datadir <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Get cwc datadir location probably in <code>/usr/share/cwc</code>.
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-
-
-
-    </ol>
-
-
-
-
-
-    <span id=item43 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="get_version" href="#get_version">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>get_version <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Get cwc version.
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
-
-
-
-    </ol>
-
-
-
-
-
-    <span id=item44 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
     <a class="copy-link js-copy-link" name="setenv" href="#setenv">&#128279;</a>
     <strong><span class='function_modname'>cwc.</span>setenv <span class='function_args'> <b>(</b>key, val<b>)</b></span></strong>
     <span class="proptype"></span>
@@ -597,7 +553,7 @@
 
 
 
-    <span id=item45 class="hide_extra">
+    <span id=item43 class="hide_extra">
     </span>
 
 </dd>
@@ -632,13 +588,13 @@
 
 
 
-    <span id=item46 class="hide_extra">
+    <span id=item44 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="chvt" href="#chvt">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>chvt <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <strong><span class='function_modname'>cwc.</span>chvt <span class='function_args'> <b>(</b>n<b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
@@ -646,13 +602,28 @@
     <dd>
     Change the vt (chvt).
 
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">n</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Index of the vt.</td>
+         </tr>
+        </table>
 
 
 
 
 
 
-    <span id=item47 class="hide_extra">
+    <span id=item45 class="hide_extra">
     </span>
 
 </dd>
@@ -693,7 +664,7 @@
 
 
 
-    <span id=item48 class="hide_extra">
+    <span id=item46 class="hide_extra">
     </span>
 
 </dd>
@@ -734,7 +705,7 @@
 
 
 
-    <span id=item49 class="hide_extra">
+    <span id=item47 class="hide_extra">
     </span>
 
 </dd>
@@ -775,7 +746,76 @@
 
 
 
+    <span id=item48 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="datadir" href="#datadir">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>datadir</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
+
+
+
+
+
+
+
+    <span id=item49 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="version" href="#version">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>version</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get cwc version.
+
+
+
+
+
+
+
     <span id=item50 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tasklist_show_all" href="#tasklist_show_all">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>tasklist_show_all</strong>
+    <span class="proptype"><span class='summary_type'>boolean[true]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set to true to show all clients or false to show clients that on the current
+ tag. </p>
+
+<p> only affect widget or bar that implement wlr foreign toplevel management.
+
+
+
+
+
+
+
+    <span id=item51 class="hide_extra">
     </span>
 
 </dd>
