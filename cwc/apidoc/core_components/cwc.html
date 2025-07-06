@@ -47,8 +47,8 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Static_module_functions">Static module functions</a></li>
 <li><a href="#Fields">Fields</a></li>
+<li><a href="#Static_module_functions">Static module functions</a></li>
 </ul>
 
 
@@ -143,6 +143,39 @@
 </div>
 
 
+<h2><a href="#Fields">Fields</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#datadir"><span class='function_modname'>cwc.</span>datadir</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#version"><span class='function_modname'>cwc.</span>version</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Get cwc version.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#tasklist_show_all"><span class='function_modname'>cwc.</span>tasklist_show_all</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Set to true to show all clients or false to show clients that on the current
+ tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
 <h2><a href="#Static_module_functions">Static module functions</a></h2>
 <table class="function_list">
     <tr class="summary_row">
@@ -289,44 +322,80 @@
       </td>
     </tr>
 </table>
-<h2><a href="#Fields">Fields</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#datadir"><span class='function_modname'>cwc.</span>datadir</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
-      <td class="summary">
-        Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#version"><span class='function_modname'>cwc.</span>version</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
-      <td class="summary">
-        Get cwc version.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#tasklist_show_all"><span class='function_modname'>cwc.</span>tasklist_show_all</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>boolean[true]</span></td>
-      <td class="summary">
-        Set to true to show all clients or false to show clients that on the current
- tag.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
 
 <br/>
 <br/>
 
 
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="datadir" href="#datadir">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>datadir</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
+
+
+
+
+
+
+
+    <span id=item49 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="version" href="#version">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>version</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get cwc version.
+
+
+
+
+
+
+
+    <span id=item50 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tasklist_show_all" href="#tasklist_show_all">&#128279;</a>
+    <strong><span class='function_modname'>cwc.</span>tasklist_show_all</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set to true to show all clients or false to show clients that on the current
+ tag. </p>
+
+<p> only affect widget or bar that implement wlr foreign toplevel management.
+
+
+
+
+
+
+
+    <span id=item51 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
     <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
 
     <dl class="function">
@@ -747,75 +816,6 @@
 
 
     <span id=item48 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="datadir" href="#datadir">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>datadir</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    Get cwc datadir location, it will search through <code>$XDG_DATA_DIRS/share/cwc</code>.
-
-
-
-
-
-
-
-    <span id=item49 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="version" href="#version">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>version</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    Get cwc version.
-
-
-
-
-
-
-
-    <span id=item50 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="tasklist_show_all" href="#tasklist_show_all">&#128279;</a>
-    <strong><span class='function_modname'>cwc.</span>tasklist_show_all</strong>
-    <span class="proptype"><span class='summary_type'>boolean[true]</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Set to true to show all clients or false to show clients that on the current
- tag. </p>
-
-<p> only affect widget or bar that implement wlr foreign toplevel management.
-
-
-
-
-
-
-
-    <span id=item51 class="hide_extra">
     </span>
 
 </dd>
