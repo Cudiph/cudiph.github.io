@@ -148,7 +148,7 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#new"><span class='function_modname'>cwc.timer.</span>new <span class='function_args'> <b>(</b>timeout, callback, <span class="optional_param">options</span><b>)</b></span></a>
+        <a href="#new"><span class='function_modname'>cwc.timer.</span>new <span class='function_args'> <b>(</b>timeout, callback, <span class="optional_param">options</span>, <span class="optional_param">data</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
@@ -159,7 +159,7 @@
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#delayed_call"><span class='function_modname'>cwc.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback<b>)</b></span></a>
+        <a href="#delayed_call"><span class='function_modname'>cwc.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback, <span class="optional_param">data</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
@@ -247,7 +247,7 @@
     <dl class="function">
     <dt>
     <a class="copy-link js-copy-link" name="new" href="#new">&#128279;</a>
-    <strong><span class='function_modname'>cwc.timer.</span>new <span class='function_args'> <b>(</b>timeout, callback, <span class="optional_param">options</span><b>)</b></span></strong>
+    <strong><span class='function_modname'>cwc.timer.</span>new <span class='function_args'> <b>(</b>timeout, callback, <span class="optional_param">options</span>, <span class="optional_param">data</span><b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
@@ -319,6 +319,13 @@
            <td class="see_also_description"> Run only once then destroy</td>
            <td><span class="default_value"><code>false</code></span></td>
          </tr>
+         <tr>
+           <td><span class="parameter">data</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">any</span></span></td>
+           <td class="see_also_description"> Userdata callback argument.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
         </table>
 
 
@@ -326,13 +333,13 @@
 
 
 
-    <span id=item243 class="hide_extra">
+    <span id=item244 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="delayed_call" href="#delayed_call">&#128279;</a>
-    <strong><span class='function_modname'>cwc.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback<b>)</b></span></strong>
+    <strong><span class='function_modname'>cwc.timer.</span>delayed_call <span class='function_args'> <b>(</b>callback, <span class="optional_param">data</span><b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
@@ -347,6 +354,7 @@
             <th></th>
             <th>Type(s)</th>
             <th>Description</th>
+            <th>Default value</th>
          </tr>
          <tr>
            <td><span class="parameter">callback</span></td>
@@ -355,6 +363,14 @@
            <td class="see_also_description">
 
 </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">data</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">any</span></span></td>
+           <td class="see_also_description"> Userdata callback argument</td>
+           <td><span class="default_value"><code>nil</code></span></td>
          </tr>
         </table>
 
@@ -363,7 +379,7 @@
 
 
 
-    <span id=item244 class="hide_extra">
+    <span id=item245 class="hide_extra">
     </span>
 
 </dd>
@@ -408,7 +424,7 @@
 
 
 
-    <span id=item245 class="hide_extra">
+    <span id=item246 class="hide_extra">
     </span>
 
 </dd>
@@ -449,7 +465,7 @@
 
 
 
-    <span id=item246 class="hide_extra">
+    <span id=item247 class="hide_extra">
     </span>
 
 </dd>
@@ -473,7 +489,7 @@
 
 
 
-    <span id=item247 class="hide_extra">
+    <span id=item248 class="hide_extra">
     </span>
 
 </dd>
@@ -493,7 +509,7 @@
 
 
 
-    <span id=item248 class="hide_extra">
+    <span id=item249 class="hide_extra">
     </span>
 
 </dd>
@@ -515,7 +531,7 @@
 
 
 
-    <span id=item249 class="hide_extra">
+    <span id=item250 class="hide_extra">
     </span>
 
 </dd>
@@ -535,7 +551,7 @@
 
 
 
-    <span id=item250 class="hide_extra">
+    <span id=item251 class="hide_extra">
     </span>
 
 </dd>
