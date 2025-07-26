@@ -342,6 +342,26 @@
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#adaptive_sync_supported">adaptive_sync_supported</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        The screen supports adaptive sync or not.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#adaptive_sync_status">adaptive_sync_status</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        The screen has adaptive sync enabled or not.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#restored">restored</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
       <td class="summary">
@@ -430,6 +450,17 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
+        <a href="#set_enabled">:set_enabled <span class='function_args'> <b>(</b>enable<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set output enabled state.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
         <a href="#get_containers">:get_containers <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></a>
         <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_container[]</span></span>
       </td>
@@ -507,11 +538,44 @@
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#set_mode">:set_mode <span class='function_args'> <b>(</b>width, height, <span class="optional_param">refresh</span><b>)</b></span></a>
+        <a href="#get_modes">:get_modes <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;int[][]</span></span>
+      </td>
+      <td class="summary">
+        Get the screen's provided modes
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_custom_mode">:set_custom_mode <span class='function_args'> <b>(</b>width, height, refresh<b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Set the screen mode.
+        Set the screen mode to a custom mode.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_mode_from_idx">:set_mode_from_idx <span class='function_args'> <b>(</b>index<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Set the screen mode from ID.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#set_mode">:set_mode <span class='function_args'> <b>(</b>width, height, <span class="optional_param">refresh</span><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Set the screen mode using a provided mode by the screen.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -523,17 +587,6 @@
       </td>
       <td class="summary">
         Set adaptive sync.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#set_enabled">:set_enabled <span class='function_args'> <b>(</b>enable<b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Set output enabled state.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -701,7 +754,7 @@
 
 
 
-    <span id=item260 class="hide_extra">
+    <span id=item265 class="hide_extra">
     </span>
 
 </dd>
@@ -721,7 +774,7 @@
 
 
 
-    <span id=item261 class="hide_extra">
+    <span id=item266 class="hide_extra">
     </span>
 
 </dd>
@@ -1368,6 +1421,90 @@
 
 </dd>
     <dt>
+    <a class="copy-link js-copy-link" name="adaptive_sync_supported" href="#adaptive_sync_supported">&#128279;</a>
+    <strong>adaptive_sync_supported</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The screen supports adaptive sync or not.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: Extracted from wlr_output.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item228 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="adaptive_sync_status" href="#adaptive_sync_status">&#128279;</a>
+    <strong>adaptive_sync_status</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The screen has adaptive sync enabled or not.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: Extracted from wlr_output.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item229 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
     <a class="copy-link js-copy-link" name="restored" href="#restored">&#128279;</a>
     <strong>restored</strong>
     <span class="proptype"><span class='summary_type'>boolean</span></span>
@@ -1405,7 +1542,7 @@
 
 
 
-    <span id=item228 class="hide_extra">
+    <span id=item230 class="hide_extra">
     </span>
 
 </dd>
@@ -1459,7 +1596,7 @@
 
 
 
-    <span id=item229 class="hide_extra">
+    <span id=item231 class="hide_extra">
     </span>
 
 </dd>
@@ -1540,7 +1677,7 @@
 
 
 
-    <span id=item230 class="hide_extra">
+    <span id=item232 class="hide_extra">
     </span>
 
 </dd>
@@ -1593,7 +1730,7 @@
 
 
 
-    <span id=item231 class="hide_extra">
+    <span id=item233 class="hide_extra">
     </span>
 
 </dd>
@@ -1644,7 +1781,7 @@
 
 
 
-    <span id=item232 class="hide_extra">
+    <span id=item234 class="hide_extra">
     </span>
 
 </dd>
@@ -1695,7 +1832,7 @@
 
 
 
-    <span id=item233 class="hide_extra">
+    <span id=item235 class="hide_extra">
     </span>
 
 </dd>
@@ -1736,7 +1873,7 @@
 
 
 
-    <span id=item234 class="hide_extra">
+    <span id=item236 class="hide_extra">
     </span>
 
 </dd>
@@ -1787,7 +1924,7 @@
 
 
 
-    <span id=item235 class="hide_extra">
+    <span id=item237 class="hide_extra">
     </span>
 
 </dd>
@@ -1828,7 +1965,7 @@
 
 
 
-    <span id=item236 class="hide_extra">
+    <span id=item238 class="hide_extra">
     </span>
 
 </dd>
@@ -1836,6 +1973,41 @@
     <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
 
     <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="set_enabled" href="#set_enabled">&#128279;</a>
+    <strong>:set_enabled <span class='function_args'> <b>(</b>enable<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set output enabled state.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">enable</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> True to enable</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item239 class="hide_extra">
+    </span>
+
+</dd>
     <dt>
     <a class="copy-link js-copy-link" name="get_containers" href="#get_containers">&#128279;</a>
     <strong>:get_containers <span class='function_args'> <b>(</b><span class="optional_param">visible</span><b>)</b></span></strong>
@@ -1877,7 +2049,7 @@
 
 
 
-    <span id=item237 class="hide_extra">
+    <span id=item240 class="hide_extra">
     </span>
 
 </dd>
@@ -1922,7 +2094,7 @@
 
 
 
-    <span id=item238 class="hide_extra">
+    <span id=item241 class="hide_extra">
     </span>
 
 </dd>
@@ -1965,7 +2137,7 @@
 
 
 
-    <span id=item239 class="hide_extra">
+    <span id=item242 class="hide_extra">
     </span>
 
 </dd>
@@ -2010,7 +2182,7 @@
 
 
 
-    <span id=item240 class="hide_extra">
+    <span id=item243 class="hide_extra">
     </span>
 
 </dd>
@@ -2053,7 +2225,7 @@
 
 
 
-    <span id=item241 class="hide_extra">
+    <span id=item244 class="hide_extra">
     </span>
 
 </dd>
@@ -2106,7 +2278,7 @@
 
 
 
-    <span id=item242 class="hide_extra">
+    <span id=item245 class="hide_extra">
     </span>
 
 </dd>
@@ -2147,19 +2319,144 @@
 
 
 
-    <span id=item243 class="hide_extra">
+    <span id=item246 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="get_modes" href="#get_modes">&#128279;</a>
+    <strong>:get_modes <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;int[][]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get the screen's provided modes
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int[][]</span></span>
+        modes Array of arrays containing width, height and refresh
+ rate
+    </ol>
+
+
+
+
+
+    <span id=item247 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_custom_mode" href="#set_custom_mode">&#128279;</a>
+    <strong>:set_custom_mode <span class='function_args'> <b>(</b>width, height, refresh<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the screen mode to a custom mode.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">width</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">height</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">refresh</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item248 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="set_mode_from_idx" href="#set_mode_from_idx">&#128279;</a>
+    <strong>:set_mode_from_idx <span class='function_args'> <b>(</b>index<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the screen mode from ID.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">index</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> If change was successful
+    </ol>
+
+
+
+
+
+    <span id=item249 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="set_mode" href="#set_mode">&#128279;</a>
     <strong>:set_mode <span class='function_args'> <b>(</b>width, height, <span class="optional_param">refresh</span><b>)</b></span></strong>
-    <span class="proptype"></span>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Set the screen mode.
+    Set the screen mode using a provided mode by the screen. </p>
+
+<p> if the refresh is not specified or 0, it will find the highest refresh rate.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -2192,17 +2489,23 @@
            <td><span class="parameter">refresh</span></td>
            <td><span class="chips">Optional</span></td>
            <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> Monitor refresh rate in hz</td>
+           <td class="see_also_description"> Monitor refresh rate in Hz or in exact mHz</td>
            <td><span class="default_value"><code>0</code></span></td>
          </tr>
         </table>
 
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        <code>true</code> If change was successful
+    </ol>
 
 
 
 
 
-    <span id=item244 class="hide_extra">
+    <span id=item250 class="hide_extra">
     </span>
 
 </dd>
@@ -2237,42 +2540,7 @@
 
 
 
-    <span id=item245 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="set_enabled" href="#set_enabled">&#128279;</a>
-    <strong>:set_enabled <span class='function_args'> <b>(</b>enable<b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Set output enabled state.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">enable</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> True to enable</td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item246 class="hide_extra">
+    <span id=item251 class="hide_extra">
     </span>
 
 </dd>
@@ -2309,7 +2577,7 @@
 
 
 
-    <span id=item247 class="hide_extra">
+    <span id=item252 class="hide_extra">
     </span>
 
 </dd>
@@ -2354,7 +2622,7 @@
 
 
 
-    <span id=item248 class="hide_extra">
+    <span id=item253 class="hide_extra">
     </span>
 
 </dd>
@@ -2374,7 +2642,7 @@
 
 
 
-    <span id=item249 class="hide_extra">
+    <span id=item254 class="hide_extra">
     </span>
 
 </dd>
@@ -2413,7 +2681,7 @@
 
 
 
-    <span id=item250 class="hide_extra">
+    <span id=item255 class="hide_extra">
     </span>
 
 </dd>
@@ -2451,7 +2719,7 @@
 
 
 
-    <span id=item251 class="hide_extra">
+    <span id=item256 class="hide_extra">
     </span>
 
 </dd>
@@ -2485,7 +2753,7 @@
 
 
 
-    <span id=item252 class="hide_extra">
+    <span id=item257 class="hide_extra">
     </span>
 
 </dd>
@@ -2519,7 +2787,7 @@
 
 
 
-    <span id=item253 class="hide_extra">
+    <span id=item258 class="hide_extra">
     </span>
 
 </dd>
@@ -2553,7 +2821,7 @@
 
 
 
-    <span id=item254 class="hide_extra">
+    <span id=item259 class="hide_extra">
     </span>
 
 </dd>
@@ -2587,7 +2855,7 @@
 
 
 
-    <span id=item255 class="hide_extra">
+    <span id=item260 class="hide_extra">
     </span>
 
 </dd>
@@ -2621,7 +2889,7 @@
 
 
 
-    <span id=item256 class="hide_extra">
+    <span id=item261 class="hide_extra">
     </span>
 
 </dd>
@@ -2655,7 +2923,7 @@
 
 
 
-    <span id=item257 class="hide_extra">
+    <span id=item262 class="hide_extra">
     </span>
 
 </dd>
@@ -2689,7 +2957,7 @@
 
 
 
-    <span id=item258 class="hide_extra">
+    <span id=item263 class="hide_extra">
     </span>
 
 </dd>
@@ -2723,7 +2991,7 @@
 
 
 
-    <span id=item259 class="hide_extra">
+    <span id=item264 class="hide_extra">
     </span>
 
 </dd>
