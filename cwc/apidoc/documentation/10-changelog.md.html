@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Topic 80-c-plugin.md - cwc API documentation</title>
+    <title>Topic 10-changelog.md - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -47,17 +47,17 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Loading_C_Plugin">Loading C Plugin </a></li>
-<li><a href="#Writing_C_Plugin">Writing C Plugin </a></li>
+<li><a href="#v0_2_0">v0.2.0 </a></li>
+<li><a href="#v0_1_0">v0.1.0 </a></li>
 </ul>
 
 
 <h2>Documentation</h2>
 <ul class="nowrap">
   <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
-  <li><a href="../documentation/10-changelog.md.html">Change log</a></li>
+  <li><strong>Change log</strong></li>
   <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
-  <li><strong>C Plugin</strong></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
 </ul>
 <h2>Core components</h2>
 <ul class="nowrap">
@@ -118,140 +118,56 @@
 <div id="content">
 
 
-<h1>C Plugin</h1>
+<h1>Change log</h1>
 
-<p>DISCLAIMER: By writing or loading C plugin writer assume you already know what you're doing and
-writer is not responsible for segfault, loss of data, kernel panic, bad API design,
-thermonuclear war, or the current economic crisis. Always make sure the plugin you want to load
-doesn't do anything malicious.</p>
+<p><a name="v0_2_0"></a></p>
+<h2>v0.2.0</h2>
 
-<p><a name="Loading_C_Plugin"></a></p>
-<h2>Loading C Plugin</h2>
+<p>This release introduce dwl-ipc plugin which add ability to show tags state
+and focused client on a screen.</p>
 
-<p>Loading C plugin can be done by using <a href="../core_components/cwc.plugin.html#load">cwc.plugin.load</a> API and to unload it using
-<a href="../core_components/cwc.plugin.html#unload_byname">cwc.plugin.unload_byname</a>. If the plugin already exist <a href="../core_components/cwc.plugin.html#load">cwc.plugin.load</a> won't reload it,
-if the plugin doesn't support unloading <code>unload_byname</code> is doing nothing.</p>
+<p>Below are the highlights of change made since last version.</p>
 
-<p><a name="Writing_C_Plugin"></a></p>
-<h2>Writing C Plugin</h2>
+<p>BREAKING CHANGES:</p>
 
-<p>You may be want to write C Plugin because you need full access to cwc internals and perhaps you
-want to add amazing feature so that CwC become more awesome (pun intended). Knowledge of the CwC
-internal code and wlroots may be necessary to start hacking.</p>
+<blockquote>
+    <p>no breaking change.</p>
+</blockquote>
 
-<p>The API for writing the C plugin is very similar to writing linux kernel module in fact some of the code
-is from linux <code>module.h</code>, the difference is it's just start with <code>PLUGIN</code> instead of <code>MODULE</code>.</p>
+<p>New features:</p>
 
-<p>What it does under the hood is just loading the shared object using dlopen.
-Let's take a look at <code>flayout.c</code> plugin for example.</p>
+<ul>
+    <li>implement dwl-ipc-v2 protocol as a plugin</li>
+    <li>implement content-type-v1 protocol</li>
+    <li>add field in <a href="../input_handling/cwc.kbd.html#">cwc.kbd</a> to set xkb settings</li>
+    <li>client default decoration mode and <a href="../core_components/cwc.client.html#decoration_mode">cwc.client.decoration_mode</a> property</li>
+    <li><a href="../core_components/cwc.html#unlock_session">cwc.unlock_session</a> function to recover from crashed screen locker</li>
+    <li>add <code>cwctl input</code>, <code>cwctl reload</code>, and <code>cwctl plugin</code></li>
+    <li><code>cwc_plugin</code> object</li>
+</ul>
 
+<p>Fixes:</p>
 
-<pre>
-#include &lt;wlr/types/wlr_output_layout.h&gt;
+<ul>
+    <li>fix move to output doesn't move when in maximized/fullscreen</li>
+    <li>fix floating client appear at wrong size on tiling layout</li>
+    <li>fix crash when calling cwc.input.get on initial load</li>
+</ul>
 
-#include "cwc/desktop/output.h"
-#include "cwc/desktop/toplevel.h"
-#include "cwc/layout/master.h"
-#include "cwc/plugin.h"
-#include "cwc/server.h"
+<p>Other changes:</p>
 
-<span class="comment">// function arrange_flayout...
-</span>
-<span class="keyword">struct</span> layout_interface fullscreen_impl = {.name    = <span class="string">"fullscreen"</span>,
-                                           .arrange = arrange_flayout};
+<ul>
+    <li>allow <code>set_mode</code> to use the exact mHz</li>
+    <li>allow passing userdata to callback function in <a href="../core_components/cwc.timer.html#">cwc.timer</a></li>
+    <li><code>cwc.&lt;table&gt;</code> now has getter and setter</li>
+    <li><a href="../core_components/cwc.html#datadir">cwc.datadir</a> now follow XDG spec</li>
+    <li>update meson packaging</li>
+</ul>
 
-<span class="keyword">static</span> <span class="keyword">int</span> <span class="function-name">init</span>()
-{
-    <span class="function-name">master_register_layout</span>(&amp;fullscreen_impl);
+<p><a name="v0_1_0"></a></p>
+<h2>v0.1.0</h2>
 
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-
-<span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">fini</span>()
-{
-    <span class="function-name">master_unregister_layout</span>(&amp;fullscreen_impl);
-}
-
-<span class="function-name">plugin_init</span>(init);
-<span class="function-name">plugin_exit</span>(fini);
-
-<span class="function-name">PLUGIN_NAME</span>(<span class="string">"flayout"</span>);
-<span class="function-name">PLUGIN_VERSION</span>(<span class="string">"0.1.0"</span>);
-<span class="function-name">PLUGIN_DESCRIPTION</span>(<span class="string">"f layout we go f screen"</span>);
-<span class="function-name">PLUGIN_LICENSE</span>(<span class="string">"MIT"</span>);
-<span class="function-name">PLUGIN_AUTHOR</span>(<span class="string">"Dwi Asmoro Bangun &lt;dwiaceromo@gmail.com&gt;"</span>);
-</pre>
-
-
-<p>First we includes CwC header and other library header that we need. All the public CwC header
-is commonly located at <code>/usr/include/cwc</code>, with that information you may need to adjust compiler flag.</p>
-
-
-<pre>
-#include &lt;wlr/types/wlr_output_layout.h&gt;
-
-#include "cwc/desktop/output.h"
-#include "cwc/desktop/toplevel.h"
-#include "cwc/layout/master.h"
-#include "cwc/plugin.h"
-#include "cwc/server.h"
-</pre>
-
-
-<p>Then create an entry point for the plugin load to call. The function name can be anything
-as long as you call <code>plugin_init</code> macro with the function name as argument.
-The function signature is <code>int (*name)(void)</code>, the return value is actually doesn't decide anything
-but it'll follow linux convention with zero for success and non-zero for error in case
-something change in the future.</p>
-
-
-<pre>
-<span class="keyword">static</span> <span class="keyword">int</span> <span class="function-name">init_can_be_any_name</span>()
-{
-    <span class="function-name">master_register_layout</span>(&amp;fullscreen_impl);
-
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-
-<span class="function-name">plugin_init</span>(init_can_be_any_name);
-</pre>
-
-
-<p>If the plugin support unloading, <code>plugin_exit</code> macro can be used to mark a function to call
-before the plugin is unloaded. If the plugin doesn't support unloading you may omit it.
-Or if you support unloading but doesn't need a cleanup just pass an empty function.
-The function signature is <code>void (*name)(void)</code>.</p>
-
-
-<pre>
-<span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">fini</span>()
-{
-    <span class="function-name">master_unregister_layout</span>(&amp;fullscreen_impl);
-}
-
-<span class="function-name">plugin_exit</span>(fini);
-</pre>
-
-
-<p>Last is plugin metadata, <code>PLUGIN_NAME</code> and <code>PLUGIN_VERSION</code> is mandatory so that the loader can
-manage it.</p>
-
-
-<pre>
-<span class="function-name">PLUGIN_NAME</span>(<span class="string">"flayout"</span>);
-<span class="function-name">PLUGIN_VERSION</span>(<span class="string">"0.1.0"</span>);
-<span class="function-name">PLUGIN_DESCRIPTION</span>(<span class="string">"f layout we go f screen"</span>);
-<span class="function-name">PLUGIN_LICENSE</span>(<span class="string">"MIT"</span>);
-<span class="function-name">PLUGIN_AUTHOR</span>(<span class="string">"Dwi Asmoro Bangun &lt;dwiaceromo@gmail.com&gt;"</span>);
-</pre>
-
-
-<p>After writing the plugin now it's time for the compilation. The plugin need to be compiled
-to shared object file (.so) with linker flag
-<code>--allow-shlib-undefined</code>, <code>-shared</code>, and <code>--as-needed</code></p>
-
-<p>If you want to create a lua API in the plugin the convention used is <code>cwc.&lt;plugin_name&gt;</code>. For example
-in <code>cwcle</code> the <code>PLUGIN_NAME</code> is <code>cwcle</code> so in the lua side it should be accessed with <a href="../plugins/cwc.cwcle.html#">cwc.cwcle</a>.</p>
+<p>Initial release of cwc</p>
 
 
 </div> <!-- id="content" -->
