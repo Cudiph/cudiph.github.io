@@ -1,0 +1,802 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module cuteful.tag - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
+  <li><strong>cuteful.tag</strong></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
+  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/10-changelog.md.html">Change log</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>cuteful.tag</code></h1>
+<p>Useful functions for tag operation.</p>
+<p>
+
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2024</li>
+                <li><strong>License</strong>: GPLv3</li>
+                <li>
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#cuteful.tag.viewidx"><span class='function_modname'>cuteful.tag.</span>viewidx <span class='function_args'> <b>(</b>idx, <span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Select a tag relative to the currently selected one will cycle between the general workspace range.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#cuteful.tag.viewnext"><span class='function_modname'>cuteful.tag.</span>viewnext <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        View next tag
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#cuteful.tag.viewprev"><span class='function_modname'>cuteful.tag.</span>viewprev <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        View previous tag
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#viewnone"><span class='function_modname'>cuteful.tag.</span>viewnone <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        View no tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#layout_mode"><span class='function_modname'>cuteful.tag.</span>layout_mode <span class='function_args'> <b>(</b>n, layout_mode, <span class="optional_param">screen</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Set layout_mode for tag n.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#incgap"><span class='function_modname'>cuteful.tag.</span>incgap <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Increase gap.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#incmwfact"><span class='function_modname'>cuteful.tag.</span>incmwfact <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Increase master width factor.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#incnmaster"><span class='function_modname'>cuteful.tag.</span>incnmaster <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Increase the number of master windows.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#incncol"><span class='function_modname'>cuteful.tag.</span>incncol <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Increase number of column windows.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#cuteful.tag.history.restore"><span class='function_modname'>cuteful.tag.</span>history.restore <span class='function_args'> <b>(</b><span class="optional_param">screen</span>, <span class="optional_param">idx</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Revert tag history.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="cuteful.tag.viewidx" href="#cuteful.tag.viewidx">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>viewidx <span class='function_args'> <b>(</b>idx, <span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Select a tag relative to the currently selected one will cycle between the general workspace range.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">idx</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> View index relative to the current tag</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description"> The screen</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item30 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="cuteful.tag.viewnext" href="#cuteful.tag.viewnext">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>viewnext <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    View next tag
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item31 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="cuteful.tag.viewprev" href="#cuteful.tag.viewprev">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>viewprev <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    View previous tag
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item32 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="viewnone" href="#viewnone">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>viewnone <span class='function_args'> <b>(</b><span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    View no tag.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item33 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="layout_mode" href="#layout_mode">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>layout_mode <span class='function_args'> <b>(</b>n, layout_mode, <span class="optional_param">screen</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set layout_mode for tag n.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">n</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">layout_mode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#layout_mode" title="In the cuteful.enum module.">cuteful.enum.layout_mode</a></td>
+         <td>layout_mode enum extracted from cwc <code>types.h</code>. (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item34 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="incgap" href="#incgap">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>incgap <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Increase gap.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">add</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item35 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="incmwfact" href="#incmwfact">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>incmwfact <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Increase master width factor.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">add</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item36 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="incnmaster" href="#incnmaster">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>incnmaster <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Increase the number of master windows.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">add</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item37 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="incncol" href="#incncol">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>incncol <span class='function_args'> <b>(</b>add, <span class="optional_param">tag</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Increase number of column windows.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">add</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description">
+
+</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item38 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="cuteful.tag.history.restore" href="#cuteful.tag.history.restore">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.tag.</span>history.restore <span class='function_args'> <b>(</b><span class="optional_param">screen</span>, <span class="optional_param">idx</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Revert tag history.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">screen</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">cwc_screen</span></span></td>
+           <td class="see_also_description"> The screen.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">idx</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Index in the history stack. Default to previous (idx number 1).</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item39 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Coreclassmod cwc.layer_shell - cwc API documentation</title>
+    <title>Class gears.cache - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -47,19 +47,22 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Static_module_functions">Static module functions</a></li>
-<li><a href="#Object_properties">Object properties</a></li>
-<li><a href="#Object_methods">Object methods </a></li>
-<li><a href="#Signals">Signals</a></li>
+<li><a href="#Constructors">Constructors</a></li>
+<li><a href="#Methods">Methods</a></li>
 </ul>
 
 
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><strong>gears.cache</strong></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
 <h2>Core components</h2>
 <ul class="nowrap">
   <li><a href="../core_components/cwc.html">cwc</a></li>
   <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
   <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
-  <li><strong>cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></strong></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
   <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
   <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
   <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
@@ -68,8 +71,8 @@
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -102,11 +105,6 @@
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
 </ul>
-<h2>Classes</h2>
-<ul class="nowrap">
-  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
-  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
-</ul>
 <h2>Documentation</h2>
 <ul class="nowrap">
   <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
@@ -119,21 +117,18 @@
 
 <div id="content">
 
-<h1>Module: <code>cwc.layer_shell</code></h1>
-<p>Layer shell object info and events.</p>
-<p>
-
-</p>
+<h1>Module: <code>gears.cache</code></h1>
+<p>Cache object with data that can be garbage-collected.</p>
+<p> Here is an example with a basic cache:</p>
     <div class="extra-header">
 
 
   <div class="extra-header__section">
     <h3>Info:</h3>
     <ul>
-                <li><strong>Copyright</strong>: 2025</li>
-                <li><strong>License</strong>: GPLv3</li>
+                <li><strong>Copyright</strong>: 2015 Uli Schlachter</li>
                 <li>
-                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <strong>Originally authored by</strong>: Uli Schlachter<br />
                     <small>(Full contributors list available on
                     <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
                         our github project)
@@ -146,93 +141,27 @@
 </div>
 
 
-<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<h2><a href="#Constructors">Constructors</a></h2>
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#get"><span class='function_modname'>cwc.layer_shell.</span>get <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_layer_shell[]</span></span>
+        <a href="#gears.cache">gears.cache <span class='function_args'> <b>(</b>creation_cb<b>)</b></span></a>
       </td>
       <td class="summary">
-        Get all input device in the server.
+        Create a new cache object.
       </td>
       <td class="baseclass" nowrap>
       </td>
     </tr>
 </table>
-<h2><a href="#Object_properties">Object properties</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#">data</a></td>
-      <td class="summarytype" nowrap>table</td>
-      <td class="summary">user data table</td>
-      <td class="baseclass" nowrap>
-          <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#screen">screen</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>cwc_screen</span></td>
-      <td class="summary">
-        The screen where the layer shell visible.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#namespace">namespace</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
-      <td class="summary">
-        The namespace of the layer shell.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#pid">pid</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
-      <td class="summary">
-        The pid of the layer shell.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Object_methods">Object methods </a></h2>
+<h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#kill">:kill <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"></span>
+        <a href="#gears.cache:get">:get (...)</a>
       </td>
       <td class="summary">
-        Kill a layer shell client without any question asked.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Signals">Signals</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#layer_shell::new">layer_shell::new</a>
-      </td>
-      <td class="summary">
-        Emitted when a layer shell surface is created.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#layer_shell::destroy">layer_shell::destroy</a>
-      </td>
-      <td class="summary">
-        Emitted when layer shell surface is about to be destroyed.
+        Get an entry from the cache, creating it if it's missing.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -243,189 +172,63 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="get" href="#get">&#128279;</a>
-    <strong><span class='function_modname'>cwc.layer_shell.</span>get <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_layer_shell[]</span></span>
+    <a class="copy-link js-copy-link" name="gears.cache" href="#gears.cache">&#128279;</a>
+    <strong>gears.cache <span class='function_args'> <b>(</b>creation_cb<b>)</b></span></strong>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Get all input device in the server.
+    Create a new cache object.  A cache keeps some data that can be
+ garbage-collected at any time, but might be useful to keep.
 
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">creation_cb</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Callback that is used for creating missing cache entries.</td>
+         </tr>
+        </table>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">cwc_layer_shell[]</span></span>
-
-
-
+        A new cache object.
     </ol>
 
 
 
 
 
-    <span id=item193 class="hide_extra">
+    <span id=item304 class="hide_extra">
     </span>
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="screen" href="#screen">&#128279;</a>
-    <strong>screen</strong>
-    <span class="proptype"><span class='summary_type'>cwc_screen</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    The screen where the layer shell visible.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: Up to the client.</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item194 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="namespace" href="#namespace">&#128279;</a>
-    <strong>namespace</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    The namespace of the layer shell.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: Extracted from wlr<em>layer</em>surface.</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item195 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="pid" href="#pid">&#128279;</a>
-    <strong>pid</strong>
-    <span class="proptype"><span class='summary_type'>number</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    The pid of the layer shell.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: Provided by the OS.</td>
-       <tr/>
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Negative allowed
-         </i>
-        </td>
-        <td>: false</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item196 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="kill" href="#kill">&#128279;</a>
-    <strong>:kill <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"></span>
+    <a class="copy-link js-copy-link" name="gears.cache:get" href="#gears.cache:get">&#128279;</a>
+    <strong>:get (...)</strong>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Kill a layer shell client without any question asked.
+    Get an entry from the cache, creating it if it's missing.
 
-
-
-
-
-
-
-    <span id=item197 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="layer_shell::new" href="#layer_shell::new">&#128279;</a>
-    <strong>layer_shell::new</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when a layer shell surface is created.
-
-    <h3>Arguments:</h3>
+    <h3>Parameters:</h3>
     <table class="see_also">
          <tr class="param_header">
             <th>Name</th>
@@ -434,53 +237,25 @@
             <th>Description</th>
          </tr>
          <tr>
-           <td><span class="parameter">layer_shell</span></td>
+           <td><span class="parameter">...</span></td>
            <td></td>
-           <td><span class="types"><span class="type">cwc_layer_shell</span></span></td>
-           <td class="see_also_description"> The layer shell object.</td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Arguments for the creation callback. These are checked against the
+   cache contents for equality.</td>
          </tr>
         </table>
 
+    <h3>Returns:</h3>
+    <ol>
+
+        The entry from the cache
+    </ol>
 
 
 
 
 
-    <span id=item198 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="layer_shell::destroy" href="#layer_shell::destroy">&#128279;</a>
-    <strong>layer_shell::destroy</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when layer shell surface is about to be destroyed.
-
-    <h3>Arguments:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">layer_shell</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cwc_layer_shell</span></span></td>
-           <td class="see_also_description"> The layer shell object.</td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item199 class="hide_extra">
+    <span id=item305 class="hide_extra">
     </span>
 
 </dd>

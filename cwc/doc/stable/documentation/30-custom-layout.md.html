@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Topic 30-custom-layout.md - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Custom_layout_in_C">Custom layout in C </a></li>
+<li><a href="#Custom_layout_in_Lua">Custom layout in Lua </a></li>
+</ul>
+
+
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/10-changelog.md.html">Change log</a></li>
+  <li><strong>Custom Layout</strong></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
+  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+
+<h1>Custom Layout</h1>
+
+<p>Custom layout only applicable for master/stack layout mode, for others layout is need to be
+integrated to the compositor itself.</p>
+
+<p><a name="Custom_layout_in_C"></a></p>
+<h2>Custom layout in C</h2>
+
+<p>To create a custom layout in C is by implementing the <code>struct layout_interface</code> the structure is as following.</p>
+
+
+<pre>
+<span class="keyword">struct</span> <span class="function-name">layout_interface</span> {
+    <span class="keyword">char</span> *name;
+
+    <span class="comment">/* toplevels doesn't include maximized/fullscreen or not tiled client, so
+     * the implementation can focus arranging the given toplevels.
+     */</span>
+    <span class="keyword">void</span> (*arrange)(<span class="keyword">struct</span> cwc_toplevel **toplevels,
+                    <span class="keyword">int</span> len,
+                    <span class="keyword">struct</span> cwc_output *output,
+                    <span class="keyword">struct</span> master_state *master_state);
+
+    <span class="comment">// private...
+</span>};
+</pre>
+
+
+<p>the field <code>name</code> is the name of the layout and the <code>arrange</code> is function to arrange
+the layout.</p>
+
+<ul>
+    <li><code>toplevels</code> - array of toplevels that can be arranged.</li>
+    <li><code>len</code> - length of the toplevel array</li>
+    <li><code>output</code> - screen where all the toplevel placed.</li>
+    <li><code>master_state</code> - info such as such as master width factor, master_count, etc.</li>
+</ul>
+
+<p>Let's take a look at <code>monocle</code> layout for the simplest implementation how to arrange the toplevels.
+The monocle layout is just set all the tileable toplevel to the size of the workarea/usable area.</p>
+
+
+<pre>
+<span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">arrange_monocle</span>(<span class="keyword">struct</span> cwc_toplevel **toplevels,
+                            <span class="keyword">int</span> len,
+                            <span class="keyword">struct</span> cwc_output *output,
+                            <span class="keyword">struct</span> master_state *master_state)
+{
+    <span class="keyword">int</span> i                         = <span class="number">0</span>;
+    <span class="keyword">struct</span> cwc_toplevel *toplevel = toplevels[i];
+
+    <span class="comment">// You can also loop through the array by checking if the element is NULL.
+</span>    <span class="comment">// The end of the array is guaranteed to be NULL.
+</span>    <span class="keyword">while</span> (toplevel) {
+        <span class="function-name">cwc_container_set_position_gap</span>(
+            toplevel-&gt;container, output-&gt;usable_area.x, output-&gt;usable_area.y);
+        <span class="function-name">cwc_container_set_size</span>(toplevel-&gt;container, output-&gt;usable_area.width,
+                               output-&gt;usable_area.height);
+
+        toplevel = toplevels[++i];
+    }
+}
+</pre>
+
+
+<p>One thing to keep in mind is to set the toplevel size and position we use <code>cwc_container_set_xxx</code>
+instead of <code>cwc_toplevel_set_xxx</code> because the toplevel decoration need to accounted. Also
+you don't need to worry about the gap as it's already taken care by both <code>set_position_gap</code> and
+<code>set_size</code>.</p>
+
+<p>Once the interface is implemented, now register it by using <code>master_register_layout</code>.
+To create a layout as a plugin see <a href="../documentation/80-c-plugin.md.html#">80-c-plugin.md</a>.</p>
+
+
+<pre>
+<span class="keyword">static</span> <span class="keyword">void</span> <span class="function-name">master_register_monocle</span>()
+{
+    <span class="keyword">struct</span> layout_interface *monocle_impl = <span class="function-name">calloc</span>(<span class="number">1</span>, <span class="keyword">sizeof</span>(*monocle_impl));
+    monocle_impl-&gt;name                    = <span class="string">"monocle"</span>;
+    monocle_impl-&gt;arrange                 = arrange_monocle;
+
+    <span class="function-name">master_register_layout</span>(monocle_impl);
+}
+</pre>
+
+
+<p>To remove it use <code>master_unregister_layout</code>.</p>
+
+
+<pre>
+<span class="function-name">master_unregister_layout</span>(&amp;monocle_impl);
+<span class="function-name">free</span>(monocle_impl);
+</pre>
+
+
+<p><a name="Custom_layout_in_Lua"></a></p>
+<h2>Custom layout in Lua</h2>
+
+<p>Planned.</p>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Inputmodule cwc_kbindmap - cwc API documentation</title>
+    <title>Inputmodule cwc.kbd - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -47,18 +47,18 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Object_properties">Object properties</a></li>
-<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Fields">Fields</a></li>
+<li><a href="#Static_module_functions">Static module functions</a></li>
 </ul>
 
 
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><strong>cwc.kbd</strong></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
-  <li><strong>cwc_kbindmap</strong></li>
+  <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
 <h2>Core components</h2>
 <ul class="nowrap">
@@ -117,8 +117,8 @@
 
 <div id="content">
 
-<h1>Module: <code>cwc_kbindmap</code></h1>
-<p>Lua object for keybindings map.</p>
+<h1>Module: <code>cwc.kbd</code></h1>
+<p>Low-level API to manage keyboard behavior</p>
 <p>
 
 </p>
@@ -128,7 +128,7 @@
   <div class="extra-header__section">
     <h3>Info:</h3>
     <ul>
-                <li><strong>Copyright</strong>: 2025</li>
+                <li><strong>Copyright</strong>: 2024</li>
                 <li><strong>License</strong>: GPLv3</li>
                 <li>
                     <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
@@ -144,78 +144,123 @@
 </div>
 
 
-<h2><a href="#Object_properties">Object properties</a></h2>
+<h2><a href="#Fields">Fields</a></h2>
 <table class="function_list">
     <tr class="summary_row">
-      <td class="shortname" ><a href="#">data</a></td>
-      <td class="summarytype" nowrap>table</td>
-      <td class="summary">user data table</td>
-      <td class="baseclass" nowrap>
-          <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#active">active</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="shortname" ><a href="#bindmap"><span class='function_modname'>cwc.kbd.</span>bindmap</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>cwc_kbindmap[]</span></td>
       <td class="summary">
-        Active state of the keybind map.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#member">member</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>cwc_kbind[]</span></td>
-      <td class="summary">
-        Get list of all binding in the map.
+        Get all cwc_kbindmap object in the server.
       </td>
       <td class="baseclass" nowrap>
         <span class="chips">Read only</span>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#default_member"><span class='function_modname'>cwc.kbd.</span>default_member</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>cwc_kbind[]</span></td>
+      <td class="summary">
+        Get keybind object in the default map.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#repeat_rate"><span class='function_modname'>cwc.kbd.</span>repeat_rate</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Keyboard repeat rate in hz.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#repeat_delay"><span class='function_modname'>cwc.kbd.</span>repeat_delay</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Keyboard repeat delay in miliseconds.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xkb_rules"><span class='function_modname'>cwc.kbd.</span>xkb_rules</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The rules file to use.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xkb_model"><span class='function_modname'>cwc.kbd.</span>xkb_model</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The keyboard model by which to interpret keycodes and LEDs.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xkb_layout"><span class='function_modname'>cwc.kbd.</span>xkb_layout</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        A comma separated list of layouts (languages) to include in the keymap.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xkb_variant"><span class='function_modname'>cwc.kbd.</span>xkb_variant</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        A comma separated list of variants.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xkb_options"><span class='function_modname'>cwc.kbd.</span>xkb_options</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        A comma separated list of options.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
-<h2><a href="#Object_methods">Object methods </a></h2>
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#bind">:bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></a>
+        <a href="#bind"><span class='function_modname'>cwc.kbd.</span>bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Register a keyboard binding.
+        Register a keyboard binding to the default map.
       </td>
       <td class="baseclass" nowrap>
       </td>
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#active_only">:active_only <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <a href="#clear"><span class='function_modname'>cwc.kbd.</span>clear <span class='function_args'> <b>(</b><span class="optional_param">common_key</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Set this map as the only active one disabling all others map.
+        Clear all keyboard binding in the default map.
       </td>
       <td class="baseclass" nowrap>
       </td>
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#clear">:clear <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"></span>
+        <a href="#create_bindmap"><span class='function_modname'>cwc.kbd.</span>create_bindmap <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_kbindmap</span></span>
       </td>
       <td class="summary">
-        Clear all keybinding (emptying the map).
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#destroy">:destroy <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Destroy this map freeing it from memory.
+        Create a new keybind map.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -226,97 +271,28 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+    <h2 class="section-header "><a name="Fields"></a>Fields</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="active" href="#active">&#128279;</a>
-    <strong>active</strong>
-    <span class="proptype"><span class='summary_type'>boolean</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Active state of the keybind map.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: <code>true</code></td>
-       <tr/>
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Valid values
-         </i>
-        </td>
-        <td>: <code>true</code> or <code>false</code>.</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item305 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="member" href="#member">&#128279;</a>
-    <strong>member</strong>
-    <span class="proptype"><span class='summary_type'>cwc_kbind[]</span></span>
+    <a class="copy-link js-copy-link" name="bindmap" href="#bindmap">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>bindmap</strong>
+    <span class="proptype"><span class='summary_type'>cwc_kbindmap[]</span></span>
     <span class="baseclass" >
          &middot read only
     </span>
     </dt>
     <dd>
-    Get list of all binding in the map.
+    Get all cwc_kbindmap object in the server.
 
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: <code>{}</code></td>
-       <tr/>
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Valid values
-         </i>
-        </td>
-        <td>:  List of the bindings.</td>
-       <tr/>
-     </table>
-    </span>
 
 
 
     <h3>See also:</h3>
     <table class="see_also">
      <tr>
-         <td><a href="../input_handling/cwc_kbind.html#" title="In the cwc_kbind module.">cwc_kbind</a></td>
-         <td>Lua object for registered keybind. </td>
-         <td>
-             <span class="chips">module</span>
-         </td>
-     <tr>
-     <tr>
-         <td><a href="../input_handling/cwc.kbd.html#default_member" title="In the cwc.kbd module.">cwc.kbd.default_member</a></td>
-         <td>Get keybind object in the default map. (cwc.kbd)</td>
+         <td><a href="../input_handling/cwc.kbd.html#default_member" title="In the cwc.kbd module.">default_member</a></td>
+         <td>Get keybind object in the default map. </td>
          <td>
              <span class="chips">fields</span>
          </td>
@@ -325,23 +301,224 @@
 
 
 
-    <span id=item306 class="hide_extra">
+    <span id=item177 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="default_member" href="#default_member">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>default_member</strong>
+    <span class="proptype"><span class='summary_type'>cwc_kbind[]</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get keybind object in the default map.
+
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../input_handling/cwc_kbindmap.html#member" title="In the cwc_kbindmap module.">cwc_kbindmap:member</a></td>
+         <td>Get list of all binding in the map. (cwc_kbindmap)</td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item178 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="repeat_rate" href="#repeat_rate">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>repeat_rate</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Keyboard repeat rate in hz.
+
+
+
+
+
+
+
+    <span id=item179 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="repeat_delay" href="#repeat_delay">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>repeat_delay</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Keyboard repeat delay in miliseconds.
+
+
+
+
+
+
+
+    <span id=item180 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_rules" href="#xkb_rules">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>xkb_rules</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The rules file to use. </p>
+
+<p> The rules file describes how to interpret the values of the model, layout,
+ variant and options fields.</p>
+
+<p> ref: <a href="https://xkbcommon.org/doc/current/structxkb__rule__names.html#a0968f4602001f2306febd32c34bd2280">xkbcommon
+ reference</a>
+
+
+
+
+
+
+
+    <span id=item181 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_model" href="#xkb_model">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>xkb_model</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The keyboard model by which to interpret keycodes and LEDs. </p>
+
+<p> ref: <a href="https://xkbcommon.org/doc/current/structxkb__rule__names.html#a1c897b49b49c7cd495db4a424bd27265">xkbcommon
+ reference</a>
+
+
+
+
+
+
+
+    <span id=item182 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_layout" href="#xkb_layout">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>xkb_layout</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A comma separated list of layouts (languages) to include in the keymap. </p>
+
+<p> ref: <a href="https://xkbcommon.org/doc/current/structxkb__rule__names.html#a243bb3aa36b4ea9ca402ed330a757746">xkbcommon
+ reference</a>
+
+
+
+
+
+
+
+    <span id=item183 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_variant" href="#xkb_variant">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>xkb_variant</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A comma separated list of variants. </p>
+
+<p> One per layout, which may modify or augment the respective layout in various
+ ways.</p>
+
+<p> Generally, should either be empty or have the same number of values as the
+ number of layouts. You may use empty values as in "intl,,neo".</p>
+
+<p> ref: <a href="https://xkbcommon.org/doc/current/structxkb__rule__names.html#a758e1865c002d8f4fb59b2e3dda83b66">xkbcommon
+ reference</a>
+
+
+
+
+
+
+
+    <span id=item184 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xkb_options" href="#xkb_options">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>xkb_options</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    A comma separated list of options. </p>
+
+<p> Through which the user specifies non-layout related preferences, like which
+ key combinations are used for switching layouts, or which key is the Compose
+ key.</p>
+
+<p> ref: <a href="https://xkbcommon.org/doc/current/structxkb__rule__names.html#a556899eafb333c440be64ede408644df">xkbcommon
+ reference</a>
+
+
+
+
+
+
+
+    <span id=item185 class="hide_extra">
     </span>
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
 
     <dl class="function">
     <dt>
     <a class="copy-link js-copy-link" name="bind" href="#bind">&#128279;</a>
-    <strong>:bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></strong>
+    <strong><span class='function_modname'>cwc.kbd.</span>bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Register a keyboard binding.
+    Register a keyboard binding to the default map. </p>
+
+<p> Keybinding registered in this map is always active and cannot be deactivated.
 
     <h3>Parameters:</h3>
     <table class="see_also">
@@ -396,22 +573,16 @@
          <tr class="see_also_sublist">
            <td><span class="parameter">exclusive</span></td>
            <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
            <td class="see_also_description"> Allow keybind to be executed even in
  lockscreen and shortcut inhibit</td>
          </tr>
          <tr class="see_also_sublist">
            <td><span class="parameter">repeated</span></td>
            <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
            <td class="see_also_description"> Repeat keybind when hold (only on_press
  will be executed)</td>
-         </tr>
-         <tr class="see_also_sublist">
-           <td><span class="parameter">pass</span></td>
-           <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> Keypress will still pass through the client</td>
          </tr>
         </table>
 
@@ -434,77 +605,82 @@
          </td>
      <tr>
      <tr>
-         <td><a href="../input_handling/cwc.kbd.html#bind" title="In the cwc.kbd module.">cwc.kbd.bind</a></td>
-         <td>Register a keyboard binding to the default map. (cwc.kbd)</td>
+         <td><a href="../input_handling/cwc_kbindmap.html#bind" title="In the cwc_kbindmap module.">cwc_kbindmap:bind</a></td>
+         <td>Register a keyboard binding. (cwc_kbindmap)</td>
          <td>
-             <span class="chips">static module functions</span>
+             <span class="chips">object methods </span>
          </td>
      <tr>
     </table>
 
 
 
-    <span id=item307 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="active_only" href="#active_only">&#128279;</a>
-    <strong>:active_only <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Set this map as the only active one disabling all others map.
-
-
-
-
-
-
-
-    <span id=item308 class="hide_extra">
+    <span id=item174 class="hide_extra">
     </span>
 
 </dd>
     <dt>
     <a class="copy-link js-copy-link" name="clear" href="#clear">&#128279;</a>
-    <strong>:clear <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <strong><span class='function_modname'>cwc.kbd.</span>clear <span class='function_args'> <b>(</b><span class="optional_param">common_key</span><b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Clear all keybinding (emptying the map).
+    Clear all keyboard binding in the default map.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">common_key</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Also clear common key (chvt key)</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
 
 
 
 
 
 
-
-    <span id=item309 class="hide_extra">
+    <span id=item175 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="destroy" href="#destroy">&#128279;</a>
-    <strong>:destroy <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"></span>
+    <a class="copy-link js-copy-link" name="create_bindmap" href="#create_bindmap">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>create_bindmap <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_kbindmap</span></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Destroy this map freeing it from memory.
+    Create a new keybind map.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">cwc_kbindmap</span></span>
+
+
+
+    </ol>
 
 
 
 
 
-
-
-    <span id=item310 class="hide_extra">
+    <span id=item176 class="hide_extra">
     </span>
 
 </dd>

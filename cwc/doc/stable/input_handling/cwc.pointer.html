@@ -50,17 +50,14 @@
 <li><a href="#Fields">Fields</a></li>
 <li><a href="#Static_module_functions">Static module functions</a></li>
 <li><a href="#Config_functions">Config functions</a></li>
-<li><a href="#Object_properties">Object properties</a></li>
-<li><a href="#Object_methods">Object methods </a></li>
-<li><a href="#Signals">Signals</a></li>
 </ul>
 
 
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
-  <li><strong>cwc.pointer<span class='listplusign'> + cwc_pointer</span></strong></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><strong>cwc.pointer</strong></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -183,17 +180,6 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#get"><span class='function_modname'>cwc.pointer.</span>get <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_pointer[]</span></span>
-      </td>
-      <td class="summary">
-        Get all pointer in the server.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
         <a href="#bind"><span class='function_modname'>cwc.pointer.</span>bind <span class='function_args'> <b>(</b>modifier, mouse_btn, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
@@ -284,115 +270,6 @@
       </td>
     </tr>
 </table>
-<h2><a href="#Object_properties">Object properties</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#">data</a></td>
-      <td class="summarytype" nowrap>table</td>
-      <td class="summary">user data table</td>
-      <td class="baseclass" nowrap>
-          <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#seat">seat</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
-      <td class="summary">
-        The seat names which the keyboard belong.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#position">position</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>table</span></td>
-      <td class="summary">
-        The seat names which the keyboard belong.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#grab">grab</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
-      <td class="summary">
-        Grab the mouse event and redirect it to signal.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#send_events">send_events</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
-      <td class="summary">
-        Send pointer events to the client.
-      </td>
-      <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Object_methods">Object methods </a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#move">:move <span class='function_args'> <b>(</b>x, y, <span class="optional_param">skip_events</span><b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Move pointer relative the current position.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#move_to">:move_to <span class='function_args'> <b>(</b>x, y, <span class="optional_param">skip_events</span><b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Move pointer to the specified coordinate.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Signals">Signals</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#pointer::move">pointer::move</a>
-      </td>
-      <td class="summary">
-        Emitted when a pointer is moved or input device motion event is triggered.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#pointer::button">pointer::button</a>
-      </td>
-      <td class="summary">
-        Emitted when a mouse button is pressed/released.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#pointer::axis">pointer::axis</a>
-      </td>
-      <td class="summary">
-        Emitted when an axis event is triggered.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
 
 <br/>
 <br/>
@@ -417,7 +294,7 @@
 
 
 
-    <span id=item230 class="hide_extra">
+    <span id=item213 class="hide_extra">
     </span>
 
 </dd>
@@ -438,7 +315,7 @@
 
 
 
-    <span id=item231 class="hide_extra">
+    <span id=item214 class="hide_extra">
     </span>
 
 </dd>
@@ -458,7 +335,7 @@
 
 
 
-    <span id=item232 class="hide_extra">
+    <span id=item215 class="hide_extra">
     </span>
 
 </dd>
@@ -466,34 +343,6 @@
     <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
 
     <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="get" href="#get">&#128279;</a>
-    <strong><span class='function_modname'>cwc.pointer.</span>get <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_pointer[]</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Get all pointer in the server.
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">cwc_pointer[]</span></span>
-
-
-
-    </ol>
-
-
-
-
-
-    <span id=item212 class="hide_extra">
-    </span>
-
-</dd>
     <dt>
     <a class="copy-link js-copy-link" name="bind" href="#bind">&#128279;</a>
     <strong><span class='function_modname'>cwc.pointer.</span>bind <span class='function_args'> <b>(</b>modifier, mouse_btn, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></strong>
@@ -585,7 +434,7 @@
 
 
 
-    <span id=item213 class="hide_extra">
+    <span id=item205 class="hide_extra">
     </span>
 
 </dd>
@@ -605,7 +454,7 @@
 
 
 
-    <span id=item214 class="hide_extra">
+    <span id=item206 class="hide_extra">
     </span>
 
 </dd>
@@ -631,7 +480,7 @@
 
 
 
-    <span id=item215 class="hide_extra">
+    <span id=item207 class="hide_extra">
     </span>
 
 </dd>
@@ -676,7 +525,7 @@
 
 
 
-    <span id=item216 class="hide_extra">
+    <span id=item208 class="hide_extra">
     </span>
 
 </dd>
@@ -696,7 +545,7 @@
 
 
 
-    <span id=item217 class="hide_extra">
+    <span id=item209 class="hide_extra">
     </span>
 
 </dd>
@@ -716,7 +565,7 @@
 
 
 
-    <span id=item218 class="hide_extra">
+    <span id=item210 class="hide_extra">
     </span>
 
 </dd>
@@ -736,7 +585,7 @@
 
 
 
-    <span id=item219 class="hide_extra">
+    <span id=item211 class="hide_extra">
     </span>
 
 </dd>
@@ -795,478 +644,7 @@
 
 
 
-    <span id=item220 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="seat" href="#seat">&#128279;</a>
-    <strong>seat</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    The seat names which the keyboard belong.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: <code>"seat0"</code></td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item221 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="position" href="#position">&#128279;</a>
-    <strong>position</strong>
-    <span class="proptype"><span class='summary_type'>table</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    The seat names which the keyboard belong.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Table keys:
-         </i>
-        </td>
-       <tr/>
-       <tr class="see_also_sublist">
-        <td style="padding-left:15px;">
-         <i>
-          x
-         </i>
-          <span class="inline_types"> (table)</span>
-        </td>
-        <td>:  The x coordinate of the pointer</td>
-       <tr/>
-       <tr class="see_also_sublist">
-        <td style="padding-left:15px;">
-         <i>
-          y
-         </i>
-          <span class="inline_types"> (table)</span>
-        </td>
-        <td>:  The y coordinate of the pointer</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item222 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="grab" href="#grab">&#128279;</a>
-    <strong>grab</strong>
-    <span class="proptype"><span class='summary_type'>boolean</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    Grab the mouse event and redirect it to signal.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: <code>false</code></td>
-       <tr/>
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Valid values
-         </i>
-        </td>
-        <td>: <code>true</code> or <code>false</code>.</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item223 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="send_events" href="#send_events">&#128279;</a>
-    <strong>send_events</strong>
-    <span class="proptype"><span class='summary_type'>boolean</span></span>
-    <span class="baseclass" >
-         &middot read only
-    </span>
-    </dt>
-    <dd>
-    Send pointer events to the client.
-
-    <h3>Constraints:</h3>
-    <span class="property_type">
-      <table class="see_also">
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Default value
-         </i>
-        </td>
-        <td>: <code>true</code></td>
-       <tr/>
-       <tr class="">
-        <td style="padding-left:0px;">
-         <i>
-          Valid values
-         </i>
-        </td>
-        <td>: <code>true</code> or <code>false</code>.</td>
-       <tr/>
-     </table>
-    </span>
-
-
-
-
-
-
-    <span id=item224 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="move" href="#move">&#128279;</a>
-    <strong>:move <span class='function_args'> <b>(</b>x, y, <span class="optional_param">skip_events</span><b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Move pointer relative the current position.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-            <th>Default value</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">x</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The x vector.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
-         </tr>
-         <tr>
-           <td><span class="parameter">y</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The y vector.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
-         </tr>
-         <tr>
-           <td><span class="parameter">skip_events</span></td>
-           <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> The motion won't be sent to client.</td>
-           <td><span class="default_value"><code>false</code></span></td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item225 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="move_to" href="#move_to">&#128279;</a>
-    <strong>:move_to <span class='function_args'> <b>(</b>x, y, <span class="optional_param">skip_events</span><b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Move pointer to the specified coordinate.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-            <th>Default value</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">x</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The new x position.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
-         </tr>
-         <tr>
-           <td><span class="parameter">y</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The new y position.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
-         </tr>
-         <tr>
-           <td><span class="parameter">skip_events</span></td>
-           <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> The motion won't be sent to client.</td>
-           <td><span class="default_value"><code>false</code></span></td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item226 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="pointer::move" href="#pointer::move">&#128279;</a>
-    <strong>pointer::move</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when a pointer is moved or input device motion event is triggered.
-
-    <h3>Arguments:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">pointer</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
-           <td class="see_also_description"> The pointer object.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">time_msec</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The event time in milliseconds.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">dx</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> The x vector.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">dy</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> The y vectork.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">dx_unaccel</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> The x vector unaccelerated.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">dy_unaccel</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> The y vector unaccelerated.</td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item227 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="pointer::button" href="#pointer::button">&#128279;</a>
-    <strong>pointer::button</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when a mouse button is pressed/released.
-
-    <h3>Arguments:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">pointer</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
-           <td class="see_also_description"> The pointer object.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">time_msec</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The event time in milliseconds.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">button</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The button code from linux/input-event-codes.h.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">pressed</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> The state of the button, <code>true</code> means pressed.</td>
-         </tr>
-        </table>
-
-
-
-    <h3>See also:</h3>
-    <table class="see_also">
-     <tr>
-         <td><a href="../libraries/cuteful.enum.html#mouse_btn" title="In the cuteful.enum module.">cuteful.enum.mouse_btn</a></td>
-         <td>Extracted from Linux <code>input-event-codes.h</code> (cuteful.enum)</td>
-         <td>
-             <span class="chips">tables</span>
-         </td>
-     <tr>
-    </table>
-
-
-
-    <span id=item228 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="pointer::axis" href="#pointer::axis">&#128279;</a>
-    <strong>pointer::axis</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when an axis event is triggered.
-
-    <h3>Arguments:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">pointer</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
-           <td class="see_also_description"> The pointer object.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">time_msec</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">integer</span></span></td>
-           <td class="see_also_description"> The event time in milliseconds.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">horizontal</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">boolean</span></span></td>
-           <td class="see_also_description"> The orientation of the axis.</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">delta</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description">
-
-</td>
-         </tr>
-         <tr>
-           <td><span class="parameter">delta_discrete</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description">
-
-</td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item229 class="hide_extra">
+    <span id=item212 class="hide_extra">
     </span>
 
 </dd>

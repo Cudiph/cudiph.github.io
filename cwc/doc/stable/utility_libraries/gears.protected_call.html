@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Utillib gears.protected_call - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+</ul>
+
+
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><strong>gears.protected_call</strong></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
+  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+</ul>
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/10-changelog.md.html">Change log</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>gears.protected_call</code></h1>
+<p>Safely call a function and handle errors using <a href="../utility_libraries/gears.debug.html#">gears.debug</a>.</p>
+<p> This is a <a href="https://www.lua.org/manual/5.4/manual.html#pdf-pcall">pcall</a>/<a href="https://www.lua.org/manual/5.4/manual.html#pdf-xpcall">xpcall</a> wrapper. All it does is to integrate into the
+ AwesomeWM-wide error handling and logging.</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2016 Uli Schlachter</li>
+                <li>
+                    <strong>Originally authored by</strong>: Uli Schlachter<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#gears.protected_call">gears.protected_call <span class='function_args'> <b>(</b>func, ...<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+      </td>
+      <td class="summary">
+        Call a function in protected mode and handle error-reporting.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="gears.protected_call" href="#gears.protected_call">&#128279;</a>
+    <strong>gears.protected_call <span class='function_args'> <b>(</b>func, ...<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;()</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Call a function in protected mode and handle error-reporting.
+ If the function call succeeds, all results of the function are returned.
+ Otherwise, an error message is printed and nothing is returned.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">func</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> The function to call</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">...</span></td>
+           <td></td>
+           <td><span class="types"></span></td>
+           <td class="see_also_description"> Arguments to the function</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The result of the given function, or nothing if an error occurred.
+    </ol>
+
+
+
+
+
+    <span id=item402 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>

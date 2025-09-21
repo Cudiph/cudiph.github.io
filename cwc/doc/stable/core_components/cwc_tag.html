@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Coreclassmod cwc.plugin - cwc API documentation</title>
+    <title>Coreclassmod cwc_tag - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -47,10 +47,8 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Static_module_functions">Static module functions</a></li>
 <li><a href="#Object_properties">Object properties</a></li>
 <li><a href="#Object_methods">Object methods </a></li>
-<li><a href="#Signals">Signals</a></li>
 </ul>
 
 
@@ -60,16 +58,16 @@
   <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
   <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
   <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
-  <li><strong>cwc.plugin<span class='listplusign'> + cwc_plugin</span></strong></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
   <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
   <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
-  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+  <li><strong>cwc_tag</strong></li>
 </ul>
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -119,11 +117,14 @@
 
 <div id="content">
 
-<h1>Module: <code>cwc.plugin</code></h1>
-<p>C plugins lifecycle and management API.</p>
-<p>
+<h1>Module: <code>cwc_tag</code></h1>
+<p>Tag object for managing virtual workspace in a screen.</p>
+<p> To get the tag from the screen use <a href="../core_components/cwc.screen.html#get_tag">cwc.screen:get_tag</a>.</p>
 
-</p>
+<p> The screen has its own tags ranged from 1-30, to query the
+ maximum workspace the compositor can handle use
+ <code>cwc.screen.get_max_workspace</code>. Tag index 0 is used for wallpaper view and
+ will not show any client</p>
     <div class="extra-header">
 
 
@@ -146,110 +147,80 @@
 </div>
 
 
-<h2><a href="#Static_module_functions">Static module functions</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#get"><span class='function_modname'>cwc.plugin.</span>get <span class='function_args'> <b>(</b><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_plugin[]</span></span>
-      </td>
-      <td class="summary">
-        Get all loaded plugin into a table.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#load"><span class='function_modname'>cwc.plugin.</span>load <span class='function_args'> <b>(</b>path<b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
-      </td>
-      <td class="summary">
-        load C plugin
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#unload_byname"><span class='function_modname'>cwc.plugin.</span>unload_byname <span class='function_args'> <b>(</b>name<b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
-      </td>
-      <td class="summary">
-        unload C plugin filtered by name
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
 <h2><a href="#Object_properties">Object properties</a></h2>
 <table class="function_list">
     <tr class="summary_row">
-      <td class="shortname" ><a href="#">data</a></td>
-      <td class="summarytype" nowrap>table</td>
-      <td class="summary">user data table</td>
-      <td class="baseclass" nowrap>
-          <span class="chips">Read only</span>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="shortname" ><a href="#name">name</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#index">index</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
       <td class="summary">
-        The name of the plugin.
+        Index of the tag in the screen.
       </td>
       <td class="baseclass" nowrap>
         <span class="chips">Read only</span>
       </td>
     </tr>
     <tr class="summary_row">
-      <td class="shortname" ><a href="#description">description</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#screen">screen</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>cwc_screen</span></td>
       <td class="summary">
-        The description of the plugin.
+        The screen where this tag belongs.
       </td>
       <td class="baseclass" nowrap>
         <span class="chips">Read only</span>
       </td>
     </tr>
     <tr class="summary_row">
-      <td class="shortname" ><a href="#version">version</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#selected">selected</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
       <td class="summary">
-        The version of the plugin.
+        True if the tag is selected to be viewed.
       </td>
       <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
       </td>
     </tr>
     <tr class="summary_row">
-      <td class="shortname" ><a href="#author">author</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#gap">gap</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
       <td class="summary">
-        The author of the plugin.
+        The gap (spacing, also called useless_gap) between clients.
       </td>
       <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
       </td>
     </tr>
     <tr class="summary_row">
-      <td class="shortname" ><a href="#license">license</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#mwfact">mwfact</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>number</span></td>
       <td class="summary">
-        The license of the plugin.
+        Master width factor.
       </td>
       <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
       </td>
     </tr>
     <tr class="summary_row">
-      <td class="shortname" ><a href="#filename">filename</a></td>
-      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="shortname" ><a href="#layout_mode">layout_mode</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
       <td class="summary">
-        The filename of the plugin.
+        The layout mode of the selected workspace.
       </td>
       <td class="baseclass" nowrap>
-        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#master_count">master_count</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Set the number of master windows.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#column_count">column_count</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Set the number of columns.
+      </td>
+      <td class="baseclass" nowrap>
       </td>
     </tr>
 </table>
@@ -257,34 +228,33 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#unload">:unload <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <a href="#toggle">:toggle <span class='function_args'> <b>(</b><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Unload this plugin.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Signals">Signals</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#plugin::load">plugin::load</a>
-      </td>
-      <td class="summary">
-        Emitted when a plugin is loaded.
+        Toggle selected tag.
       </td>
       <td class="baseclass" nowrap>
       </td>
     </tr>
     <tr class="summary_row">
       <td class="name" >
-        <a href="#plugin::unload">plugin::unload</a>
+        <a href="#view_only">:view_only <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Emitted when the plugin is about to be unloaded.
+        Set this tag as the only selected tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#strategy_idx">:strategy_idx <span class='function_args'> <b>(</b>idx<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Change the strategy in layout mode.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -295,133 +265,19 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="get" href="#get">&#128279;</a>
-    <strong><span class='function_modname'>cwc.plugin.</span>get <span class='function_args'> <b>(</b><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_plugin[]</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Get all loaded plugin into a table.
-
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">cwc_plugin[]</span></span>
-
-
-
-    </ol>
-
-
-
-
-
-    <span id=item200 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="load" href="#load">&#128279;</a>
-    <strong><span class='function_modname'>cwc.plugin.</span>load <span class='function_args'> <b>(</b>path<b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    load C plugin
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">path</span></td>
-           <td></td>
-           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
-           <td class="see_also_description"> File location of the C shared object</td>
-         </tr>
-        </table>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        true if loading success
-    </ol>
-
-
-
-
-
-    <span id=item201 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="unload_byname" href="#unload_byname">&#128279;</a>
-    <strong><span class='function_modname'>cwc.plugin.</span>unload_byname <span class='function_args'> <b>(</b>name<b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    unload C plugin filtered by name
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">name</span></td>
-           <td></td>
-           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
-           <td class="see_also_description"> Plugin name</td>
-         </tr>
-        </table>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">boolean</span></span>
-        true if unloading success
-    </ol>
-
-
-
-
-
-    <span id=item202 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
     <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="name" href="#name">&#128279;</a>
-    <strong>name</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="index" href="#index">&#128279;</a>
+    <strong>index</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
     <span class="baseclass" >
          &middot read only
     </span>
     </dt>
     <dd>
-    The name of the plugin.
+    Index of the tag in the screen.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -432,30 +288,56 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: static</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: MAX_WORKSPACE</td>
        <tr/>
      </table>
     </span>
 
 
 
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.screen.html#max_workspace" title="In the cwc.screen module.">cwc.screen.max_workspace</a></td>
+         <td>Maximum workspace the compositor can handle. (cwc.screen)</td>
+         <td>
+             <span class="chips">fields</span>
+         </td>
+     <tr>
+    </table>
 
 
 
-    <span id=item203 class="hide_extra">
+    <span id=item293 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="description" href="#description">&#128279;</a>
-    <strong>description</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="screen" href="#screen">&#128279;</a>
+    <strong>screen</strong>
+    <span class="proptype"><span class='summary_type'>cwc_screen</span></span>
     <span class="baseclass" >
          &middot read only
     </span>
     </dt>
     <dd>
-    The description of the plugin.
+    The screen where this tag belongs.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -466,30 +348,39 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: static</td>
        <tr/>
      </table>
     </span>
 
 
 
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../core_components/cwc.screen.html#" title="In the cwc.screen module.">cwc.screen</a></td>
+         <td>Low-Level API to manage output and the tag/workspace system </td>
+         <td>
+             <span class="chips">module</span>
+         </td>
+     <tr>
+    </table>
 
 
 
-    <span id=item204 class="hide_extra">
+    <span id=item294 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="version" href="#version">&#128279;</a>
-    <strong>version</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="selected" href="#selected">&#128279;</a>
+    <strong>selected</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
     <span class="baseclass" >
-         &middot read only
     </span>
     </dt>
     <dd>
-    The version of the plugin.
+    True if the tag is selected to be viewed.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -500,7 +391,15 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
        <tr/>
      </table>
     </span>
@@ -510,20 +409,19 @@
 
 
 
-    <span id=item205 class="hide_extra">
+    <span id=item295 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="author" href="#author">&#128279;</a>
-    <strong>author</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="gap" href="#gap">&#128279;</a>
+    <strong>gap</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
     <span class="baseclass" >
-         &middot read only
     </span>
     </dt>
     <dd>
-    The author of the plugin.
+    The gap (spacing, also called useless_gap) between clients.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -534,7 +432,15 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: 0</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0</td>
        <tr/>
      </table>
     </span>
@@ -544,20 +450,19 @@
 
 
 
-    <span id=item206 class="hide_extra">
+    <span id=item296 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="license" href="#license">&#128279;</a>
-    <strong>license</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="mwfact" href="#mwfact">&#128279;</a>
+    <strong>mwfact</strong>
+    <span class="proptype"><span class='summary_type'>number</span></span>
     <span class="baseclass" >
-         &middot read only
     </span>
     </dt>
     <dd>
-    The license of the plugin.
+    Master width factor.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -568,7 +473,23 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: 0.5</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Minimum value
+         </i>
+        </td>
+        <td>: 0.1</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Maximum value
+         </i>
+        </td>
+        <td>: 0.9</td>
        <tr/>
      </table>
     </span>
@@ -578,20 +499,19 @@
 
 
 
-    <span id=item207 class="hide_extra">
+    <span id=item297 class="hide_extra">
     </span>
 
 </dd>
     <dt>
-    <a class="copy-link js-copy-link" name="filename" href="#filename">&#128279;</a>
-    <strong>filename</strong>
-    <span class="proptype"><span class='summary_type'>string</span></span>
+    <a class="copy-link js-copy-link" name="layout_mode" href="#layout_mode">&#128279;</a>
+    <strong>layout_mode</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
     <span class="baseclass" >
-         &middot read only
     </span>
     </dt>
     <dd>
-    The filename of the plugin.
+    The layout mode of the selected workspace.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -602,7 +522,74 @@
           Default value
          </i>
         </td>
-        <td>: <code>''</code></td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>:  Layout mode enum from cuteful.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#layout_mode" title="In the cuteful.enum module.">cuteful.enum.layout_mode</a></td>
+         <td>layout_mode enum extracted from cwc <code>types.h</code>. (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item298 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="master_count" href="#master_count">&#128279;</a>
+    <strong>master_count</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the number of master windows.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>1</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
        <tr/>
      </table>
     </span>
@@ -612,7 +599,48 @@
 
 
 
-    <span id=item208 class="hide_extra">
+    <span id=item299 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="column_count" href="#column_count">&#128279;</a>
+    <strong>column_count</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Set the number of columns.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>1</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item300 class="hide_extra">
     </span>
 
 </dd>
@@ -621,14 +649,14 @@
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="unload" href="#unload">&#128279;</a>
-    <strong>:unload <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <a class="copy-link js-copy-link" name="toggle" href="#toggle">&#128279;</a>
+    <strong>:toggle <span class='function_args'> <b>(</b><b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Unload this plugin.
+    Toggle selected tag.
 
 
 
@@ -636,24 +664,41 @@
 
 
 
-    <span id=item209 class="hide_extra">
+    <span id=item301 class="hide_extra">
     </span>
 
 </dd>
-</dl>
-    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
-
-    <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="plugin::load" href="#plugin::load">&#128279;</a>
-    <strong>plugin::load</strong>
+    <a class="copy-link js-copy-link" name="view_only" href="#view_only">&#128279;</a>
+    <strong>:view_only <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Emitted when a plugin is loaded.
+    Set this tag as the only selected tag.
 
-    <h3>Arguments:</h3>
+
+
+
+
+
+
+    <span id=item302 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="strategy_idx" href="#strategy_idx">&#128279;</a>
+    <strong>:strategy_idx <span class='function_args'> <b>(</b>idx<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Change the strategy in layout mode.
+
+    <h3>Parameters:</h3>
     <table class="see_also">
          <tr class="param_header">
             <th>Name</th>
@@ -662,10 +707,12 @@
             <th>Description</th>
          </tr>
          <tr>
-           <td><span class="parameter">p</span></td>
+           <td><span class="parameter">idx</span></td>
            <td></td>
-           <td><span class="types"><span class="type">cwc_plugin</span></span></td>
-           <td class="see_also_description"> The plugin object.</td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description">
+
+</td>
          </tr>
         </table>
 
@@ -674,41 +721,7 @@
 
 
 
-    <span id=item210 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="plugin::unload" href="#plugin::unload">&#128279;</a>
-    <strong>plugin::unload</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Emitted when the plugin is about to be unloaded.
-
-    <h3>Arguments:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">p</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cwc_plugin</span></span></td>
-           <td class="see_also_description"> The plugin object.</td>
-         </tr>
-        </table>
-
-
-
-
-
-
-    <span id=item211 class="hide_extra">
+    <span id=item303 class="hide_extra">
     </span>
 
 </dd>
