@@ -48,7 +48,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Static_module_functions">Static module functions</a></li>
-<li><a href="#Config_functions">Config functions</a></li>
+<li><a href="#Config_key">Config key</a></li>
 </ul>
 
 
@@ -93,12 +93,14 @@
 </ul>
 <h2>Libraries</h2>
 <ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
@@ -169,15 +171,13 @@
       </td>
     </tr>
 </table>
-<h2><a href="#Config_functions">Config functions</a></h2>
+<h2><a href="#Config_key">Config key</a></h2>
 <table class="function_list">
     <tr class="summary_row">
-      <td class="name" >
-        <a href="#set_border_color_raised"><span class='function_modname'>cwc.cwcle.</span>set_border_color_raised <span class='function_args'> <b>(</b>color<b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
+      <td class="shortname" ><a href="#border_color_raised">border_color_raised</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>gears_color</span></td>
       <td class="summary">
-        Set the border of toplevel when raised.
+        The border color when the client is raised.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -232,7 +232,7 @@
 
 
 
-    <span id=item148 class="hide_extra">
+    <span id=item169 class="hide_extra">
     </span>
 
 </dd>
@@ -277,39 +277,37 @@
 
 
 
-    <span id=item149 class="hide_extra">
+    <span id=item170 class="hide_extra">
     </span>
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Config_functions"></a>Config functions</h2>
+    <h2 class="section-header "><a name="Config_key"></a>Config key</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="set_border_color_raised" href="#set_border_color_raised">&#128279;</a>
-    <strong><span class='function_modname'>cwc.cwcle.</span>set_border_color_raised <span class='function_args'> <b>(</b>color<b>)</b></span></strong>
-    <span class="proptype"></span>
+    <a class="copy-link js-copy-link" name="border_color_raised" href="#border_color_raised">&#128279;</a>
+    <strong>border_color_raised</strong>
+    <span class="proptype"><span class='summary_type'>gears_color</span></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Set the border of toplevel when raised.
+    The border color when the client is raised.
 
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">color</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">cairo_pattern_t</span></span></td>
-           <td class="see_also_description"> Color from gears.color</td>
-         </tr>
-        </table>
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>#ffaaff</code></td>
+       <tr/>
+     </table>
+    </span>
 
 
 
@@ -326,7 +324,7 @@
 
 
 
-    <span id=item150 class="hide_extra">
+    <span id=item171 class="hide_extra">
     </span>
 
 </dd>

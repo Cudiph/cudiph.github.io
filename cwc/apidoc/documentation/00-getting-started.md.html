@@ -101,12 +101,14 @@
 </ul>
 <h2>Libraries</h2>
 <ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
@@ -246,6 +248,39 @@ cwc.client.<span class="function-name">set_border_color_normal</span>(gears.<spa
 <span class="keyword">end</span>
 </pre>
 
+
+<p>Or better yet using the declarative config like so.
+Below script is equivalent to the script above.</p>
+
+
+<pre>
+<span class="comment">---- ./conf.lua ----
+</span><span class="keyword">local</span> gears = <span class="global">require</span>(<span class="string">"gears"</span>)
+
+<span class="keyword">local</span> conf = {
+    cursor_size = <span class="number">24</span>,
+    repeat_rate = <span class="number">30</span>,
+    border_color_normal = gears.<span class="function-name">color</span>(gears.<span class="function-name">color</span>(<span class="string">"#423e44"</span>))
+    border_color_raised = gears.<span class="function-name">color</span>(gears.<span class="function-name">color</span>(<span class="string">"#d2d6f9"</span>))
+}
+
+<span class="keyword">return</span> conf
+
+<span class="comment">---- ./rc.lua ----
+</span><span class="keyword">local</span> config = <span class="global">require</span>(<span class="string">"config"</span>)
+
+<span class="comment">-- config.init should go first before anything else
+</span>config.<span class="function-name">init</span>(<span class="global">require</span>(<span class="string">"conf"</span>))
+
+<span class="comment">-- rest of script...</span>
+</pre>
+
+
+<p>Before really opening the wayland session,
+it is better to run <code>cwc --check</code> to verify if there any error in the configuration,
+so there is no confusing blank screen.</p>
+
+<p>To switch tty press <code>ALT + CTRL + Fn</code> where n is the tty number.</p>
 
 <p><a name="Default_Keybinding"></a></p>
 <h2>Default Keybinding</h2>
