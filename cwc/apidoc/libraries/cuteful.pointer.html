@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Module cuteful.screen - cwc API documentation</title>
+    <title>Module cuteful.pointer - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -56,8 +56,8 @@
   <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
-  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
-  <li><strong>cuteful.screen</strong></li>
+  <li><strong>cuteful.pointer</strong></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
@@ -119,8 +119,8 @@
 
 <div id="content">
 
-<h1>Module: <code>cuteful.screen</code></h1>
-<p>Useful functions for screen object.</p>
+<h1>Module: <code>cuteful.pointer</code></h1>
+<p>Useful functions for pointer stuff.</p>
 <p>
 
 </p>
@@ -150,33 +150,11 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#idx"><span class='function_modname'>cuteful.screen.</span>idx <span class='function_args'> <b>(</b>offset, <span class="optional_param">s</span><b>)</b></span></a>
-        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_screen</span></span>
+        <a href="#bind_swipe"><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed, cancelled, options<b>)</b></span></a>
+        <span class="summarytype"></span>
       </td>
       <td class="summary">
         Get a screen by its relative index.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#focus_relative"><span class='function_modname'>cuteful.screen.</span>focus_relative <span class='function_args'> <b>(</b>offset<b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Move the focus to a screen relative to the current one.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#focus_bydirection"><span class='function_modname'>cuteful.screen.</span>focus_bydirection <span class='function_args'> <b>(</b>dir, <span class="optional_param">s</span><b>)</b></span></a>
-        <span class="summarytype"></span>
-      </td>
-      <td class="summary">
-        Move the focus to a screen in a specific direction.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -191,9 +169,9 @@
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="idx" href="#idx">&#128279;</a>
-    <strong><span class='function_modname'>cuteful.screen.</span>idx <span class='function_args'> <b>(</b>offset, <span class="optional_param">s</span><b>)</b></span></strong>
-    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_screen</span></span>
+    <a class="copy-link js-copy-link" name="bind_swipe" href="#bind_swipe">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed, cancelled, options<b>)</b></span></strong>
+    <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
@@ -207,62 +185,56 @@
             <th></th>
             <th>Type(s)</th>
             <th>Description</th>
-            <th>Default value</th>
          </tr>
          <tr>
-           <td><span class="parameter">offset</span></td>
+           <td><span class="parameter">fingers</span></td>
            <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> Offset index starting from the pivot.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Number of fingers that touch the surface.</td>
          </tr>
          <tr>
-           <td><span class="parameter">s</span></td>
-           <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">cwc_screen</span></span></td>
-           <td class="see_also_description"> Screen as pivot offset.</td>
-           <td><span class="default_value"><code>nil</code></span></td>
-         </tr>
-        </table>
-
-    <h3>Returns:</h3>
-    <ol>
-
-           <span class="types"><span class="type">cwc_screen</span></span>
-        The screen object
-    </ol>
-
-
-
-
-
-    <span id=item51 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="focus_relative" href="#focus_relative">&#128279;</a>
-    <strong><span class='function_modname'>cuteful.screen.</span>focus_relative <span class='function_args'> <b>(</b>offset<b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Move the focus to a screen relative to the current one.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">offset</span></td>
+           <td><span class="parameter">direction</span></td>
            <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> Value to add to the current focused screen index. 1 to focus the next one, -1 to focus the previous one.</td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> The swipe direction.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">committed</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Callback function when swipe is considered valid. <code>fn(cwc_pointer)</code></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">cancelled</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Callback function when swipe is considered not swiping. <code>fn(cwc_pointer)</code></td>
+         </tr>
+        <tr>
+           <td><span class="parameter">options</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description">
+
+ </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">threshold</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Threshold distance from initial point that is considered a swipes.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">cancel_threshold</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Threshold distance from initial point to be considered cancelled.</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">skip_events</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Don't send swipe gesturesevents to focused client.</td>
          </tr>
         </table>
 
@@ -271,61 +243,7 @@
 
 
 
-    <span id=item52 class="hide_extra">
-    </span>
-
-</dd>
-    <dt>
-    <a class="copy-link js-copy-link" name="focus_bydirection" href="#focus_bydirection">&#128279;</a>
-    <strong><span class='function_modname'>cuteful.screen.</span>focus_bydirection <span class='function_args'> <b>(</b>dir, <span class="optional_param">s</span><b>)</b></span></strong>
-    <span class="proptype"></span>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Move the focus to a screen in a specific direction.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-            <th>Default value</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">dir</span></td>
-           <td></td>
-           <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description"> The direction enum.</td>
-           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
-         </tr>
-         <tr>
-           <td><span class="parameter">s</span></td>
-           <td><span class="chips">Optional</span></td>
-           <td><span class="types"><span class="type">cwc_screen</span></span></td>
-           <td class="see_also_description"> Screen.</td>
-           <td><span class="default_value"><code>nil</code></span></td>
-         </tr>
-        </table>
-
-
-
-    <h3>See also:</h3>
-    <table class="see_also">
-     <tr>
-         <td><a href="../libraries/cuteful.enum.html#direction" title="In the cuteful.enum module.">cuteful.enum.direction</a></td>
-         <td>Extracted from wlr_direction <code>wlr_output_layout.h</code> (cuteful.enum)</td>
-         <td>
-             <span class="chips">tables</span>
-         </td>
-     <tr>
-    </table>
-
-
-
-    <span id=item53 class="hide_extra">
+    <span id=item50 class="hide_extra">
     </span>
 
 </dd>

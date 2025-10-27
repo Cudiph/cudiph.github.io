@@ -100,6 +100,7 @@
   <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
@@ -394,6 +395,36 @@
       <td class="baseclass" nowrap>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#pointer::swipe::begin">pointer::swipe::begin</a>
+      </td>
+      <td class="summary">
+        Emitted when swipe gestures begin.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#pointer::swipe::update">pointer::swipe::update</a>
+      </td>
+      <td class="summary">
+        Emitted when fingers move after swipe gestures started.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#pointer::swipe::end">pointer::swipe::end</a>
+      </td>
+      <td class="summary">
+        Emitted when finger(s) lifted from the surface.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
 
 <br/>
@@ -419,7 +450,7 @@
 
 
 
-    <span id=item251 class="hide_extra">
+    <span id=item255 class="hide_extra">
     </span>
 
 </dd>
@@ -440,7 +471,7 @@
 
 
 
-    <span id=item252 class="hide_extra">
+    <span id=item256 class="hide_extra">
     </span>
 
 </dd>
@@ -460,7 +491,7 @@
 
 
 
-    <span id=item253 class="hide_extra">
+    <span id=item257 class="hide_extra">
     </span>
 
 </dd>
@@ -492,7 +523,7 @@
 
 
 
-    <span id=item233 class="hide_extra">
+    <span id=item234 class="hide_extra">
     </span>
 
 </dd>
@@ -587,7 +618,7 @@
 
 
 
-    <span id=item234 class="hide_extra">
+    <span id=item235 class="hide_extra">
     </span>
 
 </dd>
@@ -607,7 +638,7 @@
 
 
 
-    <span id=item235 class="hide_extra">
+    <span id=item236 class="hide_extra">
     </span>
 
 </dd>
@@ -633,7 +664,7 @@
 
 
 
-    <span id=item236 class="hide_extra">
+    <span id=item237 class="hide_extra">
     </span>
 
 </dd>
@@ -678,7 +709,7 @@
 
 
 
-    <span id=item237 class="hide_extra">
+    <span id=item238 class="hide_extra">
     </span>
 
 </dd>
@@ -698,7 +729,7 @@
 
 
 
-    <span id=item238 class="hide_extra">
+    <span id=item239 class="hide_extra">
     </span>
 
 </dd>
@@ -718,7 +749,7 @@
 
 
 
-    <span id=item239 class="hide_extra">
+    <span id=item240 class="hide_extra">
     </span>
 
 </dd>
@@ -738,7 +769,7 @@
 
 
 
-    <span id=item240 class="hide_extra">
+    <span id=item241 class="hide_extra">
     </span>
 
 </dd>
@@ -797,7 +828,7 @@
 
 
 
-    <span id=item241 class="hide_extra">
+    <span id=item242 class="hide_extra">
     </span>
 
 </dd>
@@ -835,7 +866,7 @@
 
 
 
-    <span id=item242 class="hide_extra">
+    <span id=item243 class="hide_extra">
     </span>
 
 </dd>
@@ -886,7 +917,7 @@
 
 
 
-    <span id=item243 class="hide_extra">
+    <span id=item244 class="hide_extra">
     </span>
 
 </dd>
@@ -928,7 +959,7 @@
 
 
 
-    <span id=item244 class="hide_extra">
+    <span id=item245 class="hide_extra">
     </span>
 
 </dd>
@@ -970,7 +1001,7 @@
 
 
 
-    <span id=item245 class="hide_extra">
+    <span id=item246 class="hide_extra">
     </span>
 
 </dd>
@@ -1025,7 +1056,7 @@
 
 
 
-    <span id=item246 class="hide_extra">
+    <span id=item247 class="hide_extra">
     </span>
 
 </dd>
@@ -1076,7 +1107,7 @@
 
 
 
-    <span id=item247 class="hide_extra">
+    <span id=item248 class="hide_extra">
     </span>
 
 </dd>
@@ -1144,7 +1175,7 @@
 
 
 
-    <span id=item248 class="hide_extra">
+    <span id=item249 class="hide_extra">
     </span>
 
 </dd>
@@ -1206,7 +1237,7 @@
 
 
 
-    <span id=item249 class="hide_extra">
+    <span id=item250 class="hide_extra">
     </span>
 
 </dd>
@@ -1268,7 +1299,157 @@
 
 
 
-    <span id=item250 class="hide_extra">
+    <span id=item251 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="pointer::swipe::begin" href="#pointer::swipe::begin">&#128279;</a>
+    <strong>pointer::swipe::begin</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when swipe gestures begin.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">pointer</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
+           <td class="see_also_description"> The pointer object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">time_msec</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The event time in milliseconds.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fingers</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Number of fingers that touch the surface.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item252 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="pointer::swipe::update" href="#pointer::swipe::update">&#128279;</a>
+    <strong>pointer::swipe::update</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when fingers move after swipe gestures started.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">pointer</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
+           <td class="see_also_description"> The pointer object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">time_msec</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The event time in milliseconds.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">fingers</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Number of fingers that touch the surface.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">dx</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Difference of x axis compared to the previous event.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">dy</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Difference of y axis compared to the previous event.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item253 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="pointer::swipe::end" href="#pointer::swipe::end">&#128279;</a>
+    <strong>pointer::swipe::end</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when finger(s) lifted from the surface.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">pointer</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
+           <td class="see_also_description"> The pointer object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">time_msec</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The event time in milliseconds.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">cancelled</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> The swipe gesture is considered cancelled.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item254 class="hide_extra">
     </span>
 
 </dd>
