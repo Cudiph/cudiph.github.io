@@ -150,7 +150,7 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#bind_swipe"><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed, cancelled, options<b>)</b></span></a>
+        <a href="#bind_swipe"><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed_cb, cancelled_cb, options<b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
       <td class="summary">
@@ -170,7 +170,7 @@
     <dl class="function">
     <dt>
     <a class="copy-link js-copy-link" name="bind_swipe" href="#bind_swipe">&#128279;</a>
-    <strong><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed, cancelled, options<b>)</b></span></strong>
+    <strong><span class='function_modname'>cuteful.pointer.</span>bind_swipe <span class='function_args'> <b>(</b>fingers, direction, committed_cb, cancelled_cb, options<b>)</b></span></strong>
     <span class="proptype"></span>
     <span class="baseclass" >
     </span>
@@ -198,17 +198,29 @@
            <td><span class="types"><span class="type">enum</span></span></td>
            <td class="see_also_description"> The swipe direction.</td>
          </tr>
-         <tr>
-           <td><span class="parameter">committed</span></td>
+        <tr>
+           <td><span class="parameter">committed_cb</span></td>
            <td></td>
-           <td><span class="types"><span class="type">function</span></span></td>
-           <td class="see_also_description"> Callback function when swipe is considered valid. <code>fn(cwc_pointer)</code></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Callback function when swipe is considered valid. </td>
          </tr>
-         <tr>
-           <td><span class="parameter">cancelled</span></td>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">pointer</span></td>
            <td></td>
-           <td><span class="types"><span class="type">function</span></span></td>
-           <td class="see_also_description"> Callback function when swipe is considered not swiping. <code>fn(cwc_pointer)</code></td>
+           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
+           <td class="see_also_description"> The pointer object.</td>
+         </tr>
+        <tr>
+           <td><span class="parameter">cancelled_cb</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Callback function when swipe is considered not swiping. </td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">pointer</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_pointer</span></span></td>
+           <td class="see_also_description"> The pointer object.</td>
          </tr>
         <tr>
            <td><span class="parameter">options</span></td>
