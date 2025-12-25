@@ -313,6 +313,25 @@
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#layout_name">layout_name</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Current active xkb layout name.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#layout_index">layout_index</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Current active xkb layout index (0-based).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#grab">grab</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
       <td class="summary">
@@ -355,6 +374,16 @@
       <td class="baseclass" nowrap>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#kbd::prop::layout_index">kbd::prop::layout_index</a>
+      </td>
+      <td class="summary">
+        Emitted when xkb layout has changed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
 
 <br/>
@@ -391,7 +420,7 @@
 
 
 
-    <span id=item206 class="hide_extra">
+    <span id=item209 class="hide_extra">
     </span>
 
 </dd>
@@ -422,7 +451,7 @@
 
 
 
-    <span id=item207 class="hide_extra">
+    <span id=item210 class="hide_extra">
     </span>
 
 </dd>
@@ -442,7 +471,7 @@
 
 
 
-    <span id=item208 class="hide_extra">
+    <span id=item211 class="hide_extra">
     </span>
 
 </dd>
@@ -462,7 +491,7 @@
 
 
 
-    <span id=item209 class="hide_extra">
+    <span id=item212 class="hide_extra">
     </span>
 
 </dd>
@@ -488,7 +517,7 @@
 
 
 
-    <span id=item210 class="hide_extra">
+    <span id=item213 class="hide_extra">
     </span>
 
 </dd>
@@ -511,7 +540,7 @@
 
 
 
-    <span id=item211 class="hide_extra">
+    <span id=item214 class="hide_extra">
     </span>
 
 </dd>
@@ -534,7 +563,7 @@
 
 
 
-    <span id=item212 class="hide_extra">
+    <span id=item215 class="hide_extra">
     </span>
 
 </dd>
@@ -563,7 +592,7 @@
 
 
 
-    <span id=item213 class="hide_extra">
+    <span id=item216 class="hide_extra">
     </span>
 
 </dd>
@@ -590,7 +619,7 @@
 
 
 
-    <span id=item214 class="hide_extra">
+    <span id=item217 class="hide_extra">
     </span>
 
 </dd>
@@ -881,6 +910,81 @@
 
 </dd>
     <dt>
+    <a class="copy-link js-copy-link" name="layout_name" href="#layout_name">&#128279;</a>
+    <strong>layout_name</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Current active xkb layout name.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: default locale layout</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item202 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="layout_index" href="#layout_index">&#128279;</a>
+    <strong>layout_index</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Current active xkb layout index (0-based).
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item203 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
     <a class="copy-link js-copy-link" name="grab" href="#grab">&#128279;</a>
     <strong>grab</strong>
     <span class="proptype"><span class='summary_type'>boolean</span></span>
@@ -918,7 +1022,7 @@
 
 
 
-    <span id=item202 class="hide_extra">
+    <span id=item204 class="hide_extra">
     </span>
 
 </dd>
@@ -960,7 +1064,7 @@
 
 
 
-    <span id=item203 class="hide_extra">
+    <span id=item205 class="hide_extra">
     </span>
 
 </dd>
@@ -1016,7 +1120,7 @@
 
 
 
-    <span id=item204 class="hide_extra">
+    <span id=item206 class="hide_extra">
     </span>
 
 </dd>
@@ -1068,7 +1172,41 @@
 
 
 
-    <span id=item205 class="hide_extra">
+    <span id=item207 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="kbd::prop::layout_index" href="#kbd::prop::layout_index">&#128279;</a>
+    <strong>kbd::prop::layout_index</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when xkb layout has changed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">kbd</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_kbd</span></span></td>
+           <td class="see_also_description"> The keyboard object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item208 class="hide_extra">
     </span>
 
 </dd>
