@@ -367,6 +367,50 @@
       <td class="baseclass" nowrap>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_key">:send_key <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Send pointer key to client.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_key_raw">:send_key_raw <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Send pointer key to client without any compositor processing.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_axis">:send_axis <span class='function_args'> <b>(</b>delta, delta_discrete, <span class="optional_param">horizontal</span>, <span class="optional_param">inverse</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Send axis event.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_axis_raw">:send_axis_raw <span class='function_args'> <b>(</b>delta, delta_discrete, <span class="optional_param">horizontal</span>, <span class="optional_param">inverse</span><b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Send axis event without any compositor processing.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
 <h2><a href="#Signals">Signals</a></h2>
 <table class="function_list">
@@ -505,7 +549,7 @@
 
 
 
-    <span id=item271 class="hide_extra">
+    <span id=item275 class="hide_extra">
     </span>
 
 </dd>
@@ -526,7 +570,7 @@
 
 
 
-    <span id=item272 class="hide_extra">
+    <span id=item276 class="hide_extra">
     </span>
 
 </dd>
@@ -546,7 +590,7 @@
 
 
 
-    <span id=item273 class="hide_extra">
+    <span id=item277 class="hide_extra">
     </span>
 
 </dd>
@@ -1166,6 +1210,242 @@
     </span>
 
 </dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_key" href="#send_key">&#128279;</a>
+    <strong>:send_key <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send pointer key to client.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> Event code from <code>input-event-codes.h</code></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">state</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> Whether key is pressed (true) or released (false).</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#mouse_btn" title="In the cuteful.enum module.">cuteful.enum.mouse_btn</a></td>
+         <td>Extracted from Linux <code>input-event-codes.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#key_state" title="In the cuteful.enum module.">cuteful.enum.key_state</a></td>
+         <td>Extracted from <code>wayland-server-protocol.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item260 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_key_raw" href="#send_key_raw">&#128279;</a>
+    <strong>:send_key_raw <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send pointer key to client without any compositor processing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> Event code from <code>input-event-codes.h</code></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">state</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> Whether key is pressed (true) or released (false).</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#mouse_btn" title="In the cuteful.enum module.">cuteful.enum.mouse_btn</a></td>
+         <td>Extracted from Linux <code>input-event-codes.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#key_state" title="In the cuteful.enum module.">cuteful.enum.key_state</a></td>
+         <td>Extracted from <code>wayland-server-protocol.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item261 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_axis" href="#send_axis">&#128279;</a>
+    <strong>:send_axis <span class='function_args'> <b>(</b>delta, delta_discrete, <span class="optional_param">horizontal</span>, <span class="optional_param">inverse</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send axis event.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">delta</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The length of vector.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">delta_discrete</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Discrete step information with each multiple
+ of 120 representing one logical scroll step.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">horizontal</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Perform horizontal (x) axis instead of
+ vertical (y) axis.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">inverse</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Flip the direction of axis</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item262 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_axis_raw" href="#send_axis_raw">&#128279;</a>
+    <strong>:send_axis_raw <span class='function_args'> <b>(</b>delta, delta_discrete, <span class="optional_param">horizontal</span>, <span class="optional_param">inverse</span><b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send axis event without any compositor processing.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">delta</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> The length of vector.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">delta_discrete</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">number</span></span></td>
+           <td class="see_also_description"> Discrete step information with each multiple of
+ 120 representing one logical scroll step.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">horizontal</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Perform horizontal (x) axis instead of
+ vertical (y) axis.</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">inverse</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Flip the direction of axis</td>
+           <td><span class="default_value"><code>false</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item263 class="hide_extra">
+    </span>
+
+</dd>
 </dl>
     <h2 class="section-header "><a name="Signals"></a>Signals</h2>
 
@@ -1230,7 +1510,7 @@
 
 
 
-    <span id=item260 class="hide_extra">
+    <span id=item264 class="hide_extra">
     </span>
 
 </dd>
@@ -1292,7 +1572,7 @@
 
 
 
-    <span id=item261 class="hide_extra">
+    <span id=item265 class="hide_extra">
     </span>
 
 </dd>
@@ -1354,7 +1634,7 @@
 
 
 
-    <span id=item262 class="hide_extra">
+    <span id=item266 class="hide_extra">
     </span>
 
 </dd>
@@ -1400,7 +1680,7 @@
 
 
 
-    <span id=item263 class="hide_extra">
+    <span id=item267 class="hide_extra">
     </span>
 
 </dd>
@@ -1458,7 +1738,7 @@
 
 
 
-    <span id=item264 class="hide_extra">
+    <span id=item268 class="hide_extra">
     </span>
 
 </dd>
@@ -1504,7 +1784,7 @@
 
 
 
-    <span id=item265 class="hide_extra">
+    <span id=item269 class="hide_extra">
     </span>
 
 </dd>
@@ -1550,7 +1830,7 @@
 
 
 
-    <span id=item266 class="hide_extra">
+    <span id=item270 class="hide_extra">
     </span>
 
 </dd>
@@ -1621,7 +1901,7 @@
 
 
 
-    <span id=item267 class="hide_extra">
+    <span id=item271 class="hide_extra">
     </span>
 
 </dd>
@@ -1667,7 +1947,7 @@
 
 
 
-    <span id=item268 class="hide_extra">
+    <span id=item272 class="hide_extra">
     </span>
 
 </dd>
@@ -1713,7 +1993,7 @@
 
 
 
-    <span id=item269 class="hide_extra">
+    <span id=item273 class="hide_extra">
     </span>
 
 </dd>
@@ -1759,7 +2039,7 @@
 
 
 
-    <span id=item270 class="hide_extra">
+    <span id=item274 class="hide_extra">
     </span>
 
 </dd>
