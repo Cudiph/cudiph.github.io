@@ -67,8 +67,8 @@
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -94,12 +94,16 @@
 </ul>
 <h2>Libraries</h2>
 <ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
@@ -172,6 +176,14 @@
 </table>
 <h2><a href="#Object_properties">Object properties</a></h2>
 <table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#">data</a></td>
+      <td class="summarytype" nowrap>table</td>
+      <td class="summary">user data table</td>
+      <td class="baseclass" nowrap>
+          <span class="chips">Read only</span>
+      </td>
+    </tr>
     <tr class="summary_row">
       <td class="shortname" ><a href="#started">started</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
@@ -269,18 +281,14 @@
            <td><span class="parameter">timeout</span></td>
            <td></td>
            <td><span class="types"><span class="type">number</span></span></td>
-           <td class="see_also_description">
-
-</td>
+           <td class="see_also_description"> Timeout in seconds</td>
            <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
          </tr>
          <tr>
            <td><span class="parameter">callback</span></td>
            <td></td>
            <td><span class="types"><span class="type">function</span></span></td>
-           <td class="see_also_description">
-
-</td>
+           <td class="see_also_description"> Callback when the timer ends</td>
            <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
          </tr>
         <tr>
@@ -334,7 +342,7 @@
 
 
 
-    <span id=item271 class="hide_extra">
+    <span id=item334 class="hide_extra">
     </span>
 
 </dd>
@@ -380,7 +388,7 @@
 
 
 
-    <span id=item272 class="hide_extra">
+    <span id=item335 class="hide_extra">
     </span>
 
 </dd>
@@ -425,7 +433,7 @@
 
 
 
-    <span id=item273 class="hide_extra">
+    <span id=item336 class="hide_extra">
     </span>
 
 </dd>
@@ -466,7 +474,7 @@
 
 
 
-    <span id=item274 class="hide_extra">
+    <span id=item337 class="hide_extra">
     </span>
 
 </dd>
@@ -490,7 +498,7 @@
 
 
 
-    <span id=item275 class="hide_extra">
+    <span id=item338 class="hide_extra">
     </span>
 
 </dd>
@@ -510,7 +518,7 @@
 
 
 
-    <span id=item276 class="hide_extra">
+    <span id=item339 class="hide_extra">
     </span>
 
 </dd>
@@ -532,7 +540,7 @@
 
 
 
-    <span id=item277 class="hide_extra">
+    <span id=item340 class="hide_extra">
     </span>
 
 </dd>
@@ -552,7 +560,7 @@
 
 
 
-    <span id=item278 class="hide_extra">
+    <span id=item341 class="hide_extra">
     </span>
 
 </dd>

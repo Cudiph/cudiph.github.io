@@ -49,14 +49,17 @@
 <ul>
 <li><a href="#Fields">Fields</a></li>
 <li><a href="#Static_module_functions">Static module functions</a></li>
+<li><a href="#Object_properties">Object properties</a></li>
+<li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
 </ul>
 
 
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><strong>cwc.kbd</strong></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><strong>cwc.kbd<span class='listplusign'> + cwc_kbd</span></strong></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -93,12 +96,16 @@
 </ul>
 <h2>Libraries</h2>
 <ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
@@ -120,7 +127,11 @@
 <h1>Module: <code>cwc.kbd</code></h1>
 <p>Low-level API to manage keyboard behavior</p>
 <p>
+<p> See also:</p>
 
+<ul>
+    <li><a href="../libraries/cuteful.kbd.html#">cuteful.kbd</a></li>
+</ul>
 </p>
     <div class="extra-header">
 
@@ -234,6 +245,17 @@
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
+        <a href="#get"><span class='function_modname'>cwc.kbd.</span>get <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;cwc_kbd[]</span></span>
+      </td>
+      <td class="summary">
+        Get all keyboard in the server.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
         <a href="#bind"><span class='function_modname'>cwc.kbd.</span>bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></a>
         <span class="summarytype"></span>
       </td>
@@ -261,6 +283,146 @@
       </td>
       <td class="summary">
         Create a new keybind map.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_properties">Object properties</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#">data</a></td>
+      <td class="summarytype" nowrap>table</td>
+      <td class="summary">user data table</td>
+      <td class="baseclass" nowrap>
+          <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#seat">seat</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The seat names which the keyboard belong.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#modifiers">modifiers</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>bitfield</span></td>
+      <td class="summary">
+        Get active modifiers in this keyboard.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#layout_name">layout_name</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        Current active xkb layout name.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#layout_index">layout_index</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>integer</span></td>
+      <td class="summary">
+        Current active xkb layout index (0-based).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#grab">grab</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Grab the keyboard event and redirect it to signal.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#send_events">send_events</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Send keyboard events to the client.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Object_methods">Object methods </a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_key">:send_key <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Emulate a key event.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#send_key_raw">:send_key_raw <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Send key event to the client without any compositor processing.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#update_modifiers">:update_modifiers <span class='function_args'> <b>(</b>depressed, latched, locked, state<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Update modifiers state of this keyboard change are absolute and not
+ incremental.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#kbd::pressed">kbd::pressed</a>
+      </td>
+      <td class="summary">
+        Emitted when a key is pressed.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#kbd::released">kbd::released</a>
+      </td>
+      <td class="summary">
+        Emitted when a key is released.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#kbd::prop::layout_index">kbd::prop::layout_index</a>
+      </td>
+      <td class="summary">
+        Emitted when xkb layout has changed.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -301,7 +463,7 @@
 
 
 
-    <span id=item177 class="hide_extra">
+    <span id=item218 class="hide_extra">
     </span>
 
 </dd>
@@ -332,7 +494,7 @@
 
 
 
-    <span id=item178 class="hide_extra">
+    <span id=item219 class="hide_extra">
     </span>
 
 </dd>
@@ -352,7 +514,7 @@
 
 
 
-    <span id=item179 class="hide_extra">
+    <span id=item220 class="hide_extra">
     </span>
 
 </dd>
@@ -372,7 +534,7 @@
 
 
 
-    <span id=item180 class="hide_extra">
+    <span id=item221 class="hide_extra">
     </span>
 
 </dd>
@@ -398,7 +560,7 @@
 
 
 
-    <span id=item181 class="hide_extra">
+    <span id=item222 class="hide_extra">
     </span>
 
 </dd>
@@ -421,7 +583,7 @@
 
 
 
-    <span id=item182 class="hide_extra">
+    <span id=item223 class="hide_extra">
     </span>
 
 </dd>
@@ -444,7 +606,7 @@
 
 
 
-    <span id=item183 class="hide_extra">
+    <span id=item224 class="hide_extra">
     </span>
 
 </dd>
@@ -473,7 +635,7 @@
 
 
 
-    <span id=item184 class="hide_extra">
+    <span id=item225 class="hide_extra">
     </span>
 
 </dd>
@@ -500,7 +662,7 @@
 
 
 
-    <span id=item185 class="hide_extra">
+    <span id=item226 class="hide_extra">
     </span>
 
 </dd>
@@ -508,6 +670,34 @@
     <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
 
     <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="get" href="#get">&#128279;</a>
+    <strong><span class='function_modname'>cwc.kbd.</span>get <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;cwc_kbd[]</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Get all keyboard in the server.
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">cwc_kbd[]</span></span>
+
+
+
+    </ol>
+
+
+
+
+
+    <span id=item202 class="hide_extra">
+    </span>
+
+</dd>
     <dt>
     <a class="copy-link js-copy-link" name="bind" href="#bind">&#128279;</a>
     <strong><span class='function_modname'>cwc.kbd.</span>bind <span class='function_args'> <b>(</b>modifier, keyname, on_press, <span class="optional_param">on_release</span>, <span class="optional_param">data</span><b>)</b></span></strong>
@@ -584,6 +774,12 @@
            <td class="see_also_description"> Repeat keybind when hold (only on_press
  will be executed)</td>
          </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">pass</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Keypress will still pass through the client</td>
+         </tr>
         </table>
 
 
@@ -615,7 +811,7 @@
 
 
 
-    <span id=item174 class="hide_extra">
+    <span id=item203 class="hide_extra">
     </span>
 
 </dd>
@@ -652,7 +848,7 @@
 
 
 
-    <span id=item175 class="hide_extra">
+    <span id=item204 class="hide_extra">
     </span>
 
 </dd>
@@ -680,7 +876,559 @@
 
 
 
-    <span id=item176 class="hide_extra">
+    <span id=item205 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_properties"></a>Object properties</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="seat" href="#seat">&#128279;</a>
+    <strong>seat</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The seat names which the keyboard belong.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>"seat0"</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item206 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="modifiers" href="#modifiers">&#128279;</a>
+    <strong>modifiers</strong>
+    <span class="proptype"><span class='summary_type'>bitfield</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Get active modifiers in this keyboard.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item207 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="layout_name" href="#layout_name">&#128279;</a>
+    <strong>layout_name</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Current active xkb layout name.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: default locale layout</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item208 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="layout_index" href="#layout_index">&#128279;</a>
+    <strong>layout_index</strong>
+    <span class="proptype"><span class='summary_type'>integer</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Current active xkb layout index (0-based).
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>0</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Negative allowed
+         </i>
+        </td>
+        <td>: false</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item209 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="grab" href="#grab">&#128279;</a>
+    <strong>grab</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Grab the keyboard event and redirect it to signal.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item210 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_events" href="#send_events">&#128279;</a>
+    <strong>send_events</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    Send keyboard events to the client.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item211 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Object_methods"></a>Object methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="send_key" href="#send_key">&#128279;</a>
+    <strong>:send_key <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emulate a key event.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Event code from linux <code>input-event-codes.h</code></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">state</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> State of the key from wayland protocol.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#key_state" title="In the cuteful.enum module.">cuteful.enum.key_state</a></td>
+         <td>Extracted from <code>wayland-server-protocol.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item212 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="send_key_raw" href="#send_key_raw">&#128279;</a>
+    <strong>:send_key_raw <span class='function_args'> <b>(</b>keycode, state<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Send key event to the client without any compositor processing. </p>
+
+<p> Use this to bypass keybind and send_events property.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> Event code from <code>input-event-codes.h</code></td>
+         </tr>
+         <tr>
+           <td><span class="parameter">state</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> State of the key from wayland protocol.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#key_state" title="In the cuteful.enum module.">cuteful.enum.key_state</a></td>
+         <td>Extracted from <code>wayland-server-protocol.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item213 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="update_modifiers" href="#update_modifiers">&#128279;</a>
+    <strong>:update_modifiers <span class='function_args'> <b>(</b>depressed, latched, locked, state<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Update modifiers state of this keyboard change are absolute and not
+ incremental.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">depressed</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">bitfield</span></span></td>
+           <td class="see_also_description"> Depressed modifiers (Like CTRL, SHIFT, LOGO).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">latched</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">bitfield</span></span></td>
+           <td class="see_also_description"> Latched modifiers (sticky keys in Windows).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">locked</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">bitfield</span></span></td>
+           <td class="see_also_description"> Locked modifiers (Like Caps lock).</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">state</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">enum</span></span></td>
+           <td class="see_also_description"> State of the key from wayland protocol.</td>
+         </tr>
+        </table>
+
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.enum.html#modifier" title="In the cuteful.enum module.">cuteful.enum.modifier</a></td>
+         <td>Keyboard modifier constant mapped from <code>wlr_keyboard.h</code> (cuteful.enum)</td>
+         <td>
+             <span class="chips">tables</span>
+         </td>
+     <tr>
+     <tr>
+         <td><a href="../input_handling/cwc.kbd.html#modifiers" title="In the cwc.kbd module.">modifiers</a></td>
+         <td>Get active modifiers in this keyboard. </td>
+         <td>
+             <span class="chips">object properties</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item214 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="kbd::pressed" href="#kbd::pressed">&#128279;</a>
+    <strong>kbd::pressed</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when a key is pressed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">kbd</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_kbd</span></span></td>
+           <td class="see_also_description"> The keyboard object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">time_msec</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The event time in milliseconds.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The xkb keycode.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Name of the key.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item215 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="kbd::released" href="#kbd::released">&#128279;</a>
+    <strong>kbd::released</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when a key is released.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">kbd</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_kbd</span></span></td>
+           <td class="see_also_description"> The keyboard object.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">time_msec</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The event time in milliseconds.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">keycode</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">integer</span></span></td>
+           <td class="see_also_description"> The xkb keycode.</td>
+         </tr>
+         <tr>
+           <td><span class="parameter">name</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> Name of the key.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item216 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="kbd::prop::layout_index" href="#kbd::prop::layout_index">&#128279;</a>
+    <strong>kbd::prop::layout_index</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Emitted when xkb layout has changed.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">kbd</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_kbd</span></span></td>
+           <td class="see_also_description"> The keyboard object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item217 class="hide_extra">
     </span>
 
 </dd>

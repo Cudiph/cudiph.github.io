@@ -55,8 +55,8 @@
 <h2>Input handling</h2>
 <ul class="nowrap">
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
-  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd</a></li>
-  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer</a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><strong>cwc_kbindmap</strong></li>
 </ul>
@@ -93,12 +93,16 @@
 </ul>
 <h2>Libraries</h2>
 <ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
   <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
   <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
   <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
 <ul class="nowrap">
@@ -146,6 +150,14 @@
 
 <h2><a href="#Object_properties">Object properties</a></h2>
 <table class="function_list">
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#">data</a></td>
+      <td class="summarytype" nowrap>table</td>
+      <td class="summary">user data table</td>
+      <td class="baseclass" nowrap>
+          <span class="chips">Read only</span>
+      </td>
+    </tr>
     <tr class="summary_row">
       <td class="shortname" ><a href="#active">active</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
@@ -258,7 +270,7 @@
 
 
 
-    <span id=item287 class="hide_extra">
+    <span id=item351 class="hide_extra">
     </span>
 
 </dd>
@@ -317,7 +329,7 @@
 
 
 
-    <span id=item288 class="hide_extra">
+    <span id=item352 class="hide_extra">
     </span>
 
 </dd>
@@ -388,16 +400,22 @@
          <tr class="see_also_sublist">
            <td><span class="parameter">exclusive</span></td>
            <td><span class="chips">Optional</span></td>
-           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
            <td class="see_also_description"> Allow keybind to be executed even in
  lockscreen and shortcut inhibit</td>
          </tr>
          <tr class="see_also_sublist">
            <td><span class="parameter">repeated</span></td>
            <td><span class="chips">Optional</span></td>
-           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
            <td class="see_also_description"> Repeat keybind when hold (only on_press
  will be executed)</td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">pass</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">boolean</span></span></td>
+           <td class="see_also_description"> Keypress will still pass through the client</td>
          </tr>
         </table>
 
@@ -430,7 +448,7 @@
 
 
 
-    <span id=item289 class="hide_extra">
+    <span id=item353 class="hide_extra">
     </span>
 
 </dd>
@@ -450,7 +468,7 @@
 
 
 
-    <span id=item290 class="hide_extra">
+    <span id=item354 class="hide_extra">
     </span>
 
 </dd>
@@ -470,7 +488,7 @@
 
 
 
-    <span id=item291 class="hide_extra">
+    <span id=item355 class="hide_extra">
     </span>
 
 </dd>
@@ -490,7 +508,7 @@
 
 
 
-    <span id=item292 class="hide_extra">
+    <span id=item356 class="hide_extra">
     </span>
 
 </dd>

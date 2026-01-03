@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Class gears.cache - cwc API documentation</title>
+    <title>Module impl - cwc API documentation</title>
     <link rel="stylesheet" href="../ldoc.css" type="text/css" />
    <script>
      function show_extra(id) {
@@ -47,15 +47,22 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Constructors">Constructors</a></li>
-<li><a href="#Methods">Methods</a></li>
+<li><a href="#Static_module_functions">Static module functions</a></li>
 </ul>
 
 
-<h2>Classes</h2>
+<h2>Libraries</h2>
 <ul class="nowrap">
-  <li><strong>gears.cache</strong></li>
-  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+  <li><a href="../libraries/config.html">config</a></li>
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
+  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
+  <li><strong>impl</strong></li>
 </ul>
 <h2>Core components</h2>
 <ul class="nowrap">
@@ -96,18 +103,10 @@
 <ul class="nowrap">
   <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
 </ul>
-<h2>Libraries</h2>
+<h2>Classes</h2>
 <ul class="nowrap">
-  <li><a href="../libraries/config.html">config</a></li>
-  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
-  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
-  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
-  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
-  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
-  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
-  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
-  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
-  <li><a href="../libraries/impl.html">impl</a></li>
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
 </ul>
 <h2>Documentation</h2>
 <ul class="nowrap">
@@ -121,18 +120,19 @@
 
 <div id="content">
 
-<h1>Module: <code>gears.cache</code></h1>
-<p>Cache object with data that can be garbage-collected.</p>
-<p> Here is an example with a basic cache:</p>
+<h1>Module: <code>impl</code></h1>
+<p>Default implementation that optionally enabled.</p>
+<p> <code>impl.border</code> - Manage the client border color based on it states.</p>
     <div class="extra-header">
 
 
   <div class="extra-header__section">
     <h3>Info:</h3>
     <ul>
-                <li><strong>Copyright</strong>: 2015 Uli Schlachter</li>
+                <li><strong>Copyright</strong>: 2025</li>
+                <li><strong>License</strong>: GPLv3</li>
                 <li>
-                    <strong>Originally authored by</strong>: Uli Schlachter<br />
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
                     <small>(Full contributors list available on
                     <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
                         our github project)
@@ -145,27 +145,15 @@
 </div>
 
 
-<h2><a href="#Constructors">Constructors</a></h2>
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
 <table class="function_list">
     <tr class="summary_row">
       <td class="name" >
-        <a href="#gears.cache">gears.cache <span class='function_args'> <b>(</b>creation_cb<b>)</b></span></a>
+        <a href="#use_core"><span class='function_modname'>impl.</span>use_core <span class='function_args'> <b>(</b><b>)</b></span></a>
+        <span class="summarytype"></span>
       </td>
       <td class="summary">
-        Create a new cache object.
-      </td>
-      <td class="baseclass" nowrap>
-      </td>
-    </tr>
-</table>
-<h2><a href="#Methods">Methods</a></h2>
-<table class="function_list">
-    <tr class="summary_row">
-      <td class="name" >
-        <a href="#gears.cache:get">:get (...)</a>
-      </td>
-      <td class="summary">
-        Get an entry from the cache, creating it if it's missing.
+        Use implementation that provide core functionality.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -176,90 +164,26 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
 
     <dl class="function">
     <dt>
-    <a class="copy-link js-copy-link" name="gears.cache" href="#gears.cache">&#128279;</a>
-    <strong>gears.cache <span class='function_args'> <b>(</b>creation_cb<b>)</b></span></strong>
+    <a class="copy-link js-copy-link" name="use_core" href="#use_core">&#128279;</a>
+    <strong><span class='function_modname'>impl.</span>use_core <span class='function_args'> <b>(</b><b>)</b></span></strong>
+    <span class="proptype"></span>
     <span class="baseclass" >
     </span>
     </dt>
     <dd>
-    Create a new cache object.  A cache keeps some data that can be
- garbage-collected at any time, but might be useful to keep.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">creation_cb</span></td>
-           <td></td>
-           <td><span class="types"></span></td>
-           <td class="see_also_description"> Callback that is used for creating missing cache entries.</td>
-         </tr>
-        </table>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        A new cache object.
-    </ol>
+    Use implementation that provide core functionality.
 
 
 
 
 
-    <span id=item368 class="hide_extra">
-    </span>
-
-</dd>
-</dl>
-    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
-
-    <dl class="function">
-    <dt>
-    <a class="copy-link js-copy-link" name="gears.cache:get" href="#gears.cache:get">&#128279;</a>
-    <strong>:get (...)</strong>
-    <span class="baseclass" >
-    </span>
-    </dt>
-    <dd>
-    Get an entry from the cache, creating it if it's missing.
-
-    <h3>Parameters:</h3>
-    <table class="see_also">
-         <tr class="param_header">
-            <th>Name</th>
-            <th></th>
-            <th>Type(s)</th>
-            <th>Description</th>
-         </tr>
-         <tr>
-           <td><span class="parameter">...</span></td>
-           <td></td>
-           <td><span class="types"></span></td>
-           <td class="see_also_description"> Arguments for the creation callback. These are checked against the
-   cache contents for equality.</td>
-         </tr>
-        </table>
-
-    <h3>Returns:</h3>
-    <ol>
-
-        The entry from the cache
-    </ol>
 
 
-
-
-
-    <span id=item369 class="hide_extra">
+    <span id=item510 class="hide_extra">
     </span>
 
 </dd>
