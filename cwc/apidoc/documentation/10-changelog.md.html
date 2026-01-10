@@ -47,6 +47,7 @@
 
 <h2>Contents</h2>
 <ul>
+<li><a href="#v0_3_0">v0.3.0 </a></li>
 <li><a href="#v0_2_0">v0.2.0 </a></li>
 <li><a href="#v0_1_0">v0.1.0 </a></li>
 </ul>
@@ -123,6 +124,72 @@
 
 
 <h1>Change log</h1>
+
+<p><a name="v0_3_0"></a></p>
+<h2>v0.3.0</h2>
+
+<p>This release introduce keyboard object <code>cwc_kbd</code> and pointer object <code>cwc_pointer</code> which allow
+lua config to set the state of layout, modifiers, key, and axis. Another notable change is <a href="../core_components/cwc.html#spawn">cwc.spawn</a> now able to capture the output and exit code.</p>
+
+<h3>BREAKING CHANGES:</h3>
+
+<ul>
+    <li>Rename property signal from <code>&lt;object&gt;::property::&lt;name&gt;</code> to <code>&lt;object::prop::&lt;name&gt;</code>.
+    The signals affected are:</li>
+</ul>
+
+
+<pre>
+<span class="number">1.</span> <span class="string">"client::property::fullscreen"</span>
+<span class="number">2.</span> <span class="string">"client::property::maximized"</span>
+<span class="number">3.</span> <span class="string">"client::property::minimized"</span>
+<span class="number">4.</span> <span class="string">"client::property::floating"</span>
+<span class="number">5.</span> <span class="string">"client::property::urgent"</span>
+<span class="number">6.</span> <span class="string">"client::property::tag"</span>
+<span class="number">7.</span> <span class="string">"client::property::workspace"</span>
+</pre>
+
+
+<ul>
+    <li>Remove certain config field functions in exchange for config library:</li>
+</ul>
+
+
+<pre>
+<span class="number">1.</span> cwc.client.set_border_color_rotation
+<span class="number">2.</span> cwc.client.set_border_color_normal
+<span class="number">3.</span> cwc.cwcle.set_border_color_raised
+</pre>
+
+
+<h3>New features:</h3>
+
+<ul>
+    <li>add <code>cwc_kbd</code> and <code>cwc_pointer</code> objects</li>
+    <li>add <code>pass</code> options to kbindmap to allow key event still sent to the client</li>
+    <li>add <code>data</code> property to all object for user data</li>
+    <li>scroll wheel now can be used for mouse binding</li>
+    <li>allow <a href="../core_components/cwc.html#spawn">cwc.spawn</a> and <a href="../core_components/cwc.html#spawn_with_shell">cwc.spawn_with_shell</a> to capture its process output and exit code</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+    <li>fix cursor restoration when interactive ended</li>
+    <li>fix --force-grab-cursor issue in gamescope</li>
+    <li>fix XWayland popup</li>
+    <li>fix cursor shape doesn't change after client change under the cursor</li>
+</ul>
+
+<h3>Other changes:</h3>
+
+<ul>
+    <li>add options to build without XWayland</li>
+    <li>add nix packaging</li>
+    <li>swapping container won't emit "container::insert" signal</li>
+    <li>show where config is loaded in log</li>
+    <li>updated the localization files</li>
+</ul>
 
 <p><a name="v0_2_0"></a></p>
 <h2>v0.2.0</h2>

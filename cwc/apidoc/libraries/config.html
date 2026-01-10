@@ -225,6 +225,15 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#middle_click_paste">middle_click_paste</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Whether to disable primary selection pasting using middle click.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#border_color_normal">border_color_normal</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>gears_color</span></td>
       <td class="summary">
@@ -424,7 +433,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item10 class="hide_extra">
+    <span id=item11 class="hide_extra">
     </span>
 
 </dd>
@@ -467,7 +476,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item11 class="hide_extra">
+    <span id=item12 class="hide_extra">
     </span>
 
 </dd>
@@ -510,7 +519,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item12 class="hide_extra">
+    <span id=item13 class="hide_extra">
     </span>
 
 </dd>
@@ -559,7 +568,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item13 class="hide_extra">
+    <span id=item14 class="hide_extra">
     </span>
 
 </dd>
@@ -602,7 +611,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item14 class="hide_extra">
+    <span id=item15 class="hide_extra">
     </span>
 
 </dd>
@@ -639,7 +648,40 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item15 class="hide_extra">
+    <span id=item16 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="middle_click_paste" href="#middle_click_paste">&#128279;</a>
+    <strong>middle_click_paste</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Whether to disable primary selection pasting using middle click.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>true</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item17 class="hide_extra">
     </span>
 
 </dd>
@@ -682,7 +724,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item16 class="hide_extra">
+    <span id=item18 class="hide_extra">
     </span>
 
 </dd>
@@ -725,7 +767,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item17 class="hide_extra">
+    <span id=item19 class="hide_extra">
     </span>
 
 </dd>
@@ -758,7 +800,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item18 class="hide_extra">
+    <span id=item20 class="hide_extra">
     </span>
 
 </dd>
@@ -791,7 +833,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item19 class="hide_extra">
+    <span id=item21 class="hide_extra">
     </span>
 
 </dd>
@@ -834,7 +876,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item20 class="hide_extra">
+    <span id=item22 class="hide_extra">
     </span>
 
 </dd>
@@ -867,7 +909,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item21 class="hide_extra">
+    <span id=item23 class="hide_extra">
     </span>
 
 </dd>
@@ -900,7 +942,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item22 class="hide_extra">
+    <span id=item24 class="hide_extra">
     </span>
 
 </dd>
@@ -912,7 +954,9 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
     </span>
     </dt>
     <dd>
-    Distance in pixel from the edge of screen to trigger edge tiling for floating client.
+    Distance in pixel from the edge of screen to trigger edge tiling for floating client. </p>
+
+<p> Setting it to zero will disable edge snapping.
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -933,7 +977,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item23 class="hide_extra">
+    <span id=item25 class="hide_extra">
     </span>
 
 </dd>
@@ -966,7 +1010,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item24 class="hide_extra">
+    <span id=item26 class="hide_extra">
     </span>
 
 </dd>
@@ -999,7 +1043,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item25 class="hide_extra">
+    <span id=item27 class="hide_extra">
     </span>
 
 </dd>
@@ -1032,7 +1076,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item26 class="hide_extra">
+    <span id=item28 class="hide_extra">
     </span>
 
 </dd>
@@ -1065,7 +1109,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item27 class="hide_extra">
+    <span id=item29 class="hide_extra">
     </span>
 
 </dd>
@@ -1098,7 +1142,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item28 class="hide_extra">
+    <span id=item30 class="hide_extra">
     </span>
 
 </dd>
@@ -1131,7 +1175,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item29 class="hide_extra">
+    <span id=item31 class="hide_extra">
     </span>
 
 </dd>
@@ -1164,7 +1208,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item30 class="hide_extra">
+    <span id=item32 class="hide_extra">
     </span>
 
 </dd>
@@ -1197,7 +1241,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item31 class="hide_extra">
+    <span id=item33 class="hide_extra">
     </span>
 
 </dd>
@@ -1230,7 +1274,7 @@ config[&quot;cursor_edge_snapping_overlay_color&quot;] = { 0.1, 0.2, 0.3, 0.05 }
 
 
 
-    <span id=item32 class="hide_extra">
+    <span id=item34 class="hide_extra">
     </span>
 
 </dd>
