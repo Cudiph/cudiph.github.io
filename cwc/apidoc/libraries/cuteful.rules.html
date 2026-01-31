@@ -1,0 +1,632 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Module cuteful.rules - cwc API documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+   <script>
+     function show_extra(id) {
+        var cur = document.getElementById("item"+id).className
+
+        if (cur == "hide_extra") {
+            document.getElementById("item"+id).className = "show_more"
+            document.getElementById("button"+id).className = "hide_extra"
+        }
+     }
+   </script>
+
+</head>
+<body>
+
+<div id="container">
+<div id="main">
+
+
+
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<h1>cwc</h1>
+
+<div class="select">
+    <select name="theme" id="theme-select">
+       <option selected disabled>Choose a theme</option>
+       <option value="light">LDoc Light</option>
+       <option value="dark">Awesome Dark</option>
+       <option value="monokai">Monokai</option>
+       <option value="onedark">One Dark</option>
+    </select>
+ </div>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Static_module_functions">Static module functions</a></li>
+</ul>
+
+
+<h2>Libraries</h2>
+<ul class="nowrap">
+  <li><a href="../libraries/config.html">config</a></li>
+  <li><a href="../libraries/cuteful.client.html">cuteful.client</a></li>
+  <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
+  <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
+  <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
+  <li><strong>cuteful.rules</strong></li>
+  <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
+  <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
+  <li><a href="../libraries/impl.html">impl</a></li>
+</ul>
+<h2>Core components</h2>
+<ul class="nowrap">
+  <li><a href="../core_components/cwc.html">cwc</a></li>
+  <li><a href="../core_components/cwc.client.html">cwc.client<span class='listplusign'> + cwc_client</span></a></li>
+  <li><a href="../core_components/cwc.container.html">cwc.container<span class='listplusign'> + cwc_container</span></a></li>
+  <li><a href="../core_components/cwc.layer_shell.html">cwc.layer_shell<span class='listplusign'> + cwc_layer_shell</span></a></li>
+  <li><a href="../core_components/cwc.plugin.html">cwc.plugin<span class='listplusign'> + cwc_plugin</span></a></li>
+  <li><a href="../core_components/cwc.screen.html">cwc.screen<span class='listplusign'> + cwc_screen</span></a></li>
+  <li><a href="../core_components/cwc.timer.html">cwc.timer<span class='listplusign'> + cwc_timer</span></a></li>
+  <li><a href="../core_components/cwc_tag.html">cwc_tag</a></li>
+</ul>
+<h2>Input handling</h2>
+<ul class="nowrap">
+  <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
+  <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
+  <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
+  <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
+</ul>
+<h2>Plugins</h2>
+<ul class="nowrap">
+  <li><a href="../plugins/cwc.cwcle.html">cwc.cwcle</a></li>
+</ul>
+<h2>Utility libraries</h2>
+<ul class="nowrap">
+  <li><a href="../utility_libraries/gears.debug.html">gears.debug</a></li>
+  <li><a href="../utility_libraries/gears.filesystem.html">gears.filesystem</a></li>
+  <li><a href="../utility_libraries/gears.geometry.html">gears.geometry</a></li>
+  <li><a href="../utility_libraries/gears.math.html">gears.math</a></li>
+  <li><a href="../utility_libraries/gears.object.html">gears.object</a></li>
+  <li><a href="../utility_libraries/gears.protected_call.html">gears.protected_call</a></li>
+  <li><a href="../utility_libraries/gears.sort.html">gears.sort</a></li>
+  <li><a href="../utility_libraries/gears.string.html">gears.string</a></li>
+  <li><a href="../utility_libraries/gears.table.html">gears.table</a></li>
+</ul>
+<h2>Theme related libraries</h2>
+<ul class="nowrap">
+  <li><a href="../theme_related_libraries/gears.color.html">gears.color</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/gears.cache.html">gears.cache</a></li>
+  <li><a href="../classes/gears.matrix.html">gears.matrix</a></li>
+</ul>
+<h2>Documentation</h2>
+<ul class="nowrap">
+  <li><a href="../documentation/00-getting-started.md.html">Getting Started</a></li>
+  <li><a href="../documentation/10-changelog.md.html">Change log</a></li>
+  <li><a href="../documentation/30-custom-layout.md.html">Custom Layout</a></li>
+  <li><a href="../documentation/80-c-plugin.md.html">C Plugin</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module: <code>cuteful.rules</code></h1>
+<p>Declarative way to rule objects.</p>
+<p>
+
+
+<p> The rule has 3 main components:</p>
+
+<ul>
+    <li><strong>Constraint</strong> - a set of condition the object has to satisfy. (<code>where</code> and <code>where_not</code> field)</li>
+    <li><strong>Effect</strong> - new value of the object if constraint is satisfied. (<code>set</code> and <code>run</code> field)</li>
+    <li><strong>Event</strong> - signals when the rule is applied. (<code>when</code> field)</li>
+</ul>
+
+<p> Examples:</p>
+
+<ol>
+    <li>Set picture-in-picture window to be floating and always on top.</li>
+</ol>
+
+
+
+<pre>
+<span class="comment">-- the string comparison is using lua pattern matching and case insensitive
+</span><span class="function-name">add_client_rule</span> {
+    where = { title = <span class="string">"picture-*in-*picture"</span> },
+    set = { ontop = <span class="keyword">true</span>, floating = <span class="keyword">true</span> },
+}
+</pre>
+
+<p> 2. Set dolphin, thunar, pcmanfm to be always maximized.</p>
+
+
+
+<pre>
+<span class="function-name">add_client_rule</span> {
+    where_any = {
+        appid = {
+           <span class="string">"dolphin"</span>,
+           <span class="string">"thunar"</span>,
+           <span class="string">"pcmanfm"</span>,
+        }
+    },
+    set = { maximized = <span class="keyword">true</span> },
+}
+</pre>
+
+<p> 3. Set every screen except DP-3 to use 1920x1080@240 mode and disallow tearing.</p>
+
+
+
+<pre>
+<span class="function-name">add_rule</span> {
+  where_not = { name = <span class="string">"DP-3"</span> },
+  set = { allow_tearing = <span class="keyword">false</span> }
+  run = <span class="keyword">function</span> (screen)
+      screen:<span class="function-name">set_mode</span>(<span class="number">1920</span>, <span class="number">1080</span>, <span class="number">240</span>)
+  <span class="keyword">end</span>
+  when = { <span class="string">"screen::new"</span> }
+}
+</pre>
+
+</p>
+    <div class="extra-header">
+
+
+  <div class="extra-header__section">
+    <h3>Info:</h3>
+    <ul>
+                <li><strong>Copyright</strong>: 2026</li>
+                <li><strong>License</strong>: GPLv3</li>
+                <li>
+                    <strong>Originally authored by</strong>: Dwi Asmoro Bangun<br />
+                    <small>(Full contributors list available on
+                    <a href="https://github.com/cudiph/cwcwm/graphs/contributors">
+                        our github project)
+                    </a></small>
+
+                </li>
+    </ul>
+  </div>
+
+</div>
+
+
+<h2><a href="#Static_module_functions">Static module functions</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#apply_rule"><span class='function_modname'>cuteful.rules.</span>apply_rule <span class='function_args'> <b>(</b>obj, rule<b>)</b></span></a>
+        <span class="summarytype"></span>
+      </td>
+      <td class="summary">
+        Apply rule to an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_rule"><span class='function_modname'>cuteful.rules.</span>add_rule <span class='function_args'> <b>(</b>rule<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Create a rule for an object.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#remove_rule"><span class='function_modname'>cuteful.rules.</span>remove_rule <span class='function_args'> <b>(</b>id<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+      </td>
+      <td class="summary">
+        Remove rule using id or table reference.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#add_client_rule"><span class='function_modname'>cuteful.rules.</span>add_client_rule <span class='function_args'> <b>(</b>rule<b>)</b></span></a>
+        <span class="summarytype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+      </td>
+      <td class="summary">
+        Macro to create a rule that applied when a client appear.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Static_module_functions"></a>Static module functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="apply_rule" href="#apply_rule">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.rules.</span>apply_rule <span class='function_args'> <b>(</b>obj, rule<b>)</b></span></strong>
+    <span class="proptype"></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Apply rule to an object.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">obj</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_object</span></span></td>
+           <td class="see_also_description"> The object to rule</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+        <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Rule table. </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_any</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_not</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_not_any</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">set</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Effect of the rule if the constraint match.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">run</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Callback function if the constraint match.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item58 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_rule" href="#add_rule">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.rules.</span>add_rule <span class='function_args'> <b>(</b>rule<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Create a rule for an object. </p>
+
+<p> Either <code>set</code> or <code>run</code> field must be not empty.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+            <th>Default value</th>
+         </tr>
+        <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">table</span></span></td>
+           <td class="see_also_description"> Rule table. </td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_any</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_not</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">where_not_any</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Constraint of the rule.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">set</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Effect of the rule if the constraint match.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">run</span></td>
+           <td><span class="chips">Optional</span></td>
+           <td><span class="types"><span class="type">function</span></span></td>
+           <td class="see_also_description"> Callback function if the constraint match.</td>
+           <td><span class="default_value"><code>nil</code></span></td>
+         </tr>
+         <tr class="see_also_sublist">
+           <td><span class="parameter">when</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Signals to apply rule.</td>
+           <td><span class="not_applicable" title="This parameter is mandatory">Not applicable</span></td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        The ID of the rule
+    </ol>
+
+
+
+
+
+    <span id=item59 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="remove_rule" href="#remove_rule">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.rules.</span>remove_rule <span class='function_args'> <b>(</b>id<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Remove rule using id or table reference.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">id</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a> or <a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span></td>
+           <td class="see_also_description"> The id or table reference.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">boolean</span></span>
+        True if a rule has been removed.
+    </ol>
+
+
+
+
+
+    <span id=item60 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="add_client_rule" href="#add_client_rule">&#128279;</a>
+    <strong><span class='function_modname'>cuteful.rules.</span>add_client_rule <span class='function_args'> <b>(</b>rule<b>)</b></span></strong>
+    <span class="proptype"><span class='summary_type'> -&gt;&nbsp;string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Macro to create a rule that applied when a client appear.
+
+    <h3>Parameters:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">rule</span></td>
+           <td></td>
+           <td><span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.6">table</a></span></td>
+           <td class="see_also_description"> Rule table.</td>
+         </tr>
+        </table>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.4/manual.html#6.4">string</a></span>
+        The ID of the rule
+    </ol>
+
+
+    <h3>See also:</h3>
+    <table class="see_also">
+     <tr>
+         <td><a href="../libraries/cuteful.rules.html#add_rule" title="In the cuteful.rules module.">add_rule</a></td>
+         <td>Create a rule for an object. </td>
+         <td>
+             <span class="chips">static module functions</span>
+         </td>
+     <tr>
+    </table>
+
+
+
+    <span id=item61 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.5.0</a></i>
+<i>based on <a href="http://github.com/awesomeWM/awesome">AwesomeWM template</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+
+<script defer type="text/javascript">
+    // Theme selection and its local storage
+    var select = document.getElementById("theme-select");
+
+    var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    if (storedTheme) {
+        select.value = storedTheme;
+        document.documentElement.setAttribute('data-theme', storedTheme)
+    }
+
+    select.addEventListener("change", function() {
+        var targetTheme = this.value;
+        document.documentElement.setAttribute('data-theme', targetTheme)
+        localStorage.setItem('theme', targetTheme);
+    });
+
+    const $nav = document.querySelector("#navigation");
+
+    // When clicking the sidebar, open it
+    $nav.addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768) {
+            return;
+        }
+
+        const target = $nav;
+        if (!target.classList.contains("open")) {
+            target.classList.add("open");
+            ev.stopPropagation();
+        }
+    });
+
+    // When clicking anywhere else than the sidebar, close it
+    document.querySelector("body").addEventListener("click", function(ev) {
+        if (document.body.clientWidth >= 768 || ev.target.contains($nav)) {
+            return;
+        }
+
+        const target = $nav;
+        if (target.classList.contains("open")) {
+            target.classList.remove("open");
+        }
+    });
+
+    const copyResultClasses = {
+        success : "copy-link--success",
+        failure: "copy-link--failure"
+    };
+
+    const removeCopyResultClasses = ($target) =>
+        Object.values(copyResultClasses).forEach(c => $target.classList.remove(c));
+
+    document.querySelectorAll(".js-copy-link").forEach(copyLink => {
+        copyLink.addEventListener("click", function(e) {
+            e.preventDefault();
+            const $target = e.target;
+
+            removeCopyResultClasses($target);
+
+            let link = $target.href;
+            if (!link) {
+                return;
+            }
+            if (link.startsWith("#")) {
+                const curr = window.location.pathname;
+                link = curr.substring(0, curr.indexOf("#")) + link;
+            }
+
+            // We need to create a fake element to copy the text from
+            const fakeElement = document.createElement("textarea");
+            fakeElement.value = link;
+            document.body.appendChild(fakeElement);
+            fakeElement.select();
+
+            let success = false;
+            try {
+                success = document.execCommand("copy");
+            } catch(err) {
+                success = false;
+            }
+
+            fakeElement.remove();
+            $target.classList.add(success ? copyResultClasses.success : copyResultClasses.failure);
+            setInterval(() => removeCopyResultClasses($target), 1500);
+        });
+    });
+</script>
+
+</body>
+</html>
