@@ -49,6 +49,7 @@
 <ul>
 <li><a href="#Object_properties">Object properties</a></li>
 <li><a href="#Object_methods">Object methods </a></li>
+<li><a href="#Signals">Signals</a></li>
 </ul>
 
 
@@ -68,6 +69,7 @@
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
   <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
   <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc.tablet.html">cwc.tablet<span class='listplusign'> + cwc_tablet</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -98,10 +100,9 @@
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
   <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
   <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
+  <li><a href="../libraries/cuteful.rules.html">cuteful.rules</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
-  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
-  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
   <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
@@ -182,10 +183,28 @@
       </td>
     </tr>
     <tr class="summary_row">
+      <td class="shortname" ><a href="#label">label</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string</span></td>
+      <td class="summary">
+        The label or name of the tag.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
       <td class="shortname" ><a href="#selected">selected</a></td>
       <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
       <td class="summary">
-        True if the tag is selected to be viewed.
+        True if the tag is selected to be viewed (active tag).
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#hidden">hidden</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>boolean</span></td>
+      <td class="summary">
+        Hide the tag from the visual indicator.
       </td>
       <td class="baseclass" nowrap>
       </td>
@@ -272,6 +291,39 @@
       </td>
     </tr>
 </table>
+<h2><a href="#Signals">Signals</a></h2>
+<table class="function_list">
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#tag::prop::label">tag::prop::label</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#tag::prop::hidden">tag::prop::hidden</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#tag::prop::layout_mode">tag::prop::layout_mode</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+</table>
 
 <br/>
 <br/>
@@ -336,7 +388,7 @@
 
 
 
-    <span id=item357 class="hide_extra">
+    <span id=item379 class="hide_extra">
     </span>
 
 </dd>
@@ -380,7 +432,40 @@
 
 
 
-    <span id=item358 class="hide_extra">
+    <span id=item380 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="label" href="#label">&#128279;</a>
+    <strong>label</strong>
+    <span class="proptype"><span class='summary_type'>string</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    The label or name of the tag.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>""</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item381 class="hide_extra">
     </span>
 
 </dd>
@@ -392,7 +477,7 @@
     </span>
     </dt>
     <dd>
-    True if the tag is selected to be viewed.
+    True if the tag is selected to be viewed (active tag).
 
     <h3>Constraints:</h3>
     <span class="property_type">
@@ -421,7 +506,48 @@
 
 
 
-    <span id=item359 class="hide_extra">
+    <span id=item382 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="hidden" href="#hidden">&#128279;</a>
+    <strong>hidden</strong>
+    <span class="proptype"><span class='summary_type'>boolean</span></span>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Hide the tag from the visual indicator.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>false</code> for general workspace.</td>
+       <tr/>
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Valid values
+         </i>
+        </td>
+        <td>: <code>true</code> or <code>false</code>.</td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item383 class="hide_extra">
     </span>
 
 </dd>
@@ -462,7 +588,7 @@
 
 
 
-    <span id=item360 class="hide_extra">
+    <span id=item384 class="hide_extra">
     </span>
 
 </dd>
@@ -511,7 +637,7 @@
 
 
 
-    <span id=item361 class="hide_extra">
+    <span id=item385 class="hide_extra">
     </span>
 
 </dd>
@@ -570,7 +696,7 @@
 
 
 
-    <span id=item362 class="hide_extra">
+    <span id=item386 class="hide_extra">
     </span>
 
 </dd>
@@ -611,7 +737,7 @@
 
 
 
-    <span id=item363 class="hide_extra">
+    <span id=item387 class="hide_extra">
     </span>
 
 </dd>
@@ -652,7 +778,7 @@
 
 
 
-    <span id=item364 class="hide_extra">
+    <span id=item388 class="hide_extra">
     </span>
 
 </dd>
@@ -676,7 +802,7 @@
 
 
 
-    <span id=item365 class="hide_extra">
+    <span id=item389 class="hide_extra">
     </span>
 
 </dd>
@@ -696,7 +822,7 @@
 
 
 
-    <span id=item366 class="hide_extra">
+    <span id=item390 class="hide_extra">
     </span>
 
 </dd>
@@ -733,7 +859,113 @@
 
 
 
-    <span id=item367 class="hide_extra">
+    <span id=item391 class="hide_extra">
+    </span>
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Signals"></a>Signals</h2>
+
+    <dl class="function">
+    <dt>
+    <a class="copy-link js-copy-link" name="tag::prop::label" href="#tag::prop::label">&#128279;</a>
+    <strong>tag::prop::label</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description"> The tag object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item392 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tag::prop::hidden" href="#tag::prop::hidden">&#128279;</a>
+    <strong>tag::prop::hidden</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description"> The tag object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item393 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="tag::prop::layout_mode" href="#tag::prop::layout_mode">&#128279;</a>
+    <strong>tag::prop::layout_mode</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">tag</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_tag</span></span></td>
+           <td class="see_also_description"> The tag object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item394 class="hide_extra">
     </span>
 
 </dd>

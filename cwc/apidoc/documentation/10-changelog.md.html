@@ -47,6 +47,7 @@
 
 <h2>Contents</h2>
 <ul>
+<li><a href="#v0_4_0">v0.4.0 </a></li>
 <li><a href="#v0_3_0">v0.3.0 </a></li>
 <li><a href="#v0_2_0">v0.2.0 </a></li>
 <li><a href="#v0_1_0">v0.1.0 </a></li>
@@ -124,6 +125,52 @@
 
 
 <h1>Change log</h1>
+
+<p><a name="v0_4_0"></a></p>
+<h2>v0.4.0</h2>
+
+<p>This version added tablet and touchscreen support with many improvement to the input handling.</p>
+
+<h3>BREAKING CHANGES:</h3>
+
+<blockquote>
+    <p>no breaking change.</p>
+</blockquote>
+
+<h3>New features:</h3>
+
+<ul>
+    <li>individual window capture</li>
+    <li>xwayland-satellite integration</li>
+    <li>tablet support</li>
+    <li>touchscreen support</li>
+    <li>added declarative rules library</li>
+    <li>added support for <code>xdg-toplevel-tag</code></li>
+    <li>added support for <code>ext-workspace</code></li>
+    <li>allow to set repeat rate per keybind</li>
+    <li>new <code>layout_mode</code> property signal in <a href="../core_components/cwc_tag.html#">cwc_tag</a></li>
+    <li>implement layout changes to <code>dwl-ipc</code> plugin</li>
+    <li>added <code>map_to_output</code> and <code>map_to_region</code> method to <code>cwc_input</code></li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+    <li>fix request resize in xwayland</li>
+    <li>fix input not registered when dragged outside the surface</li>
+    <li>fix random resize in maximized/fullscreen after changing the gap size</li>
+    <li>fix cursor shape not hidden in constrained surface</li>
+</ul>
+
+<h3>Other changes:</h3>
+
+<ul>
+    <li>lib/impl: add use_default static function</li>
+    <li>middle click paste can be disabled</li>
+    <li>executing keybind now doesn't send key release event to the client anymore</li>
+    <li>added instruction for installing on Ubuntu 24.04</li>
+    <li>upgraded to wlroots 0.20</li>
+</ul>
 
 <p><a name="v0_3_0"></a></p>
 <h2>v0.3.0</h2>

@@ -72,6 +72,7 @@
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
   <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
   <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc.tablet.html">cwc.tablet<span class='listplusign'> + cwc_tablet</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -102,10 +103,9 @@
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
   <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
   <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
+  <li><a href="../libraries/cuteful.rules.html">cuteful.rules</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
-  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
-  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
   <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
@@ -525,6 +525,26 @@
         <span class="chips">Read only</span>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xdg_tag">xdg_tag</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string <i>or</i> nil</span></td>
+      <td class="summary">
+        The tag of this toplevel.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="shortname" ><a href="#xdg_desc">xdg_desc</a></td>
+      <td class="summarytype" nowrap><span class='summary_type'>string <i>or</i> nil</span></td>
+      <td class="summary">
+        The description of this toplevel.
+      </td>
+      <td class="baseclass" nowrap>
+        <span class="chips">Read only</span>
+      </td>
+    </tr>
 </table>
 <h2><a href="#Object_methods">Object methods </a></h2>
 <table class="function_list">
@@ -929,6 +949,26 @@
       <td class="baseclass" nowrap>
       </td>
     </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::prop::xdg_tag">client::prop::xdg_tag</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
+    <tr class="summary_row">
+      <td class="name" >
+        <a href="#client::prop::xdg_desc">client::prop::xdg_desc</a>
+      </td>
+      <td class="summary">
+        Property signal.
+      </td>
+      <td class="baseclass" nowrap>
+      </td>
+    </tr>
 </table>
 
 <br/>
@@ -964,7 +1004,7 @@
 
 
 
-    <span id=item160 class="hide_extra">
+    <span id=item170 class="hide_extra">
     </span>
 
 </dd>
@@ -1021,7 +1061,7 @@
 
 
 
-    <span id=item87 class="hide_extra">
+    <span id=item93 class="hide_extra">
     </span>
 
 </dd>
@@ -1070,7 +1110,7 @@
 
 
 
-    <span id=item88 class="hide_extra">
+    <span id=item94 class="hide_extra">
     </span>
 
 </dd>
@@ -1098,7 +1138,7 @@
 
 
 
-    <span id=item89 class="hide_extra">
+    <span id=item95 class="hide_extra">
     </span>
 
 </dd>
@@ -1137,7 +1177,7 @@
 
 
 
-    <span id=item90 class="hide_extra">
+    <span id=item96 class="hide_extra">
     </span>
 
 </dd>
@@ -1172,7 +1212,7 @@
 
 
 
-    <span id=item91 class="hide_extra">
+    <span id=item97 class="hide_extra">
     </span>
 
 </dd>
@@ -1218,7 +1258,7 @@
 
 
 
-    <span id=item92 class="hide_extra">
+    <span id=item98 class="hide_extra">
     </span>
 
 </dd>
@@ -1260,7 +1300,7 @@
 
 
 
-    <span id=item93 class="hide_extra">
+    <span id=item99 class="hide_extra">
     </span>
 
 </dd>
@@ -1302,7 +1342,7 @@
 
 
 
-    <span id=item94 class="hide_extra">
+    <span id=item100 class="hide_extra">
     </span>
 
 </dd>
@@ -1344,7 +1384,7 @@
 
 
 
-    <span id=item95 class="hide_extra">
+    <span id=item101 class="hide_extra">
     </span>
 
 </dd>
@@ -1395,7 +1435,7 @@
 
 
 
-    <span id=item96 class="hide_extra">
+    <span id=item102 class="hide_extra">
     </span>
 
 </dd>
@@ -1446,7 +1486,7 @@
 
 
 
-    <span id=item97 class="hide_extra">
+    <span id=item103 class="hide_extra">
     </span>
 
 </dd>
@@ -1489,7 +1529,7 @@
 
 
 
-    <span id=item98 class="hide_extra">
+    <span id=item104 class="hide_extra">
     </span>
 
 </dd>
@@ -1530,7 +1570,7 @@
 
 
 
-    <span id=item99 class="hide_extra">
+    <span id=item105 class="hide_extra">
     </span>
 
 </dd>
@@ -1571,7 +1611,7 @@
 
 
 
-    <span id=item100 class="hide_extra">
+    <span id=item106 class="hide_extra">
     </span>
 
 </dd>
@@ -1612,7 +1652,7 @@
 
 
 
-    <span id=item101 class="hide_extra">
+    <span id=item107 class="hide_extra">
     </span>
 
 </dd>
@@ -1653,7 +1693,7 @@
 
 
 
-    <span id=item102 class="hide_extra">
+    <span id=item108 class="hide_extra">
     </span>
 
 </dd>
@@ -1694,7 +1734,7 @@
 
 
 
-    <span id=item103 class="hide_extra">
+    <span id=item109 class="hide_extra">
     </span>
 
 </dd>
@@ -1745,7 +1785,7 @@
 
 
 
-    <span id=item104 class="hide_extra">
+    <span id=item110 class="hide_extra">
     </span>
 
 </dd>
@@ -1786,7 +1826,7 @@
 
 
 
-    <span id=item105 class="hide_extra">
+    <span id=item111 class="hide_extra">
     </span>
 
 </dd>
@@ -1896,7 +1936,7 @@
 
 
 
-    <span id=item106 class="hide_extra">
+    <span id=item112 class="hide_extra">
     </span>
 
 </dd>
@@ -1937,7 +1977,7 @@
 
 
 
-    <span id=item107 class="hide_extra">
+    <span id=item113 class="hide_extra">
     </span>
 
 </dd>
@@ -1978,7 +2018,7 @@
 
 
 
-    <span id=item108 class="hide_extra">
+    <span id=item114 class="hide_extra">
     </span>
 
 </dd>
@@ -2027,7 +2067,7 @@
 
 
 
-    <span id=item109 class="hide_extra">
+    <span id=item115 class="hide_extra">
     </span>
 
 </dd>
@@ -2068,7 +2108,7 @@
 
 
 
-    <span id=item110 class="hide_extra">
+    <span id=item116 class="hide_extra">
     </span>
 
 </dd>
@@ -2117,7 +2157,7 @@
 
 
 
-    <span id=item111 class="hide_extra">
+    <span id=item117 class="hide_extra">
     </span>
 
 </dd>
@@ -2158,7 +2198,7 @@
 
 
 
-    <span id=item112 class="hide_extra">
+    <span id=item118 class="hide_extra">
     </span>
 
 </dd>
@@ -2199,7 +2239,7 @@
 
 
 
-    <span id=item113 class="hide_extra">
+    <span id=item119 class="hide_extra">
     </span>
 
 </dd>
@@ -2250,7 +2290,7 @@
 
 
 
-    <span id=item114 class="hide_extra">
+    <span id=item120 class="hide_extra">
     </span>
 
 </dd>
@@ -2284,7 +2324,7 @@
 
 
 
-    <span id=item115 class="hide_extra">
+    <span id=item121 class="hide_extra">
     </span>
 
 </dd>
@@ -2318,7 +2358,7 @@
 
 
 
-    <span id=item116 class="hide_extra">
+    <span id=item122 class="hide_extra">
     </span>
 
 </dd>
@@ -2352,7 +2392,7 @@
 
 
 
-    <span id=item117 class="hide_extra">
+    <span id=item123 class="hide_extra">
     </span>
 
 </dd>
@@ -2386,7 +2426,7 @@
 
 
 
-    <span id=item118 class="hide_extra">
+    <span id=item124 class="hide_extra">
     </span>
 
 </dd>
@@ -2420,7 +2460,7 @@
 
 
 
-    <span id=item119 class="hide_extra">
+    <span id=item125 class="hide_extra">
     </span>
 
 </dd>
@@ -2454,7 +2494,7 @@
 
 
 
-    <span id=item120 class="hide_extra">
+    <span id=item126 class="hide_extra">
     </span>
 
 </dd>
@@ -2506,7 +2546,75 @@
 
 
 
-    <span id=item121 class="hide_extra">
+    <span id=item127 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xdg_tag" href="#xdg_tag">&#128279;</a>
+    <strong>xdg_tag</strong>
+    <span class="proptype"><span class='summary_type'>string <i>or</i> nil</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The tag of this toplevel.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>""</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item128 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="xdg_desc" href="#xdg_desc">&#128279;</a>
+    <strong>xdg_desc</strong>
+    <span class="proptype"><span class='summary_type'>string <i>or</i> nil</span></span>
+    <span class="baseclass" >
+         &middot read only
+    </span>
+    </dt>
+    <dd>
+    The description of this toplevel.
+
+    <h3>Constraints:</h3>
+    <span class="property_type">
+      <table class="see_also">
+       <tr class="">
+        <td style="padding-left:0px;">
+         <i>
+          Default value
+         </i>
+        </td>
+        <td>: <code>""</code></td>
+       <tr/>
+     </table>
+    </span>
+
+
+
+
+
+
+    <span id=item129 class="hide_extra">
     </span>
 
 </dd>
@@ -2551,7 +2659,7 @@
 
 
 
-    <span id=item122 class="hide_extra">
+    <span id=item130 class="hide_extra">
     </span>
 
 </dd>
@@ -2592,7 +2700,7 @@
 
 
 
-    <span id=item123 class="hide_extra">
+    <span id=item131 class="hide_extra">
     </span>
 
 </dd>
@@ -2633,7 +2741,7 @@
 
 
 
-    <span id=item124 class="hide_extra">
+    <span id=item132 class="hide_extra">
     </span>
 
 </dd>
@@ -2676,7 +2784,7 @@
 
 
 
-    <span id=item125 class="hide_extra">
+    <span id=item133 class="hide_extra">
     </span>
 
 </dd>
@@ -2696,7 +2804,7 @@
 
 
 
-    <span id=item126 class="hide_extra">
+    <span id=item134 class="hide_extra">
     </span>
 
 </dd>
@@ -2716,7 +2824,7 @@
 
 
 
-    <span id=item127 class="hide_extra">
+    <span id=item135 class="hide_extra">
     </span>
 
 </dd>
@@ -2736,7 +2844,7 @@
 
 
 
-    <span id=item128 class="hide_extra">
+    <span id=item136 class="hide_extra">
     </span>
 
 </dd>
@@ -2756,7 +2864,7 @@
 
 
 
-    <span id=item129 class="hide_extra">
+    <span id=item137 class="hide_extra">
     </span>
 
 </dd>
@@ -2776,7 +2884,7 @@
 
 
 
-    <span id=item130 class="hide_extra">
+    <span id=item138 class="hide_extra">
     </span>
 
 </dd>
@@ -2816,7 +2924,7 @@
 
 
 
-    <span id=item131 class="hide_extra">
+    <span id=item139 class="hide_extra">
     </span>
 
 </dd>
@@ -2836,7 +2944,7 @@
 
 
 
-    <span id=item132 class="hide_extra">
+    <span id=item140 class="hide_extra">
     </span>
 
 </dd>
@@ -2856,7 +2964,7 @@
 
 
 
-    <span id=item133 class="hide_extra">
+    <span id=item141 class="hide_extra">
     </span>
 
 </dd>
@@ -2903,7 +3011,7 @@
 
 
 
-    <span id=item134 class="hide_extra">
+    <span id=item142 class="hide_extra">
     </span>
 
 </dd>
@@ -2923,7 +3031,7 @@
 
 
 
-    <span id=item135 class="hide_extra">
+    <span id=item143 class="hide_extra">
     </span>
 
 </dd>
@@ -2958,7 +3066,7 @@
 
 
 
-    <span id=item136 class="hide_extra">
+    <span id=item144 class="hide_extra">
     </span>
 
 </dd>
@@ -2993,7 +3101,7 @@
 
 
 
-    <span id=item137 class="hide_extra">
+    <span id=item145 class="hide_extra">
     </span>
 
 </dd>
@@ -3046,7 +3154,7 @@
 
 
 
-    <span id=item138 class="hide_extra">
+    <span id=item146 class="hide_extra">
     </span>
 
 </dd>
@@ -3093,7 +3201,7 @@
 
 
 
-    <span id=item139 class="hide_extra">
+    <span id=item147 class="hide_extra">
     </span>
 
 </dd>
@@ -3146,7 +3254,7 @@
 
 
 
-    <span id=item140 class="hide_extra">
+    <span id=item148 class="hide_extra">
     </span>
 
 </dd>
@@ -3180,7 +3288,7 @@
 
 
 
-    <span id=item141 class="hide_extra">
+    <span id=item149 class="hide_extra">
     </span>
 
 </dd>
@@ -3214,7 +3322,7 @@
 
 
 
-    <span id=item142 class="hide_extra">
+    <span id=item150 class="hide_extra">
     </span>
 
 </dd>
@@ -3248,7 +3356,7 @@
 
 
 
-    <span id=item143 class="hide_extra">
+    <span id=item151 class="hide_extra">
     </span>
 
 </dd>
@@ -3284,7 +3392,7 @@
 
 
 
-    <span id=item144 class="hide_extra">
+    <span id=item152 class="hide_extra">
     </span>
 
 </dd>
@@ -3320,7 +3428,7 @@
 
 
 
-    <span id=item145 class="hide_extra">
+    <span id=item153 class="hide_extra">
     </span>
 
 </dd>
@@ -3360,7 +3468,7 @@
 
 
 
-    <span id=item146 class="hide_extra">
+    <span id=item154 class="hide_extra">
     </span>
 
 </dd>
@@ -3394,7 +3502,7 @@
 
 
 
-    <span id=item147 class="hide_extra">
+    <span id=item155 class="hide_extra">
     </span>
 
 </dd>
@@ -3428,7 +3536,7 @@
 
 
 
-    <span id=item148 class="hide_extra">
+    <span id=item156 class="hide_extra">
     </span>
 
 </dd>
@@ -3462,7 +3570,7 @@
 
 
 
-    <span id=item149 class="hide_extra">
+    <span id=item157 class="hide_extra">
     </span>
 
 </dd>
@@ -3496,7 +3604,7 @@
 
 
 
-    <span id=item150 class="hide_extra">
+    <span id=item158 class="hide_extra">
     </span>
 
 </dd>
@@ -3530,7 +3638,7 @@
 
 
 
-    <span id=item151 class="hide_extra">
+    <span id=item159 class="hide_extra">
     </span>
 
 </dd>
@@ -3564,7 +3672,7 @@
 
 
 
-    <span id=item152 class="hide_extra">
+    <span id=item160 class="hide_extra">
     </span>
 
 </dd>
@@ -3598,7 +3706,7 @@
 
 
 
-    <span id=item153 class="hide_extra">
+    <span id=item161 class="hide_extra">
     </span>
 
 </dd>
@@ -3632,7 +3740,7 @@
 
 
 
-    <span id=item154 class="hide_extra">
+    <span id=item162 class="hide_extra">
     </span>
 
 </dd>
@@ -3666,7 +3774,7 @@
 
 
 
-    <span id=item155 class="hide_extra">
+    <span id=item163 class="hide_extra">
     </span>
 
 </dd>
@@ -3700,7 +3808,7 @@
 
 
 
-    <span id=item156 class="hide_extra">
+    <span id=item164 class="hide_extra">
     </span>
 
 </dd>
@@ -3734,7 +3842,7 @@
 
 
 
-    <span id=item157 class="hide_extra">
+    <span id=item165 class="hide_extra">
     </span>
 
 </dd>
@@ -3768,7 +3876,7 @@
 
 
 
-    <span id=item158 class="hide_extra">
+    <span id=item166 class="hide_extra">
     </span>
 
 </dd>
@@ -3802,7 +3910,75 @@
 
 
 
-    <span id=item159 class="hide_extra">
+    <span id=item167 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::prop::xdg_tag" href="#client::prop::xdg_tag">&#128279;</a>
+    <strong>client::prop::xdg_tag</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item168 class="hide_extra">
+    </span>
+
+</dd>
+    <dt>
+    <a class="copy-link js-copy-link" name="client::prop::xdg_desc" href="#client::prop::xdg_desc">&#128279;</a>
+    <strong>client::prop::xdg_desc</strong>
+    <span class="baseclass" >
+    </span>
+    </dt>
+    <dd>
+    Property signal.
+
+    <h3>Arguments:</h3>
+    <table class="see_also">
+         <tr class="param_header">
+            <th>Name</th>
+            <th></th>
+            <th>Type(s)</th>
+            <th>Description</th>
+         </tr>
+         <tr>
+           <td><span class="parameter">c</span></td>
+           <td></td>
+           <td><span class="types"><span class="type">cwc_client</span></span></td>
+           <td class="see_also_description"> The client object.</td>
+         </tr>
+        </table>
+
+
+
+
+
+
+    <span id=item169 class="hide_extra">
     </span>
 
 </dd>

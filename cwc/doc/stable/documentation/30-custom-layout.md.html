@@ -75,6 +75,7 @@
   <li><a href="../input_handling/cwc.input.html">cwc.input<span class='listplusign'> + cwc_input</span></a></li>
   <li><a href="../input_handling/cwc.kbd.html">cwc.kbd<span class='listplusign'> + cwc_kbd</span></a></li>
   <li><a href="../input_handling/cwc.pointer.html">cwc.pointer<span class='listplusign'> + cwc_pointer</span></a></li>
+  <li><a href="../input_handling/cwc.tablet.html">cwc.tablet<span class='listplusign'> + cwc_tablet</span></a></li>
   <li><a href="../input_handling/cwc_kbind.html">cwc_kbind</a></li>
   <li><a href="../input_handling/cwc_kbindmap.html">cwc_kbindmap</a></li>
 </ul>
@@ -105,10 +106,9 @@
   <li><a href="../libraries/cuteful.enum.html">cuteful.enum</a></li>
   <li><a href="../libraries/cuteful.kbd.html">cuteful.kbd</a></li>
   <li><a href="../libraries/cuteful.pointer.html">cuteful.pointer</a></li>
+  <li><a href="../libraries/cuteful.rules.html">cuteful.rules</a></li>
   <li><a href="../libraries/cuteful.screen.html">cuteful.screen</a></li>
   <li><a href="../libraries/cuteful.tag.html">cuteful.tag</a></li>
-  <li><a href="../libraries/gears.matcher.html">gears.matcher</a></li>
-  <li><a href="../libraries/gears.surface.html">gears.surface</a></li>
   <li><a href="../libraries/impl.html">impl</a></li>
 </ul>
 <h2>Classes</h2>
@@ -124,13 +124,13 @@
 
 <h1>Custom Layout</h1>
 
-<p>Custom layout only applicable for master/stack layout mode, for others layout is need to be
+<p>Custom layouts are only applicable for the master/stack layout mode. Layouts for other modes need to be
 integrated to the compositor itself.</p>
 
 <p><a name="Custom_layout_in_C"></a></p>
 <h2>Custom layout in C</h2>
 
-<p>To create a custom layout in C is by implementing the <code>struct layout_interface</code> the structure is as following.</p>
+<p>To create a custom layout in C, implement the <code>struct layout_interface</code>. The structure is as follows:</p>
 
 
 <pre>
@@ -150,7 +150,7 @@ integrated to the compositor itself.</p>
 </pre>
 
 
-<p>the field <code>name</code> is the name of the layout and the <code>arrange</code> is function to arrange
+<p>The field <code>name</code> is the name of the layout and the <code>arrange</code> is function to arrange
 the layout.</p>
 
 <ul>
@@ -161,7 +161,7 @@ the layout.</p>
 </ul>
 
 <p>Let's take a look at <code>monocle</code> layout for the simplest implementation how to arrange the toplevels.
-The monocle layout is just set all the tileable toplevel to the size of the workarea/usable area.</p>
+The monocle layout just sets all the tileable toplevels to the size of the workarea/usable area.</p>
 
 
 <pre>
@@ -188,8 +188,8 @@ The monocle layout is just set all the tileable toplevel to the size of the work
 
 
 <p>One thing to keep in mind is to set the toplevel size and position we use <code>cwc_container_set_xxx</code>
-instead of <code>cwc_toplevel_set_xxx</code> because the toplevel decoration need to accounted. Also
-you don't need to worry about the gap as it's already taken care by both <code>set_position_gap</code> and
+instead of <code>cwc_toplevel_set_xxx</code> because the toplevel decoration need to be accounted. Also
+you don't need to worry about the gap as it's already taken care of by both <code>set_position_gap</code> and
 <code>set_size</code>.</p>
 
 <p>Once the interface is implemented, now register it by using <code>master_register_layout</code>.
